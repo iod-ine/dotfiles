@@ -4,4 +4,7 @@ return require("packer").startup(function(use)
 
   -- Colorschemes
   use("rebelot/kanagawa.nvim")
+  use("folke/tokyonight.nvim")
+  use("lunarvim/darkplus.nvim")
+  use("lunarvim/Onedarker.nvim")
 end)
