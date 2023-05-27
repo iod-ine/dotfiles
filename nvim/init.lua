@@ -1,2 +1,2 @@
 require("user.options")
-print("Guten Tag")
+require("user.remap")
