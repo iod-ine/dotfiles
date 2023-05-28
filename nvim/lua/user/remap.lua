@@ -31,3 +31,13 @@ vim.keymap.set("n", "<leader>to", vim.cmd.tabonly)      -- tabpage keep only cur
 -- {N}gt goes to next tab or tab number N
 vim.keymap.set("n", "<leader>tl", vim.cmd.tabnext)      -- tabpage next
 vim.keymap.set("n", "<leader>th", vim.cmd.tabprevious)  -- tabpage previous
+
+local telescope = require("telescope.builtin")
+
+-- File pickers
+vim.keymap.set("n", "<leader>ff", telescope.find_files, {})   -- find file
+vim.keymap.set("n", "<leader>fl", telescope.live_grep, {})    -- find live
+vim.keymap.set("n", "<leader>fs", telescope.grep_string, {})  -- find string
+
+-- Vim pickers
+vim.keymap.set("n", "<leader>bf", telescope.buffers, {})      -- buffer find
