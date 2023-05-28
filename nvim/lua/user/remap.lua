@@ -23,3 +23,11 @@ vim.keymap.set("n", "<leader>wj", "<C-w>j")       -- window select down
 vim.keymap.set("n", "<leader>wk", "<C-w>k")       -- window select up
 vim.keymap.set("n", "<leader>wl", "<C-w>l")       -- window select right
 vim.keymap.set("n", "<leader>wn", "<C-w>w")       -- window select next (or <C-w><C-w>)
+
+-- Tabpage manipulation commands
+vim.keymap.set("n", "<leader>tt", vim.cmd.tabedit)      -- tabpage new
+vim.keymap.set("n", "<leader>tc", vim.cmd.tabclose)     -- tabpage close
+vim.keymap.set("n", "<leader>to", vim.cmd.tabonly)      -- tabpage keep only current
+-- {N}gt goes to next tab or tab number N
+vim.keymap.set("n", "<leader>tl", vim.cmd.tabnext)      -- tabpage next
+vim.keymap.set("n", "<leader>th", vim.cmd.tabprevious)  -- tabpage previous
