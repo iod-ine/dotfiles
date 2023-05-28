@@ -11,3 +11,15 @@ vim.keymap.set("n", "<leader>bl", vim.cmd.ls)         -- buffer list
 vim.keymap.set("n", "<leader>bn", vim.cmd.bnext)      -- buffer next
 vim.keymap.set("n", "<leader>bp", vim.cmd.bprevious)  -- buffer previus
 vim.keymap.set("n", "<leader>bc", vim.cmd.bdelete)    -- buffer close
+
+-- Window manipulation commands
+vim.keymap.set("n", "<leader>ws", "<C-w>s")       -- window split horizontally
+vim.keymap.set("n", "<leader>wv", "<C-w>v")       -- window split vertically
+vim.keymap.set("n", "<leader>wc", vim.cmd.close)  -- window close current
+vim.keymap.set("n", "<leader>wo", vim.cmd.only)   -- window keep only current
+-- :help window-move-cursor
+vim.keymap.set("n", "<leader>wh", "<C-w>h")       -- window select left
+vim.keymap.set("n", "<leader>wj", "<C-w>j")       -- window select down
+vim.keymap.set("n", "<leader>wk", "<C-w>k")       -- window select up
+vim.keymap.set("n", "<leader>wl", "<C-w>l")       -- window select right
+vim.keymap.set("n", "<leader>wn", "<C-w>w")       -- window select next (or <C-w><C-w>)
