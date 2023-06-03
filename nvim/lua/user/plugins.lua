@@ -11,6 +11,15 @@ return require("packer").startup(function(use)
     },
   })
 
+  -- Completion with sources (:help ins-completion for built-in completion)
+  use("hrsh7th/nvim-cmp")
+  use("hrsh7th/cmp-buffer")          -- Buffer words
+  use("hrsh7th/cmp-path")            -- Filesystem paths
+  use("hrsh7th/cmp-nvim-lsp")        -- Built-in LSP client
+  use("saadparwaiz1/cmp_luasnip")    -- Snippets
+
+  use("onsails/lspkind.nvim")        -- Formating for the completion window
+
   -- Colorschemes
   use("rebelot/kanagawa.nvim")
   use("folke/tokyonight.nvim")
