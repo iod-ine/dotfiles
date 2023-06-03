@@ -11,6 +11,11 @@ return require("packer").startup(function(use)
     },
   })
 
+  -- Tree-sitter code parser
+  -- :TSInstall <language> to install parsers, :TSInstallInfo to list available ones
+  -- :TSUpdate to update all installed parsers
+  use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+
   -- Completion with sources (:help ins-completion for built-in completion)
   use("hrsh7th/nvim-cmp")
   use("hrsh7th/cmp-buffer")          -- Buffer words
