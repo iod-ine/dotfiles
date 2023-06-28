@@ -23,6 +23,7 @@ vim.keymap.set("n", "<leader>wj", "<C-w>j")       -- window select down
 vim.keymap.set("n", "<leader>wk", "<C-w>k")       -- window select up
 vim.keymap.set("n", "<leader>wl", "<C-w>l")       -- window select right
 vim.keymap.set("n", "<leader>wn", "<C-w>w")       -- window select next (or <C-w><C-w>)
+-- :help window-resize
 
 -- Tabpage manipulation commands
 vim.keymap.set("n", "<leader>tt", vim.cmd.tabedit)      -- tabpage new
@@ -41,3 +42,9 @@ vim.keymap.set("n", "<leader>fs", telescope.grep_string, {})  -- find string
 
 -- Vim pickers
 vim.keymap.set("n", "<leader>bf", telescope.buffers, {})      -- buffer find
+vim.keymap.set("n", "<leader>fc", telescope.commands, {})     -- find command
+vim.keymap.set("n", "<leader>fr", telescope.registers, {})    -- find registers
+
+-- Git pickers
+vim.keymap.set("n", "<leader>gl", telescope.git_commits, {})  -- git log
+vim.keymap.set("n", "<leader>gb", telescope.git_bcommits, {}) -- buffer commits
