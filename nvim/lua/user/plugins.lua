@@ -36,6 +36,9 @@ require("lazy").setup({
     "saadparwaiz1/cmp_luasnip",  -- Snippets
     "onsails/lspkind.nvim",      -- Formatting for the completion window
 
+    -- Configuration for built-in LSP
+    "neovim/nvim-lspconfig",
+
     -- Colorschemes
     "rebelot/kanagawa.nvim",
     "folke/tokyonight.nvim",
