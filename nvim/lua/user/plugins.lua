@@ -1,33 +1,44 @@
-return require("packer").startup(function(use)
-  -- Packer can manage itself
-  use("wbthomason/packer.nvim")
-
-  -- Fuzzy finder. :Telescope is the intry point
-  use({
-    "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
-    requires = {
-        {"nvim-lua/plenary.nvim"},
-    },
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
   })
+end
+vim.opt.rtp:prepend(lazypath)
 
-  -- Tree-sitter code parser
-  -- :TSInstall <language> to install parsers, :TSInstallInfo to list available ones
-  -- :TSUpdate to update all installed parsers
-  use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+require("lazy").setup({
+    -- Fuzzy finder. :Telescope is the entry point
+    {
+        "nvim-telescope/telescope.nvim",
+        branch = "0.1.x",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
 
-  -- Completion with sources (:help ins-completion for built-in completion)
-  use("hrsh7th/nvim-cmp")
-  use("hrsh7th/cmp-buffer")          -- Buffer words
-  use("hrsh7th/cmp-path")            -- Filesystem paths
-  use("hrsh7th/cmp-nvim-lsp")        -- Built-in LSP client
-  use("saadparwaiz1/cmp_luasnip")    -- Snippets
+    -- Tree-sitter code parser
+    -- :TSInstall <lang> to install parsers, :TSInstallInfo to list abailable ones
+    -- :TSUpdate to update all installed parsers
+     {
+         "nvim-treesitter/nvim-treesitter",
+         build = ":TSUpdate",
+     },
 
-  use("onsails/lspkind.nvim")        -- Formating for the completion window
+    -- Completion with sources (:help ins-completion for built-in completion)
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-buffer",        -- Buffer words
+    "hrsh7th/cmp-path",          -- Filesystem paths
+    "hrsh7th/cmp-nvim-lsp",      -- Built-in LSP client
+    "saadparwaiz1/cmp_luasnip",  -- Snippets
+    "onsails/lspkind.nvim",      -- Formatting for the completion window
 
-  -- Colorschemes
-  use("rebelot/kanagawa.nvim")
-  use("folke/tokyonight.nvim")
-  use("lunarvim/darkplus.nvim")
-  use("lunarvim/Onedarker.nvim")
-end)
+    -- Colorschemes
+    "rebelot/kanagawa.nvim",
+    "folke/tokyonight.nvim",
+    "lunarvim/darkplus.nvim",
+    "lunarvim/Onedarker.nvim",
+})
