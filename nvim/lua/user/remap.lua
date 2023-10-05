@@ -10,7 +10,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<leader>bl", vim.cmd.ls)         -- buffer list
 vim.keymap.set("n", "<leader>bn", vim.cmd.bnext)      -- buffer next
 vim.keymap.set("n", "<leader>bp", vim.cmd.bprevious)  -- buffer previus
-vim.keymap.set("n", "<leader>bc", vim.cmd.bdelete)    -- buffer close
+vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete)    -- buffer delete
 
 -- Window manipulation commands
 vim.keymap.set("n", "<leader>ws", "<C-w>s")       -- window split horizontally
