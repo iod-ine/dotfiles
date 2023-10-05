@@ -7,8 +7,10 @@ lspconfig.pylsp.setup({
         pylsp = {
             configurationSources = {"flake8"},  -- Load the default configuration
             plugins = {
-                pycodestyle = { enabled = false },
                 flake8 = { enabled = true },
+                black = { enabled = true },
+                pyls_isort = { enabled = true },
+                pylint = { enabled = true },
             },
         },
     },
