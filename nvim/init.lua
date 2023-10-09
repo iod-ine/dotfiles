@@ -6,5 +6,5 @@ require("user.filetypes")
 require("user.lsp")
 
 -- Set the colorscheme
-vim.cmd.colorscheme("kanagawa-wave")
+vim.cmd.colorscheme("rose-pine")
 

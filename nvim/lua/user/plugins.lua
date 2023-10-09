@@ -44,4 +44,6 @@ require("lazy").setup({
     "folke/tokyonight.nvim",
     "lunarvim/darkplus.nvim",
     "lunarvim/Onedarker.nvim",
+    "morhetz/gruvbox",
+    { "rose-pine/neovim", name = "rose-pine" },
 })
