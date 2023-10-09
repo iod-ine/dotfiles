@@ -13,6 +13,12 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.scrolloff = 8
 
+-- Spelling (:help spell)
+-- ]s moves to the next misspell, [s move to the previous misspell
+-- z= shows suggestions, zg adds the word to the dictionary
+vim.opt.spell = true
+vim.opt.spelllang = "en_us,ru_yo"
+
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
