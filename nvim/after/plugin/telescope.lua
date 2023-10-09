@@ -15,7 +15,11 @@ telescope.setup({
 	defaults = { vimgrep_arguments = vimgrep_arguments },
 	pickers = {
 		find_files = {
-			find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+            find_command = {
+                "rg", "--files", "--hidden",
+                "--glob", "!**/.git/*",
+                "--glob", "!**/.DS_Store",
+            },
 		},
 	},
 })
