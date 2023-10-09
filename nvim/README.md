@@ -3,6 +3,6 @@
 
 Python LSP prerequisites:
 ```shell
-pipx install "python-lsp-server[flake8,pylint]"
-pipx runpip python-lsp-server install pyls-isort python-lsp-black
+pipx install "python-lsp-server"
+pipx runpip python-lsp-server install python-lsp-ruff python-lsp-black
 ```

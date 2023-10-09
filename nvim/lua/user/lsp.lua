@@ -7,10 +7,12 @@ lspconfig.pylsp.setup({
         pylsp = {
             configurationSources = {"flake8"},  -- Load the default configuration
             plugins = {
-                flake8 = { enabled = true },
                 black = { enabled = true },
-                pyls_isort = { enabled = true },
-                pylint = { enabled = true },
+                ruff = {
+                    enabled = true,
+                    extendSelect = { "I" },  -- By default, E (pyflakes) and F (pycodestyle errors) are selected
+                    format = { "I" },
+                },
             },
         },
     },
