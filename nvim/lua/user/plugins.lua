@@ -48,6 +48,12 @@ require("lazy").setup({
     -- Configuration for built-in LSP
     "neovim/nvim-lspconfig",
 
+    -- Status line
+    {
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
+
     -- Colorschemes
     "rebelot/kanagawa.nvim",
     "folke/tokyonight.nvim",
