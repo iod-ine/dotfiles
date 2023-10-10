@@ -27,7 +27,7 @@ require("lazy").setup({
             cmake --install build --prefix build
         ]],
     },
-
+    "nvim-telescope/telescope-file-browser.nvim",
 
     -- Tree-sitter code parser
     -- :TSInstall <lang> to install parsers, :TSInstallInfo to list abailable ones

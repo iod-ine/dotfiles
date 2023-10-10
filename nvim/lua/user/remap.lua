@@ -48,3 +48,10 @@ vim.keymap.set("n", "<leader>fr", telescope.registers, {})    -- find registers
 -- Git pickers
 vim.keymap.set("n", "<leader>gl", telescope.git_commits, {})  -- git log
 vim.keymap.set("n", "<leader>gb", telescope.git_bcommits, {}) -- buffer commits
+
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>fb",
+  ":Telescope file_browser<CR>",
+  { noremap = true }
+)
