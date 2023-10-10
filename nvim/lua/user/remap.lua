@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<leader>fe", vim.cmd.Ex)  -- file explorer
+-- vim.keymap.set("n", "<leader>fe", vim.cmd.Ex)  -- file explorer
 
 -- Center the screen after scrolling with C-d and C-u
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -48,3 +48,7 @@ vim.keymap.set("n", "<leader>fr", telescope.registers, {})    -- find registers
 -- Git pickers
 vim.keymap.set("n", "<leader>gl", telescope.git_commits, {})  -- git log
 vim.keymap.set("n", "<leader>gb", telescope.git_bcommits, {}) -- buffer commits
+
+local ntree = require("nvim-tree.api")
+
+vim.keymap.set("n", "<leader>ft", ntree.tree.toggle, {}) -- file tree

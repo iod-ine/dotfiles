@@ -39,6 +39,9 @@ require("lazy").setup({
     -- Configuration for built-in LSP
     "neovim/nvim-lspconfig",
 
+    -- File explorer
+    "nvim-tree/nvim-tree.lua",
+
     -- Colorschemes
     "rebelot/kanagawa.nvim",
     "folke/tokyonight.nvim",
