@@ -41,7 +41,7 @@ vim.keymap.set("n", "<leader>fl", telescope.live_grep, {})    -- find live
 vim.keymap.set("n", "<leader>fs", telescope.grep_string, {})  -- find string
 
 -- Vim pickers
-vim.keymap.set("n", "<leader>bf", telescope.buffers, {})      -- buffer find
+vim.keymap.set("n", "<leader>bb", telescope.buffers, {})      -- ff but for buffers
 vim.keymap.set("n", "<leader>fc", telescope.commands, {})     -- find command
 vim.keymap.set("n", "<leader>fr", telescope.registers, {})    -- find registers
 
