@@ -36,6 +36,7 @@ require("lazy").setup({
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
     },
+    "nvim-treesitter/nvim-treesitter-context",
 
     -- Completion with sources (:help ins-completion for built-in completion)
     "hrsh7th/nvim-cmp",
