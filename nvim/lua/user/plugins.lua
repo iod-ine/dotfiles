@@ -1,14 +1,14 @@
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -22,9 +22,9 @@ require("lazy").setup({
     {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = [[
-            cmake -S . -Bbuild -DCMAKE_BUILD_TYPE=Release && \
-            cmake --build build --config Release && \
-            cmake --install build --prefix build
+        cmake -S . -Bbuild -DCMAKE_BUILD_TYPE=Release && \
+        cmake --build build --config Release && \
+        cmake --install build --prefix build
         ]],
     },
     "nvim-telescope/telescope-file-browser.nvim",
@@ -32,10 +32,10 @@ require("lazy").setup({
     -- Tree-sitter code parser
     -- :TSInstall <lang> to install parsers, :TSInstallInfo to list abailable ones
     -- :TSUpdate to update all installed parsers
-     {
-         "nvim-treesitter/nvim-treesitter",
-         build = ":TSUpdate",
-     },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+    },
 
     -- Completion with sources (:help ins-completion for built-in completion)
     "hrsh7th/nvim-cmp",
