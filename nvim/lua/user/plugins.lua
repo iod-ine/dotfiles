@@ -60,8 +60,6 @@ require("lazy").setup({
 
     -- Colorschemes
     "rebelot/kanagawa.nvim",
-    "folke/tokyonight.nvim",
-    "lunarvim/darkplus.nvim",
     "lunarvim/Onedarker.nvim",
     "morhetz/gruvbox",
     { "rose-pine/neovim", name = "rose-pine" },
