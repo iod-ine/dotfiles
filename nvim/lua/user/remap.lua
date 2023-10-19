@@ -9,7 +9,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- Buffer manipulation commands
 vim.keymap.set("n", "<leader>bl", vim.cmd.ls)         -- buffer list
 vim.keymap.set("n", "<leader>bn", vim.cmd.bnext)      -- buffer next
-vim.keymap.set("n", "<leader>bp", vim.cmd.bprevious)  -- buffer previus
+vim.keymap.set("n", "<leader>bp", vim.cmd.bprevious)  -- buffer previous
 vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete)    -- buffer delete
 
 -- Window manipulation commands
