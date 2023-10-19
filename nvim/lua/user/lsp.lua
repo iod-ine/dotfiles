@@ -39,6 +39,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "gr", telescope.lsp_references, opts)  -- vim.lsp.buf.references
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "<leader>ds", telescope.lsp_document_symbols, opts)
 
     -- These I am not confident about yet, they are not implemented in
     -- python-lsp-server and I haven't started working with other servers yet.
