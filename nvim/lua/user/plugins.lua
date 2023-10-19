@@ -38,6 +38,9 @@ require("lazy").setup({
     },
     "nvim-treesitter/nvim-treesitter-context",
 
+    -- Undo tree: undo history visualization
+    "mbbill/undotree",
+
     -- Completion with sources (:help ins-completion for built-in completion)
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-buffer",        -- Buffer words

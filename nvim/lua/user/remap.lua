@@ -55,3 +55,6 @@ vim.api.nvim_set_keymap(
   ":Telescope file_browser<CR>",
   { noremap = true }
 )
+
+-- Undo tree
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, {}) -- buffer commits
