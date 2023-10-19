@@ -26,12 +26,14 @@ vim.keymap.set("n", "<leader>wn", "<C-w>w")       -- window select next (or <C-w
 -- :help window-resize
 
 -- Tabpage manipulation commands
-vim.keymap.set("n", "<leader>tt", vim.cmd.tabedit)      -- tabpage new
+vim.keymap.set("n", "<leader>tn", vim.cmd.tabnew)       -- tabpage new
 vim.keymap.set("n", "<leader>tc", vim.cmd.tabclose)     -- tabpage close
 vim.keymap.set("n", "<leader>to", vim.cmd.tabonly)      -- tabpage keep only current
 -- {N}gt goes to next tab or tab number N
-vim.keymap.set("n", "<leader>tl", vim.cmd.tabnext)      -- tabpage next
-vim.keymap.set("n", "<leader>th", vim.cmd.tabprevious)  -- tabpage previous
+vim.keymap.set("n", "<leader>tf", vim.cmd.tabfirst)     -- tabpage first
+vim.keymap.set("n", "<leader>tn", vim.cmd.tabnext)      -- tabpage next
+vim.keymap.set("n", "<leader>tp", vim.cmd.tabprevious)  -- tabpage previous
+vim.keymap.set("n", "<leader>tl", vim.cmd.tablast )     -- tabpage last
 
 local telescope = require("telescope.builtin")
 
