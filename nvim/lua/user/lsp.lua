@@ -18,10 +18,12 @@ lspconfig.pylsp.setup({
     },
 })
 
+local telescope = require("telescope.builtin")
+
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+vim.keymap.set("n", "<leader>q", telescope.diagnostics) -- vim.diagnostic.setloclist
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -31,9 +33,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     -- Buffer local mappings (:help vim.lsp.* for documentation)
     local opts = { buffer = ev.buf }
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+    vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+
+    vim.keymap.set("n", "<leader>rr", telescope.lsp_references, opts)  -- vim.lsp.buf.references
+
+    -- These I am not confident about yet, they are not implemented in
+    -- python-lsp-server and I haven't started working with other servers yet.
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
     vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
     vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
@@ -42,9 +52,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, opts)
     vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-    vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "<leader>bf", function()
       vim.lsp.buf.format { async = true }
     end, opts)
