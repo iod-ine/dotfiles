@@ -26,7 +26,7 @@ vim.keymap.set("n", "<leader>wn", "<C-w>w")       -- window select next (or <C-w
 -- :help window-resize
 
 -- Tabpage manipulation commands
-vim.keymap.set("n", "<leader>tn", vim.cmd.tabnew)       -- tabpage new
+vim.keymap.set("n", "<leader>te", vim.cmd.tabedit)      -- tabpage edit (create new)
 vim.keymap.set("n", "<leader>tc", vim.cmd.tabclose)     -- tabpage close
 vim.keymap.set("n", "<leader>to", vim.cmd.tabonly)      -- tabpage keep only current
 -- {N}gt goes to next tab or tab number N
