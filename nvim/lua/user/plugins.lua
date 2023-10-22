@@ -52,6 +52,8 @@ require("lazy").setup({
     -- Configuration for built-in LSP
     "neovim/nvim-lspconfig",
 
+    { "numToStr/Comment.nvim", lazy = false },
+
     -- Status line
     {
         "nvim-lualine/lualine.nvim",
