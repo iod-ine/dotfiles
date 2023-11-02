@@ -45,10 +45,7 @@ lspconfig.pylsp.setup({
     settings = {
         pylsp = {
             configurationSources = {"flake8"},  -- Load the default configuration
-            plugins = {
-                black = { enabled = true },
-                ruff = { enabled = true },
-            },
+            plugins = { ruff = { enabled = true } },
         },
     },
 })
