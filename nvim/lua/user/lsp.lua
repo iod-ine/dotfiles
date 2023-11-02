@@ -47,11 +47,7 @@ lspconfig.pylsp.setup({
             configurationSources = {"flake8"},  -- Load the default configuration
             plugins = {
                 black = { enabled = true },
-                ruff = {
-                    enabled = true,
-                    extendSelect = { "I" },  -- By default, E (pyflakes) and F (pycodestyle errors) are selected
-                    format = { "I" },
-                },
+                ruff = { enabled = true },
             },
         },
     },
