@@ -4,5 +4,5 @@
 Python LSP prerequisites:
 ```shell
 pipx install "python-lsp-server"
-pipx runpip python-lsp-server install python-lsp-ruff python-lsp-black
+pipx runpip python-lsp-server install python-lsp-ruff
 ```
