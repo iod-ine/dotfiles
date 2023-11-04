@@ -41,11 +41,31 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- Python LSP Server
 -- https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
+-- https://docs.astral.sh/ruff/configuration/
 lspconfig.pylsp.setup({
     settings = {
         pylsp = {
-            configurationSources = {"flake8"},  -- Load the default configuration
-            plugins = { ruff = { enabled = true } },
+            plugins = {
+                ruff = {
+                    enabled = true,
+                    select = {
+                        "E",     -- Error
+                        "W",     -- Warning
+                        "F",     -- Pyflakes
+                        "I",     -- isort
+                        "ARG",   -- flake8-unused-arguments
+                        "Q",     -- flake8-quotes
+                        "N",     -- pep8-naming
+                        "RET",   -- flake8-return
+                        "SIM",   -- flake8-simplify
+                        "PD",    -- pandas-vet
+                        "NPY",   -- NumPy-specific rules
+                        "PERF",  -- Perflint
+                    },
+                    format = { "I", "Q" },
+                    lineLength = 120,
+                }
+            },
         },
     },
 })
