@@ -55,6 +55,7 @@ lspconfig.pylsp.setup({
                         "I",     -- isort
                         "ARG",   -- flake8-unused-arguments
                         "Q",     -- flake8-quotes
+                        "FIX",   -- flake8-fixme
                         "N",     -- pep8-naming
                         "RET",   -- flake8-return
                         "SIM",   -- flake8-simplify
