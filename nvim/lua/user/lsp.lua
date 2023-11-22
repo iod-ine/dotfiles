@@ -33,14 +33,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, opts)
         vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
-        vim.keymap.set("n", "<leader>bf", function()
-            vim.lsp.buf.format { async = true }
-        end, opts)
+        vim.keymap.set("n", "<leader>bf", vim.lsp.buf.format, opts)
     end,
 })
 
 -- Python LSP Server
 -- https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
+-- https://github.com/python-lsp/python-lsp-ruff#configuration
 -- https://docs.astral.sh/ruff/configuration/
 lspconfig.pylsp.setup({
     settings = {
@@ -63,7 +62,12 @@ lspconfig.pylsp.setup({
                         "NPY",   -- NumPy-specific rules
                         "PERF",  -- Perflint
                     },
-                    format = { "I", "Q" },
+                    format = {
+                        "E",
+                        "W",
+                        "I",
+                        "Q",
+                    },
                     lineLength = 120,
                 }
             },
