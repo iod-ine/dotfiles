@@ -16,3 +16,6 @@ select = [
     "NPY",   # NumPy-specific rules
     "PERF",  # Perflint
 ]
+
+[lint.per-file-ignores]
+"__init__.py" = ["F401"]
