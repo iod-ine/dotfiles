@@ -11,3 +11,12 @@ require("nvim-treesitter.configs").setup({
     auto_install = false,
     highlight = { enable = true },
 })
+
+require("treesitter-context").setup({
+    -- https://github.com/nvim-treesitter/nvim-treesitter-context#configuration
+    enable = true,
+    max_lines = 10,
+    min_window_height = 10,
+    multiline_threshold = 5,
+    mode = "topline",
+})
