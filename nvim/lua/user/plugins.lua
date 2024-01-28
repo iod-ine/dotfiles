@@ -64,6 +64,9 @@ require("lazy").setup({
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
 
+    -- Precise horizontal navigation
+    "justinmk/vim-sneak",
+
     -- Colorschemes
     "rebelot/kanagawa.nvim",
     "lunarvim/Onedarker.nvim",
