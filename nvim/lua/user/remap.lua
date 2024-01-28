@@ -1,64 +1,57 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<leader>fe", vim.cmd.Ex)  -- file explorer
-
 -- Center the screen after scrolling with C-d and C-u
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
--- Buffer manipulation commands
-vim.keymap.set("n", "<leader>bl", vim.cmd.ls)         -- buffer list
-vim.keymap.set("n", "<leader>bn", vim.cmd.bnext)      -- buffer next
-vim.keymap.set("n", "<leader>bp", vim.cmd.bprevious)  -- buffer previous
-vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete)    -- buffer delete
+-- Cycle through LSP diagnostics
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 
--- Window manipulation commands
-vim.keymap.set("n", "<leader>ws", "<C-w>s")       -- window split horizontally
-vim.keymap.set("n", "<leader>wv", "<C-w>v")       -- window split vertically
-vim.keymap.set("n", "<leader>wc", vim.cmd.close)  -- window close current
-vim.keymap.set("n", "<leader>wo", vim.cmd.only)   -- window keep only current
--- :help window-move-cursor
-vim.keymap.set("n", "<leader>wh", "<C-w>h")       -- window select left
-vim.keymap.set("n", "<leader>wj", "<C-w>j")       -- window select down
-vim.keymap.set("n", "<leader>wk", "<C-w>k")       -- window select up
-vim.keymap.set("n", "<leader>wl", "<C-w>l")       -- window select right
-vim.keymap.set("n", "<leader>wn", "<C-w>w")       -- window select next (or <C-w><C-w>)
--- :help window-resize
-
--- Tabpage manipulation commands
-vim.keymap.set("n", "<leader>te", vim.cmd.tabedit)      -- tabpage edit (create new)
-vim.keymap.set("n", "<leader>tc", vim.cmd.tabclose)     -- tabpage close
-vim.keymap.set("n", "<leader>to", vim.cmd.tabonly)      -- tabpage keep only current
--- {N}gt goes to next tab or tab number N
-vim.keymap.set("n", "<leader>tf", vim.cmd.tabfirst)     -- tabpage first
-vim.keymap.set("n", "<leader>tn", vim.cmd.tabnext)      -- tabpage next
-vim.keymap.set("n", "<leader>tp", vim.cmd.tabprevious)  -- tabpage previous
-vim.keymap.set("n", "<leader>tl", vim.cmd.tablast )     -- tabpage last
-
+local which_key = require("which-key")
 local telescope = require("telescope.builtin")
 
-vim.keymap.set("n", "<leader>hh", telescope.help_tags, {})   -- help on help tags
-
--- File pickers
-vim.keymap.set("n", "<leader>ff", telescope.find_files, {})   -- find file
-vim.keymap.set("n", "<leader>fl", telescope.live_grep, {})    -- find live
-vim.keymap.set("n", "<leader>fs", telescope.grep_string, {})  -- find string
-
--- Vim pickers
-vim.keymap.set("n", "<leader>bb", telescope.buffers, {})      -- ff but for buffers
-vim.keymap.set("n", "<leader>fc", telescope.commands, {})     -- find command
-vim.keymap.set("n", "<leader>fr", telescope.registers, {})    -- find registers
-
--- Git pickers
-vim.keymap.set("n", "<leader>gl", telescope.git_commits, {})  -- git log
-vim.keymap.set("n", "<leader>gb", telescope.git_bcommits, {}) -- buffer commits
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>fb",
-  ":Telescope file_browser<CR>",
-  { noremap = true }
+which_key.register(
+    {
+        b = {
+            name = "buffer",
+            b = { telescope.buffers, "find buffer" },
+            d = { vim.cmd.bdelete, "delete buffer" },
+            n = { vim.cmd.bnext, "next buffer" },
+            p = { vim.cmd.bprevious, "previous buffer" },
+        },
+        e = { vim.diagnostic.open_float, "expand diagnostic" },
+        f = {
+            name = "find",
+            e = { vim.cmd.Ex, "file explorer" },
+            f = { telescope.find_files, "find file" },
+            l = { telescope.live_grep, "live grep" },
+            r = { telescope.oldfiles, "recent files" },
+            s = { telescope.grep_string, "grep string" },
+        },
+        g = {
+            name = "git",
+            l = { telescope.git_commits, "git log" },
+            b = { telescope.git_commits, "buffer commits" },
+        },
+        h = {
+            name = "help",
+            h = { telescope.help_tags, "help tags" },
+        },
+        t = {
+            name = "tab",
+            c = { vim.cmd.tabclose, "close tab" },
+            e = { vim.cmd.tabedit, "new tab" },
+            -- {N}gt goes to next tab or tab number N, gT goes to previous
+            f = { vim.cmd.tabfirst, "go to first" },
+            l = { vim.cmd.tablast, "go to last" },
+            o = { vim.cmd.tabonly, "keep only this" },
+        },
+        q = { telescope.diagnostics, "diagnostics" },
+        u = { vim.cmd.UndotreeToggle, "undo tree" },
+    },
+    {
+        mode = "n",
+        prefix = "<leader>",
+    }
 )
-
--- Undo tree
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, {}) -- buffer commits

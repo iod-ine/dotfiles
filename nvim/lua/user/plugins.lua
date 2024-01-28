@@ -49,6 +49,17 @@ require("lazy").setup({
     "saadparwaiz1/cmp_luasnip",  -- Snippets
     "onsails/lspkind.nvim",      -- Formatting for the completion window
 
+    -- Mappings and help
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 1000
+        end,
+        opts = {},
+    },
+
     -- Configuration for built-in LSP
     "neovim/nvim-lspconfig",
 
