@@ -37,7 +37,7 @@ vim.keymap.set("n", "<leader>tl", vim.cmd.tablast )     -- tabpage last
 
 local telescope = require("telescope.builtin")
 
-vim.keymap.set("n", "<leader>hh", telescope.help_tags, {})   -- find file
+vim.keymap.set("n", "<leader>hh", telescope.help_tags, {})   -- help on help tags
 
 -- File pickers
 vim.keymap.set("n", "<leader>ff", telescope.find_files, {})   -- find file

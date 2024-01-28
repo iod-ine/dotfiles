@@ -22,15 +22,15 @@ require("lazy").setup({
     {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = [[
-        cmake -S . -Bbuild -DCMAKE_BUILD_TYPE=Release && \
-        cmake --build build --config Release && \
-        cmake --install build --prefix build
+            cmake -S . -Bbuild -DCMAKE_BUILD_TYPE=Release && \
+            cmake --build build --config Release && \
+            cmake --install build --prefix build
         ]],
     },
     "nvim-telescope/telescope-file-browser.nvim",
 
     -- Tree-sitter code parser
-    -- :TSInstall <lang> to install parsers, :TSInstallInfo to list abailable ones
+    -- :TSInstall <lang> to install parsers, :TSInstallInfo to list available ones
     -- :TSUpdate to update all installed parsers
     {
         "nvim-treesitter/nvim-treesitter",
@@ -52,7 +52,11 @@ require("lazy").setup({
     -- Configuration for built-in LSP
     "neovim/nvim-lspconfig",
 
-    { "numToStr/Comment.nvim", lazy = false },
+    -- Managing comments
+    {
+        "numToStr/Comment.nvim",
+        lazy = false,
+    },
 
     -- Status line
     {
@@ -64,5 +68,8 @@ require("lazy").setup({
     "rebelot/kanagawa.nvim",
     "lunarvim/Onedarker.nvim",
     "morhetz/gruvbox",
-    { "rose-pine/neovim", name = "rose-pine" },
+    {
+        "rose-pine/neovim",
+        name = "rose-pine",
+    },
 })
