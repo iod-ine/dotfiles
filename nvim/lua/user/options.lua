@@ -9,6 +9,7 @@ vim.opt.shiftwidth = 4       -- How much whitespace to use for indentation comma
 vim.opt.expandtab = true     -- Replace tabs with spaces (CTRL-V<tab> to insert a real tab)
 
 vim.opt.smartindent = true
+vim.opt.foldmethod = "indent"
 
 vim.opt.wrap = false
 vim.opt.scrolloff = 8
