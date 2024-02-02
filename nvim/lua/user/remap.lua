@@ -49,6 +49,7 @@ which_key.register(
         },
         q = { telescope.diagnostics, "diagnostics" },
         u = { vim.cmd.UndotreeToggle, "undo tree" },
+        w = { "<cmd>set wrap!<cr>", "toggle wrap" },
     },
     {
         mode = "n",
