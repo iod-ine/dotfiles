@@ -1,0 +1,9 @@
+[font]
+size = 18
+
+[font.normal]
+family = "UbuntuMono Nerd Font"
+
+[window]
+decorations = "none"
+opacity = 0.97
