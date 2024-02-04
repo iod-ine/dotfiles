@@ -78,6 +78,10 @@ require("lazy").setup({
     -- Precise horizontal navigation
     "justinmk/vim-sneak",
 
+    -- Quarto
+    "quarto-dev/quarto-nvim",
+    "jmbuhr/otter.nvim",
+
     -- Colorschemes
     "rebelot/kanagawa.nvim",
     "lunarvim/Onedarker.nvim",
