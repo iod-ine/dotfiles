@@ -13,5 +13,5 @@
 Python LSP prerequisites:
 ```shell
 pipx install "python-lsp-server"
-pipx runpip python-lsp-server install python-lsp-ruff
+pipx inject python-lsp-server python-lsp-ruff pylsp-mypy
 ```
