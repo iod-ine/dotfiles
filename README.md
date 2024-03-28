@@ -4,6 +4,7 @@
   - [tmux](https://github.com/tmux/tmux)
   - [pyenv](https://github.com/pyenv/pyenv)
   - [pipx](https://github.com/pypa/pipx)
+    - [Poetry](https://github.com/python-poetry/poetry)
     - [Ruff](https://github.com/astral-sh/ruff)
     - [Python LSP Server](https://github.com/python-lsp/python-lsp-server)
       - [python-lsp-ruff](https://github.com/python-lsp/python-lsp-ruff)
