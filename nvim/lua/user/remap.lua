@@ -4,10 +4,6 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
--- Cycle through LSP diagnostics
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-
 local which_key = require("which-key")
 local telescope = require("telescope.builtin")
 
@@ -54,5 +50,16 @@ which_key.register(
     {
         mode = "n",
         prefix = "<leader>",
+    }
+)
+
+which_key.register(
+    {
+        ["["] = {
+            d = { vim.diagnostic.goto_prev, "Previous diagnostic" },
+        },
+        ["]"] = {
+            d = { vim.diagnostic.goto_next, "Next diagnostic" },
+        },
     }
 )
