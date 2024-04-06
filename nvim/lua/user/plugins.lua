@@ -41,6 +41,13 @@ require("lazy").setup({
     -- Undo tree: undo history visualization
     "mbbill/undotree",
 
+    -- Snippet Engine
+    {
+        "L3MON4D3/LuaSnip",
+        version = "v2.*",
+        build = "make install_jsregexp"
+    },
+
     -- Completion with sources (:help ins-completion for built-in completion)
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-buffer",        -- Buffer words
