@@ -9,6 +9,7 @@
     - [Python LSP Server](https://github.com/python-lsp/python-lsp-server)
       - [python-lsp-ruff](https://github.com/python-lsp/python-lsp-ruff)
     - [JupyterLab](https://github.com/jupyterlab/jupyterlab)
+      - [jupyterlab-code-formatter](https://github.com/ryantam626/jupyterlab_code_formatter)
   - [miniconda](https://docs.anaconda.com/free/miniconda/)
 - [Oh My Bash](https://github.com/ohmybash/oh-my-bash)
 - [Alacritty](https://github.com/alacritty/alacritty)
