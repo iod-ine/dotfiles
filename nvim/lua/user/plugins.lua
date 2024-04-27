@@ -74,12 +74,14 @@ require("lazy").setup({
     {
         "numToStr/Comment.nvim",
         lazy = false,
+        opts = {},
     },
 
     -- Status line
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {},
     },
 
     -- Precise horizontal navigation
