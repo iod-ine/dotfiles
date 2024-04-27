@@ -49,3 +49,18 @@ lspconfig.pylsp.setup({
         },
     },
 })
+
+lspconfig.ltex.setup({
+    autostart = false,
+    settings = {
+        ltex = {
+            enabled = true,
+            checkFrequency = "save",
+            languageToolHttpServerUri = "", -- "https://api.languagetoolplus.com/",
+            languageToolOrg = {
+                username = "",
+                apiKey = "",
+            },
+        },
+    },
+})
