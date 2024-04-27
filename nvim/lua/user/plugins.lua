@@ -77,6 +77,9 @@ require("lazy").setup({
         opts = {},
     },
 
+    -- Highlight TODOs, FIXMEs, NOTEs, etc.
+    { "folke/todo-comments.nvim", opts = {} },
+
     -- Status line
     {
         "nvim-lualine/lualine.nvim",
