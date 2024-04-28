@@ -80,6 +80,9 @@ require("lazy").setup({
     -- Highlight TODOs, FIXMEs, NOTEs, etc.
     { "folke/todo-comments.nvim", opts = {} },
 
+    -- LSP status updates
+    { "j-hui/fidget.nvim", opts = {} },
+
     -- git file status integration. :help gitsigns
     {
         "lewis6991/gitsigns.nvim",
