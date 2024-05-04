@@ -12,16 +12,16 @@ table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.git/*")
 
 telescope.setup({
-	defaults = { vimgrep_arguments = vimgrep_arguments },
-	pickers = {
-		find_files = {
+    defaults = { vimgrep_arguments = vimgrep_arguments },
+    pickers = {
+        find_files = {
             find_command = {
                 "rg", "--files", "--hidden",
                 "--glob", "!**/.git/*",
                 "--glob", "!**/.DS_Store",
             },
-		},
-	},
+        },
+    },
 })
 
 telescope.load_extension("fzf")
