@@ -45,6 +45,7 @@ which_key.register(
         },
         q = { telescope.diagnostics, "diagnostics" },
         u = { vim.cmd.UndotreeToggle, "undo tree" },
+        ["/"] = { telescope.current_buffer_fuzzy_find, "fuzzy find" },
     },
     {
         mode = "n",
