@@ -35,18 +35,16 @@ which_key.register(
             name = "help",
             h = { telescope.help_tags, "help tags" },
         },
+        -- For tabs:
+        -- :tabedit to open a new one, :tabclose to close the current,
+        -- :tabonly to leave only the current, :tabfirst / :tablast
+        -- {N}gt goes to next tab or tab number N, gT goes to previous
         t = {
-            name = "tab",
-            c = { vim.cmd.tabclose, "close tab" },
-            e = { vim.cmd.tabedit, "new tab" },
-            -- {N}gt goes to next tab or tab number N, gT goes to previous
-            f = { vim.cmd.tabfirst, "go to first" },
-            l = { vim.cmd.tablast, "go to last" },
-            o = { vim.cmd.tabonly, "keep only this" },
+            name = "toggle",
+            w = { "<cmd>set wrap!<cr>", "wrap" },
         },
         q = { telescope.diagnostics, "diagnostics" },
         u = { vim.cmd.UndotreeToggle, "undo tree" },
-        w = { "<cmd>set wrap!<cr>", "toggle wrap" },
     },
     {
         mode = "n",
