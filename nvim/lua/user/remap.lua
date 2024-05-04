@@ -60,5 +60,9 @@ which_key.register(
         ["]"] = {
             d = { vim.diagnostic.goto_next, "Next diagnostic" },
         },
+    },
+    {
+        mode = "n",
+        prefix = nil,
     }
 )
