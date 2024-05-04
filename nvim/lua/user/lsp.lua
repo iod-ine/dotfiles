@@ -18,6 +18,20 @@ lspconfig.pylsp.setup({
     },
 })
 
+
+-- Lua language server (brew install lua-language-server)
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
+lspconfig.lua_ls.setup({
+    settings = {
+        Lua = {
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = { "vim" },
+            },
+        }
+    },
+})
+
 lspconfig.ltex.setup({
     autostart = false,
     settings = {

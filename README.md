@@ -12,6 +12,7 @@
       - [jupyterlab-code-formatter](https://github.com/ryantam626/jupyterlab_code_formatter)
   - [miniconda](https://docs.anaconda.com/free/miniconda/)
   - [ltex-ls](https://github.com/valentjn/ltex-ls)
+  - [lua-language-server](https://github.com/LuaLS/lua-language-server)
 - [Oh My Bash](https://github.com/ohmybash/oh-my-bash)
 - [Alacritty](https://github.com/alacritty/alacritty)
 - [Neovim](https://github.com/neovim/neovim)
