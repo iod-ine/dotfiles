@@ -66,3 +66,73 @@ which_key.register(
         prefix = nil,
     }
 )
+
+-- Add local mappings to buffers when LSP is attached
+vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+    callback = function(ev)
+        -- Enable completion triggered by <c-x><c-o>
+        vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+
+        -- A helper wrapper for printing buffers in the workspace
+        local list_workspace_folders = function()
+            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+        end
+
+        -- Mappings for normal mode without the leader
+        -- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+        -- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+        which_key.register(
+            {
+                g = {
+                    d = { vim.lsp.buf.definition, "go to definition" },
+                    D = { vim.lsp.buf.declaration, "go to declaration" },
+                    r = { telescope.lsp_references, "references" },
+                },
+                K = { vim.lsp.buf.hover, "hover" },
+            },
+            {
+                mode = "n",
+                buffer = ev.buf,
+                prefix = nil,
+            }
+        )
+
+        -- Mappings for normal mode with the leader
+        which_key.register(
+            {
+                b = {
+                    name = "buffer",
+                    f = { vim.lsp.buf.format, "format code" },
+                },
+                d = {
+                    name = "document",
+                    s = { telescope.lsp_document_symbols, "symbols" },
+                },
+                D = { vim.lsp.buf.type_definition, "go to type definition" },
+                r = { vim.lsp.buf.rename, "rename symbol" },
+                w = {
+                    name = "workspace",
+                    a = { vim.lsp.buf.add_workspace_folder, "add workspace folder" },
+                    r = { vim.lsp.buf.remove_workspace_folder, "remove workspace folder" },
+                    l = { list_workspace_folders, "list workspace folders" },
+                },
+            },
+            {
+                mode = "n",
+                buffer = ev.buf,
+                prefix = "<leader>",
+            }
+        )
+
+        -- Mappings for both normal and visual modes with the leader
+        which_key.register(
+            { a = { vim.lsp.buf.code_action, "code action" } },
+            {
+                mode = { "n", "v" },
+                buffer = ev.buf,
+                prefix = "<leader>",
+            }
+        )
+    end,
+})
