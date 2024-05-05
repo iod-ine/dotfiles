@@ -46,3 +46,5 @@ lspconfig.ltex.setup({
         },
     },
 })
+
+lspconfig.ccls.setup({})

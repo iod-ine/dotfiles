@@ -13,6 +13,7 @@
   - [miniconda](https://docs.anaconda.com/free/miniconda/)
   - [ltex-ls](https://github.com/valentjn/ltex-ls)
   - [lua-language-server](https://github.com/LuaLS/lua-language-server)
+  - [ccls](https://github.com/MaskRay/ccls)
 - [Oh My Bash](https://github.com/ohmybash/oh-my-bash)
 - [Alacritty](https://github.com/alacritty/alacritty)
 - [Neovim](https://github.com/neovim/neovim)
