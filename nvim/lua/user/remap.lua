@@ -115,8 +115,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 w = {
                     name = "workspace",
                     a = { vim.lsp.buf.add_workspace_folder, "add workspace folder" },
-                    r = { vim.lsp.buf.remove_workspace_folder, "remove workspace folder" },
                     l = { list_workspace_folders, "list workspace folders" },
+                    r = { vim.lsp.buf.remove_workspace_folder, "remove workspace folder" },
+                    s = { telescope.lsp_workspace_symbols, "symbols" },
                 },
             },
             {
