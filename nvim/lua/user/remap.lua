@@ -41,6 +41,7 @@ which_key.register(
         -- {N}gt goes to next tab or tab number N, gT goes to previous
         t = {
             name = "toggle",
+            c = { "<cmd>:TSContextToggle<cr>", "context" },
             w = { "<cmd>set wrap!<cr>", "wrap" },
         },
         q = { telescope.diagnostics, "diagnostics" },
