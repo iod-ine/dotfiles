@@ -25,6 +25,7 @@ which_key.register(
             l = { telescope.live_grep, "live grep" },
             r = { telescope.oldfiles, "recent files" },
             s = { telescope.grep_string, "grep string" },
+            t = { "<cmd>TodoTelescope<CR>", "find TODOs" },
         },
         g = {
             name = "git",
