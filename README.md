@@ -22,6 +22,6 @@
 ### Git configs
 
 ```
-git config diff.tool nvimdiff
-git config merge.tool nvimdiff2
+git config --global diff.tool nvimdiff
+git config --global merge.tool nvimdiff2
 ```
