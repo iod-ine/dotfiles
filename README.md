@@ -24,4 +24,5 @@
 ```
 git config --global diff.tool nvimdiff
 git config --global merge.tool nvimdiff2
+git config --global alias.logg 'log --oneline --graph --all'
 ```
