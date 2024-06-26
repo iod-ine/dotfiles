@@ -18,3 +18,10 @@
 - [Oh My Bash](https://github.com/ohmybash/oh-my-bash)
 - [Alacritty](https://github.com/alacritty/alacritty)
 - [Neovim](https://github.com/neovim/neovim)
+
+### Git configs
+
+```
+git config diff.tool nvimdiff
+git config merge.tool nvimdiff2
+```
