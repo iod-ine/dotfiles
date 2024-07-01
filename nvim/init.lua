@@ -1,10 +1,8 @@
-require("user.plugins")
-require("user.options")
-require("user.remap")
-require("user.completion")
-require("user.filetypes")
-require("user.lsp")
+vim.g.mapleader = " "
 
--- Set the colorscheme
-vim.cmd.colorscheme("rose-pine")
-
+require("config.lazy")
+require("config.options")
+require("config.remap")
+require("config.completion")
+require("config.filetypes")
+require("config.lsp")
