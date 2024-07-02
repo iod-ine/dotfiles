@@ -14,7 +14,6 @@ which_key.register(
             n = { vim.cmd.bnext, "next buffer" },
             p = { vim.cmd.bprevious, "previous buffer" },
         },
-        e = { vim.diagnostic.open_float, "expand diagnostic" },
         f = {
             name = "find/file",
             b = { "<cmd>Telescope file_browser<CR>", "file browser" },
@@ -50,21 +49,6 @@ which_key.register(
     {
         mode = "n",
         prefix = "<leader>",
-    }
-)
-
-which_key.register(
-    {
-        ["["] = {
-            d = { vim.diagnostic.goto_prev, "Previous diagnostic" },
-        },
-        ["]"] = {
-            d = { vim.diagnostic.goto_next, "Next diagnostic" },
-        },
-    },
-    {
-        mode = "n",
-        prefix = nil,
     }
 )
 
