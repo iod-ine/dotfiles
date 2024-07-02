@@ -13,6 +13,8 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false   -- Disable folds by default, toggle with zi
 
+vim.opt.list = true
+
 vim.opt.wrap = false
 vim.opt.scrolloff = 8
 
