@@ -17,6 +17,7 @@ vim.opt.list = true
 
 vim.opt.wrap = false
 vim.opt.scrolloff = 8
+vim.opt.cursorline = true
 
 -- Spelling (:help spell)
 -- ]s moves to the next misspell, [s move to the previous misspell
