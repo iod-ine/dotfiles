@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 -- Center the screen after scrolling with C-d and C-u
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -72,10 +70,10 @@ which_key.register(
 
 -- Add local mappings to buffers when LSP is attached
 vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-    callback = function(ev)
+    group = vim.api.nvim_create_augroup("lsp-mappings", { clear = true }),
+    callback = function(event)
         -- Enable completion triggered by <c-x><c-o>
-        vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+        vim.bo[event.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
         -- A helper wrapper for printing buffers in the workspace
         local list_workspace_folders = function()
@@ -96,7 +94,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             },
             {
                 mode = "n",
-                buffer = ev.buf,
+                buffer = event.buf,
                 prefix = nil,
             }
         )
@@ -124,7 +122,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             },
             {
                 mode = "n",
-                buffer = ev.buf,
+                buffer = event.buf,
                 prefix = "<leader>",
             }
         )
@@ -134,7 +132,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             { a = { vim.lsp.buf.code_action, "code action" } },
             {
                 mode = { "n", "v" },
-                buffer = ev.buf,
+                buffer = event.buf,
                 prefix = "<leader>",
             }
         )
