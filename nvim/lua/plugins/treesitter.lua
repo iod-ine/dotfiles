@@ -13,6 +13,8 @@ return {
                 "vimdoc",
                 "query",
                 -- These five should always be installed
+                "python",
+                "markdown",
             },
             sync_install = false,
             auto_install = false,
