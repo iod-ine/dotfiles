@@ -18,7 +18,6 @@ which_key.register(
         },
         f = {
             name = "find/file",
-            b = { "<cmd>Telescope file_browser<CR>", "file browser" },
             e = { vim.cmd.Ex, "file explorer" },
             f = { telescope.find_files, "find file" },
             l = { telescope.live_grep, "live grep" },
