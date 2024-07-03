@@ -12,5 +12,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Setup the plugins
-require("lazy").setup("plugins")
+-- Setup the plugins (https://lazy.folke.io/configuration)
+require("lazy").setup({
+    spec = "plugins",
+    change_detection = {
+        notify = false,
+    },
+})
