@@ -5,8 +5,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 local which_key = require("which-key")
 local telescope = require("telescope.builtin")
 
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
 which_key.register(
     {
         b = {
