@@ -43,10 +43,21 @@ which_key.register(
         },
         q = { telescope.diagnostics, "diagnostics" },
         u = { vim.cmd.UndotreeToggle, "undo tree" },
+        p = { "\"*p", "paste from clipboard" },
         ["/"] = { telescope.current_buffer_fuzzy_find, "fuzzy find" },
     },
     {
         mode = "n",
+        prefix = "<leader>",
+    }
+)
+
+which_key.register(
+    {
+        y = { "\"*y", "yank to clipboard" },
+    },
+    {
+        mode = "v",
         prefix = "<leader>",
     }
 )
