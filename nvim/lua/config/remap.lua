@@ -99,10 +99,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 b = {
                     name = "buffer",
                     f = { vim.lsp.buf.format, "format code" },
-                },
-                d = {
-                    name = "document",
-                    s = { telescope.lsp_document_symbols, "symbols" },
+                    s = { telescope.lsp_document_symbols, "buffer symbols" },
                 },
                 D = { vim.lsp.buf.type_definition, "go to type definition" },
                 r = { vim.lsp.buf.rename, "rename symbol" },
