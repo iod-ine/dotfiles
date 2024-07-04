@@ -41,6 +41,7 @@ return {
         },
         config = function()
             local dap = require("dap")
+            local ui = require("dapui")
             local which_key = require("which-key")
 
             vim.keymap.set("n", "<F1>", dap.continue)
@@ -81,6 +82,19 @@ return {
                     prefix = "<leader>",
                 }
             )
+
+            dap.listeners.before.attach.dapui = function()
+                ui.open()
+            end
+            dap.listeners.before.launch.dapui = function()
+                ui.open()
+            end
+            dap.listeners.before.event_terminated.dapui = function()
+                ui.close()
+            end
+            dap.listeners.before.event_exited.dapui = function()
+                ui.close()
+            end
         end
     },
 }
