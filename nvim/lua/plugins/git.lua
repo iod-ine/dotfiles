@@ -2,7 +2,7 @@ return {
     {
         "lewis6991/gitsigns.nvim",
         enabled = function()
-            return not string.find(vim.fn.expand("%:p"), "arcadia/")
+            return not string.find(vim.fn.getcwd(), "arcadia")
         end,
         opts = {
             signs = {
