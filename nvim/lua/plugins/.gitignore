@@ -1,0 +1,2 @@
+# Exclude specs for local-only plugins
+_local.lua
