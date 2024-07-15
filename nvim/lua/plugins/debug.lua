@@ -10,21 +10,14 @@ return {
                 config = function()
                     local dap_py = require("dap-python")
                     local which_key = require("which-key")
-                    local debugger_options = { config = { justMyCode = false } }
+                    local debugger_opts = { config = { justMyCode = false } }
 
                     dap_py.setup("python")
 
-                    which_key.register(
+                    which_key.add(
                         {
-                            d = {
-                                name = "debug",
-                                l = { function() dap_py.class(debugger_options) end, "test class" },
-                                m = { function() dap_py.test_method(debugger_options) end, "test method" },
-                            },
-                        },
-                        {
-                            mode = "n",
-                            prefix = "<leader>",
+                            { "<leader>dl", function() dap_py.class(debugger_opts) end, desc = "test class" },
+                            { "<leader>dm", function() dap_py.test_method(debugger_opts) end, desc = "test method" },
                         }
                     )
                 end,
@@ -44,42 +37,29 @@ return {
             local ui = require("dapui")
             local which_key = require("which-key")
 
-            vim.keymap.set("n", "<F1>", dap.continue)
-            vim.keymap.set("n", "<F2>", dap.step_into)
-            vim.keymap.set("n", "<F3>", dap.step_over)
-            vim.keymap.set("n", "<F4>", dap.step_out)
-            vim.keymap.set("n", "<F5>", dap.step_back)
-
-            which_key.register(
+            -- NOTE: How do I make these buffer-local?
+            which_key.add(
                 {
-                    ["<C-b>"] = { dap.toggle_breakpoint, "toggle breakpoint" },
-                    ["g<C-b>"] = {
+                    { "<F1>", dap.continue, desc = "continue" },
+                    { "<F2>", dap.step_into, desc = "step into" },
+                    { "<F3>", dap.step_over, desc = "step over" },
+                    { "<F4>", dap.step_out, desc = "step out" },
+                    { "<F5>", dap.step_back, desc = "step back" },
+                    { "<C-b>", dap.toggle_breakpoint, desc = "toggle breakpoint" },
+                    {
+                        "g<C-b>",
                         function()
                             dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
                         end,
-                        "conditional breakpoint",
+                        desc = "toggle breakpoint",
                     },
-                },
-                {
-                    mode = "n",
-                    prefix = nil,
-                }
-            )
 
-            which_key.register(
-                {
-                    d = {
-                        name = "debug",
-                        c = { dap.repl.toggle, "toggle console" },
-                        d = { dap.down, "down staktrace" },
-                        q = { dap.terminate, "terminate session" },
-                        r = { dap.restart, "restart session" },
-                        u = { dap.up, "up staktrace" },
-                    },
-                },
-                {
-                    mode = "n",
-                    prefix = "<leader>",
+                    { "<leader>d", group = "debug" },
+                    { "<leader>dc", dap.repl.toggle, desc = "toggle console" },
+                    { "<leader>dd", dap.down, desc = "down stacktrace" },
+                    { "<leader>dq", dap.terminate, desc = "terminate session" },
+                    { "<leader>dr", dap.restart, desc = "restart session" },
+                    { "<leader>du", dap.up, desc = "up stacktrace" },
                 }
             )
 

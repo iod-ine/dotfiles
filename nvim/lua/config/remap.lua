@@ -5,60 +5,42 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 local which_key = require("which-key")
 local telescope = require("telescope.builtin")
 
-which_key.register(
+which_key.add(
     {
-        b = {
-            name = "buffer",
-            b = { telescope.buffers, "find buffer" },
-            d = { vim.cmd.bdelete, "delete buffer" },
-            n = { vim.cmd.bnext, "next buffer" },
-            p = { vim.cmd.bprevious, "previous buffer" },
-        },
-        f = {
-            name = "find/file",
-            e = { vim.cmd.Ex, "file explorer" },
-            f = { telescope.find_files, "find file" },
-            l = { telescope.live_grep, "live grep" },
-            r = { telescope.oldfiles, "recent files" },
-            s = { telescope.grep_string, "grep string" },
-            t = { "<cmd>TodoTelescope<CR>", "find TODOs" },
-        },
-        g = {
-            name = "git",
-            l = { telescope.git_commits, "git log" },
-            b = { telescope.git_commits, "buffer commits" },
-        },
-        h = {
-            name = "help",
-            h = { telescope.help_tags, "help tags" },
-        },
+        { "<leader>b", group = "buffer" },
+        { "<leader>bb", telescope.buffers, desc = "find buffer" },
+        { "<leader>bd", vim.cmd.bdelete, desc = "delete buffer" },
+        { "<leader>bn", vim.cmd.bnext, desc = "next buffer" },
+        { "<leader>bp", vim.cmd.bprevious, desc = "previous buffer" },
+
+        { "<leader>f", group = "find/file" },
+        { "<leader>fe", vim.cmd.Ex, desc = "file explorer" },
+        { "<leader>ff", telescope.find_files, desc = "file file" },
+        { "<leader>fl", telescope.live_grep, desc = "live grep" },
+        { "<leader>fr", telescope.oldfiles, desc = "recent files" },
+        { "<leader>fs", telescope.grep_string, desc = "grep string" },
+        { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "find TODOs" },
+
+        { "<leader>g", group = "git" },
+        { "<leader>gl", telescope.git_commits, desc = "git log" },
+        { "<leader>gb", telescope.git_bcommits, desc = "buffer commits" },
+
+        { "<leader>h", group = "help" },
+        { "<leader>hh", telescope.help_tags, desc = "help tags" },
+
         -- For tabs:
         -- :tabedit to open a new one, :tabclose to close the current,
         -- :tabonly to leave only the current, :tabfirst / :tablast
         -- {N}gt goes to next tab or tab number N, gT goes to previous
-        t = {
-            name = "toggle",
-            c = { "<cmd>:TSContextToggle<cr>", "context" },
-            w = { "<cmd>set wrap!<cr>", "wrap" },
-        },
-        q = { telescope.diagnostics, "diagnostics" },
-        u = { vim.cmd.UndotreeToggle, "undo tree" },
-        p = { "\"*p", "paste from clipboard" },
-        ["/"] = { telescope.current_buffer_fuzzy_find, "fuzzy find" },
-    },
-    {
-        mode = "n",
-        prefix = "<leader>",
-    }
-)
+        { "<leader>t", group = "toggle" },
+        { "<leader>tc", "<cmd>TSContextToggle<cr>", desc = "context" },
+        { "<leader>tw", "<cmd>set wrap!<cr>", desc = "wrap" },
 
-which_key.register(
-    {
-        y = { "\"*y", "yank to clipboard" },
-    },
-    {
-        mode = "v",
-        prefix = "<leader>",
+        { "<leader>q", telescope.diagnostics, desc = "diagnostics" },
+        { "<leader>u", vim.cmd.UndotreeToggle, desc = "undo tree" },
+        { "<leader>p", "\"*p", desc = "paste from clipboard" },
+        { "<leader>y", "\"*y", desc = "yank to clipboard", mode = { "n", "v" } },
+        { "<leader>/", telescope.current_buffer_fuzzy_find, desc = "fuzzy find" },
     }
 )
 
@@ -75,56 +57,31 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
 
         -- Mappings for normal mode without the leader
-        -- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-        -- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-        which_key.register(
+        which_key.add(
             {
-                g = {
-                    d = { vim.lsp.buf.definition, "go to definition" },
-                    D = { vim.lsp.buf.declaration, "go to declaration" },
-                    r = { telescope.lsp_references, "references" },
-                },
-                K = { vim.lsp.buf.hover, "hover" },
-            },
-            {
-                mode = "n",
-                buffer = event.buf,
-                prefix = nil,
-            }
-        )
+                {
+                    buffer = event.buf,
 
-        -- Mappings for normal mode with the leader
-        which_key.register(
-            {
-                b = {
-                    name = "buffer",
-                    f = { vim.lsp.buf.format, "format code" },
-                    s = { telescope.lsp_document_symbols, "buffer symbols" },
-                },
-                D = { vim.lsp.buf.type_definition, "go to type definition" },
-                r = { vim.lsp.buf.rename, "rename symbol" },
-                w = {
-                    name = "workspace",
-                    a = { vim.lsp.buf.add_workspace_folder, "add workspace folder" },
-                    l = { list_workspace_folders, "list workspace folders" },
-                    r = { vim.lsp.buf.remove_workspace_folder, "remove workspace folder" },
-                    s = { telescope.lsp_workspace_symbols, "symbols" },
-                },
-            },
-            {
-                mode = "n",
-                buffer = event.buf,
-                prefix = "<leader>",
-            }
-        )
+                    { "gd", vim.lsp.buf.definition, desc = "got to definition" },
+                    { "gD", vim.lsp.buf.declaration, desc = "got to declaration" },
+                    { "gi", vim.lsp.buf.implementation, desc = "got to implementation" },
+                    { "gr", telescope.lsp_references, desc = "references" },
+                    { "K", vim.lsp.buf.hover, desc = "hover" },
+                    { "<C-K>", vim.lsp.buf.signature_help, desc = "signature help" },
 
-        -- Mappings for both normal and visual modes with the leader
-        which_key.register(
-            { a = { vim.lsp.buf.code_action, "code action" } },
-            {
-                mode = { "n", "v" },
-                buffer = event.buf,
-                prefix = "<leader>",
+                    { "<leader>bf", vim.lsp.buf.format, desc = "format code" },
+                    { "<leader>bs", telescope.lsp_document_symbols, desc = "buffer symbols" },
+                    { "<leader>D", vim.lsp.buf.type_definition, desc = "type definition" },
+                    { "<leader>r", vim.lsp.buf.rename, desc = "rename symbol" },
+
+                    { "<leader>w", group = "workspace" },
+                    { "<leader>wa", vim.lsp.buf.add_workspace_folder, desc = "add workspace folder" },
+                    { "<leader>wl", list_workspace_folders, desc = "list workspace folders" },
+                    { "<leader>wr", vim.lsp.buf.remove_workspace_folder, desc = "remove workspace folder" },
+                    { "<leader>ws", telescope.lsp_workspace_symbols, desc = "symbols" },
+
+                    { "<leader>a", vim.lsp.buf.code_action, desc = "code action", mode = { "n", "v" } }
+                }
             }
         )
     end,
