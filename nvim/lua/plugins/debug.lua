@@ -13,6 +13,7 @@ return {
                     local debugger_opts = { config = { justMyCode = false } }
 
                     dap_py.setup("python")
+                    dap_py.test_runner = "pytest"
 
                     which_key.add(
                         {
