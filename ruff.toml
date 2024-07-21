@@ -15,6 +15,10 @@ select = [
     "PD",    # pandas-vet
     "NPY",   # NumPy-specific rules
     "PERF",  # Perflint
+    "PL",    # Pylint
+    "TRY",   # tryceratops
+    "FURB",  # refurb
+    "RUF",   # Ruff-specific rules
 ]
 
 [lint.per-file-ignores]
