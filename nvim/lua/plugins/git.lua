@@ -4,14 +4,28 @@ return {
         enabled = function()
             return not string.find(vim.fn.getcwd(), "arcadia")
         end,
-        opts = {
-            signs = {
-                add = { text = "+" },
-                change = { text = "~" },
-                delete = { text = "_" },
-                topdelete = { text = "‾" },
-                changedelete = { text = "~" },
-            },
-        },
+        config = function()
+            local which_key = require("which-key")
+            local gitsigns = require("gitsigns")
+
+            gitsigns.setup({
+                signs = {
+                    add = { text = "+" },
+                    change = { text = "~" },
+                    delete = { text = "_" },
+                    topdelete = { text = "‾" },
+                    changedelete = { text = "~" },
+                },
+            })
+
+            which_key.add({
+                { "<leader>gp", gitsigns.preview_hunk, desc = "preview hunk" },
+                { "<leader>gr", gitsigns.reset_hunk, desc = "reset hunk" },
+                { "<leader>gR", gitsigns.reset_hunk, desc = "reset hunk" },
+                { "<leader>gs", gitsigns.stage_hunk, desc = "stage hunk" },
+                { "<leader>gS", gitsigns.stage_buffer, desc = "stage buffer" },
+                { "<leader>gu", gitsigns.undo_stage_hunk, desc = "undo stage" },
+            })
+        end
     },
 }
