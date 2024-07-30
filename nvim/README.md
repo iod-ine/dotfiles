@@ -11,7 +11,8 @@
 `require()` treats each script as a function and caches whatever it returns: the same file won't be executed twice.
 
 Python LSP prerequisites:
+
 ```shell
-pipx install "python-lsp-server"
-pipx inject python-lsp-server python-lsp-ruff pylsp-mypy
+pipx install ruff
+pipx install python-lsp-server
 ```
