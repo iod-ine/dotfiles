@@ -21,7 +21,7 @@ return {
             which_key.add({
                 { "<leader>gp", gitsigns.preview_hunk, desc = "preview hunk" },
                 { "<leader>gr", gitsigns.reset_hunk, desc = "reset hunk" },
-                { "<leader>gR", gitsigns.reset_hunk, desc = "reset hunk" },
+                { "<leader>gR", gitsigns.reset_buffer, desc = "reset buffer" },
                 { "<leader>gs", gitsigns.stage_hunk, desc = "stage hunk" },
                 { "<leader>gS", gitsigns.stage_buffer, desc = "stage buffer" },
                 { "<leader>gu", gitsigns.undo_stage_hunk, desc = "undo stage" },
