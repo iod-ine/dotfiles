@@ -1,7 +1,7 @@
 return {
     {
         "lewis6991/gitsigns.nvim",
-        enabled = function()
+        cond = function()
             return not string.find(vim.fn.getcwd(), "arcadia")
         end,
         config = function()
