@@ -8,12 +8,17 @@ return {
                 "mfussenegger/nvim-dap-python",
                 ft = "python",
                 config = function()
+                    local dap = require("dap")
                     local dap_py = require("dap-python")
                     local which_key = require("which-key")
                     local debugger_opts = { config = { justMyCode = false } }
 
                     dap_py.setup("python")
                     dap_py.test_runner = "pytest"
+
+                    for _, conf in ipairs(dap.configurations.python) do
+                        conf["justMyCode"] = false
+                    end
 
                     which_key.add(
                         {
