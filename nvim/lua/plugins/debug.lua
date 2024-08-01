@@ -35,7 +35,18 @@ return {
             },
             {
                 "theHamsta/nvim-dap-virtual-text",
-                opts = {},
+                config = function()
+                    local dap_virtual_text = require("nvim-dap-virtual-text")
+                    local which_key = require("which-key")
+
+                    dap_virtual_text.setup({
+                        virt_text_pos = "eol",
+                    })
+
+                    which_key.add({
+                        { "<leader>dv", "<cmd>DapVirtualTextToggle<cr>", desc = "toggle virtual text" },
+                    })
+                end
             },
         },
         config = function()
