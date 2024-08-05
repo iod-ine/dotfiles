@@ -25,6 +25,10 @@ return {
                 { "<leader>gs", gitsigns.stage_hunk, desc = "stage hunk" },
                 { "<leader>gS", gitsigns.stage_buffer, desc = "stage buffer" },
                 { "<leader>gu", gitsigns.undo_stage_hunk, desc = "undo stage" },
+                { "<leader>gb", gitsigns.blame_line, desc = "blame line" },
+                { "<leader>gB", gitsigns.blame, desc = "blame" },
+                { "<leader>tb", gitsigns.toggle_current_line_blame, desc = "line blame" },
+                { "<leader>td", gitsigns.toggle_deleted, desc = "show deleted" },
             })
         end
     },
