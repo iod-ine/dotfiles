@@ -22,8 +22,8 @@ which_key.add(
         { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "find TODOs" },
 
         { "<leader>g", group = "git" },
-        { "<leader>gl", telescope.git_commits, desc = "git log" },
-        { "<leader>gb", telescope.git_bcommits, desc = "buffer commits" },
+        { "<leader>gl", telescope.git_bcommits, desc = "buffer commits" },
+        { "<leader>gL", telescope.git_commits, desc = "git log" },
 
         { "<leader>h", group = "help" },
         { "<leader>hh", telescope.help_tags, desc = "help tags" },
