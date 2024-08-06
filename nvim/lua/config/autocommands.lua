@@ -14,9 +14,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
         if client.supports_method("textDocument/documentHighlight") then
             vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
                 callback = vim.lsp.buf.document_highlight,
+                buffer = event.buf,
             })
             vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
                 callback = vim.lsp.buf.clear_references,
+                buffer = event.buf,
             })
         end
     end,
