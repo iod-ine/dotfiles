@@ -26,7 +26,12 @@ which_key.add(
         { "<leader>gL", telescope.git_commits, desc = "git log" },
 
         { "<leader>h", group = "help" },
+        { "<leader>hc", telescope.commands, desc = "commands" },
         { "<leader>hh", telescope.help_tags, desc = "help tags" },
+        { "<leader>hk", telescope.keymaps, desc = "keymaps" },
+        { "<leader>hl", telescope.command_history, desc = "command history" },
+        { "<leader>ho", telescope.vim_options, desc = "options" },
+        { "<leader>hs", telescope.search_history, desc = "search history" },
 
         -- For tabs:
         -- :tabedit to open a new one, :tabclose to close the current,
