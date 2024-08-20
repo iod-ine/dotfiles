@@ -9,6 +9,7 @@
     - [Python LSP Server](https://github.com/python-lsp/python-lsp-server)
     - [JupyterLab](https://github.com/jupyterlab/jupyterlab)
       - [jupyterlab-code-formatter](https://github.com/ryantam626/jupyterlab_code_formatter)
+      - [jupyterlab-git](https://github.com/jupyterlab/jupyterlab-git)
   - [miniconda](https://docs.anaconda.com/free/miniconda/)
   - [ltex-ls](https://github.com/valentjn/ltex-ls)
   - [lua-language-server](https://github.com/LuaLS/lua-language-server)
