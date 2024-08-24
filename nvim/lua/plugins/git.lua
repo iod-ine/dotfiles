@@ -29,6 +29,9 @@ return {
                 { "<leader>gB", gitsigns.blame, desc = "blame" },
                 { "<leader>tb", gitsigns.toggle_current_line_blame, desc = "line blame" },
                 { "<leader>td", gitsigns.toggle_deleted, desc = "show deleted" },
+
+                { "]h", gitsigns.next_hunk, desc = "next git hunk" },
+                { "[h", gitsigns.next_hunk, desc = "previous git hunk" },
             })
         end
     },
