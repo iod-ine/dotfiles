@@ -16,8 +16,12 @@ return {
                     dap_py.setup("python")
                     dap_py.test_runner = "pytest"
 
+                    local cwd = vim.fn.getcwd()
+
                     for _, conf in ipairs(dap.configurations.python) do
                         conf["justMyCode"] = false
+                        conf["cwd"] = cwd
+                        conf["env"] = { PYTHONPATH = cwd }
                     end
 
                     which_key.add(
