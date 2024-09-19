@@ -18,7 +18,12 @@ return {
 
             which_key.add(
                 {
-                    { "<leader>ta", "<cmd>CodeiumToggle<cr>", desc = "toggle Codeium" },
+                    {
+                        "<leader>ta",
+                        function() vim.g.codeium_manual = not vim.g.codeium_manual end,
+                        desc = "Codeium autosuggest",
+                    },
+                    { "<leader>tA", "<cmd>CodeiumToggle<cr>", desc = "Codeium" },
                     {
                         -- It was very annoying to figure out how to set these mappings up.
                         -- And the way they need to be set up is also annoying :)
