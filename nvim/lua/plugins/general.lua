@@ -36,7 +36,18 @@ return {
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = {},
+        opts = {
+            sections = {
+                lualine_x = {
+                    "encoding",
+                    "fileformat",
+                    "filetype",
+                    function()
+                        return "Codeium:" .. vim.api.nvim_call_function("codeium#GetStatusString", {})
+                    end,
+                },
+            },
+        },
     },
 
     -- Precise horizontal navigation
