@@ -39,12 +39,13 @@ return {
         opts = {
             sections = {
                 lualine_x = {
+                    function()
+                        local prefix = vim.g.codeium_manual and "Codeium[manual]:" or "Codeium[auto]:"
+                        return prefix .. vim.api.nvim_call_function("codeium#GetStatusString", {})
+                    end,
                     "encoding",
                     "fileformat",
                     "filetype",
-                    function()
-                        return "Codeium:" .. vim.api.nvim_call_function("codeium#GetStatusString", {})
-                    end,
                 },
             },
         },
