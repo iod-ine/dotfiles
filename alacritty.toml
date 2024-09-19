@@ -7,3 +7,4 @@ family = "UbuntuMono Nerd Font"
 [window]
 decorations = "none"
 opacity = 0.97
+option_as_alt = "OnlyLeft"
