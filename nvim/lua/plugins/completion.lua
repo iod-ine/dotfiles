@@ -29,12 +29,12 @@ return {
                         -- And the way they need to be set up is also annoying :)
                         mode = "i",
                         expr = true,
-                        { "<M-e>", function() return vim.fn["codeium#Accept"]() end },
+                        { "<M-e>", function() return vim.fn["codeium#Clear"]() end },
                         { "<M-l>", function() return vim.fn["codeium#AcceptNextLine"]() end },
                         { "<M-n>", function() return vim.fn["codeium#CycleOrComplete"]() end },
                         { "<M-p>", function() return vim.fn["codeium#CycleCompletions"](-1) end },
                         { "<M-w>", function() return vim.fn["codeium#AcceptNextWord"]() end },
-                        { "<M-x>", function() return vim.fn["codeium#Clear"]() end },
+                        { "<M-y>", function() return vim.fn["codeium#Accept"]() end },
                     },
                 }
             )
