@@ -45,6 +45,7 @@ which_key.add(
         { "<leader>u", vim.cmd.UndotreeToggle, desc = "undo tree" },
         { "<leader>p", "\"*p", desc = "paste from clipboard" },
         { "<leader>y", "\"*y", desc = "yank to clipboard", mode = { "n", "v" } },
+        { "<leader>x", "\"*x", desc = "cut to clipboard", mode = { "n", "v" } },
         { "<leader>/", telescope.current_buffer_fuzzy_find, desc = "fuzzy find" },
     }
 )
