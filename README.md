@@ -1,6 +1,8 @@
 # dotfiles
 
 - [Homebrew](https://github.com/Homebrew/brew)
+  - [Neovim](https://github.com/neovim/neovim)
+  - [Alacritty](https://github.com/alacritty/alacritty)
   - [tmux](https://github.com/tmux/tmux)
   - [pyenv](https://github.com/pyenv/pyenv)
   - [pipx](https://github.com/pypa/pipx)
@@ -16,8 +18,6 @@
   - [ccls](https://github.com/MaskRay/ccls)
   - [tldr](https://github.com/tldr-pages/tldr)
 - [Oh My Bash](https://github.com/ohmybash/oh-my-bash)
-- [Alacritty](https://github.com/alacritty/alacritty)
-- [Neovim](https://github.com/neovim/neovim)
 
 ### Git configs
 
