@@ -1,3 +1,6 @@
 " Swap J and K
 bind J tabnext
 bind K tabprev
+
+" Disable Tridactyl on some URLs
+blacklistadd http://localhost:8888
