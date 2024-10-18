@@ -25,6 +25,9 @@ which_key.add(
         { "<leader>gl", telescope.git_bcommits, desc = "buffer commits" },
         { "<leader>gL", telescope.git_commits, desc = "git log" },
 
+        { "<C-j>", vim.cmd.cnext },
+        { "<C-k>", vim.cmd.cprev },
+
         { "<leader>h", group = "help" },
         { "<leader>hc", telescope.commands, desc = "commands" },
         { "<leader>hh", telescope.help_tags, desc = "help tags" },
@@ -73,7 +76,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
                     { "gi", vim.lsp.buf.implementation, desc = "got to implementation" },
                     { "gr", telescope.lsp_references, desc = "references" },
                     { "K", vim.lsp.buf.hover, desc = "hover" },
-                    { "<C-K>", vim.lsp.buf.signature_help, desc = "signature help" },
+                    { "<M-k>", vim.lsp.buf.signature_help, desc = "signature help" },
 
                     { "<leader>bf", vim.lsp.buf.format, desc = "format code" },
                     { "<leader>bs", telescope.lsp_document_symbols, desc = "buffer symbols" },
