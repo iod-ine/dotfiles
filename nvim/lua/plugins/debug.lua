@@ -97,4 +97,44 @@ return {
             end
         end
     },
+    -- REPLs
+    {
+        "Vigemus/iron.nvim",
+        ft = { "python", "lua" },
+        config = function()
+            local iron = require("iron.core")
+
+            iron.setup({
+                config = {
+                    scratch_repl = true,
+                    repl_definition = {
+                        python = {
+                            command = { "ipython", "--no-autoindent", "--no-confirm-exit" },
+                            format = require("iron.fts.common").bracketed_paste_python,
+                        },
+                        lua = {
+                            command = { "lua" },
+                        },
+                },
+                ignore_blank_lines = true,
+                repl_open_cmd = require("iron.view").split.vertical.botright(80)
+            },
+            })
+
+        -- :h iron-commands
+        -- :h iron-functions
+        require("which-key").add({
+            { "<leader>e", group = "repl" },
+            { "<leader>ec", iron.send_until_cursor, desc = "send until cursor" },
+            { "<leader>ee", "<cmd>IronRepl<cr>", desc = "open repl" },
+            { "<leader>ef", "<cmd>IronFocus<cr>", desc = "focus repl" },
+            { "<leader>eF", iron.send_file, desc = "send file" },
+            { "<leader>eh", "<cmd>IronHide<cr>", desc = "hide repl" },
+            { "<leader>el", iron.send_line, desc = "send line" },
+            { "<leader>ep", iron.send_paragraph, desc = "send paragraph" },
+            { "<leader>eq", iron.close_repl, desc = "close repl" },
+            { "<leader>es", iron.visual_send, desc = "send selection", mode = "v" },
+        })
+        end,
+    },
 }
