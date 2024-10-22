@@ -2,11 +2,10 @@ return {
     -- Debugger Adapter Protocol and its friends
     {
         "mfussenegger/nvim-dap",
-        lazy = true,
+        ft = { "python" },
         dependencies = {
             {
                 "mfussenegger/nvim-dap-python",
-                ft = "python",
                 config = function()
                     local dap = require("dap")
                     local dap_py = require("dap-python")
