@@ -123,6 +123,8 @@ return {
 
         -- :h iron-commands
         -- :h iron-functions
+        -- Any configured REPL can be created by :IronRepl ft or :IronReplHere ft
+        -- and then forcefully attached to the current buffer by :IronAttach ft.
         require("which-key").add({
             { "<leader>e", group = "repl" },
             { "<leader>ec", iron.send_until_cursor, desc = "send until cursor" },
