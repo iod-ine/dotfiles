@@ -4,6 +4,7 @@
   - [Neovim](https://github.com/neovim/neovim)
   - [Alacritty](https://github.com/alacritty/alacritty)
   - [tmux](https://github.com/tmux/tmux)
+  - [uv](https://github.com/astral-sh/uv)
   - [pyenv](https://github.com/pyenv/pyenv)
   - [pipx](https://github.com/pypa/pipx)
     - [pdm](https://github.com/pdm-project/pdm)
