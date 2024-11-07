@@ -1,5 +1,8 @@
 # dotfiles
 
+<details>
+<summary>macOS</summary>
+
 - [Homebrew](https://github.com/Homebrew/brew)
   - [Neovim](https://github.com/neovim/neovim)
   - [Alacritty](https://github.com/alacritty/alacritty)
@@ -19,6 +22,8 @@
   - [ccls](https://github.com/MaskRay/ccls)
   - [tldr](https://github.com/tldr-pages/tldr)
 - [Oh My Bash](https://github.com/ohmybash/oh-my-bash)
+
+</details>
 
 ### Git configs
 
