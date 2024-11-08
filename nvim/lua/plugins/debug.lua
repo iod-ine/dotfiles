@@ -58,6 +58,7 @@ return {
             local which_key = require("which-key")
 
             -- NOTE: How do I make these buffer-local?
+            -- TODO: Move these into an autocommand
             which_key.add(
                 {
                     { "<F1>", dap.continue, desc = "continue" },
@@ -115,39 +116,38 @@ return {
                         lua = {
                             command = { "lua" },
                         },
+                    },
+                    ignore_blank_lines = true,
+                    repl_open_cmd = require("iron.view").split.vertical.botright(80)
                 },
-                ignore_blank_lines = true,
-                repl_open_cmd = require("iron.view").split.vertical.botright(80)
-            },
             })
 
-        -- Define the keymaps inside an autocommand to make them buffer-local.
-        vim.api.nvim_create_autocmd("FileType", {
-            pattern = { "python", "lua" },
-            desc = "Set up Iron REPL keybindings",
-            group = vim.api.nvim_create_augroup("iron-repl-bindings", { clear = true }),
-            callback = function(event)
-                -- :h iron-commands
-                -- :h iron-functions
-                -- REPL is run in the TERMINAL mode. To exit to normal mode: <C-\><C-n>
-                -- Any configured REPL can be created by :IronRepl ft or :IronReplHere ft
-                -- and then forcefully attached to the current buffer by :IronAttach ft.
-                require("which-key").add({
-                    buffer = event.buf,
-                    { "<leader>e", group = "repl" },
-                    { "<leader>ec", iron.send_until_cursor, desc = "send until cursor" },
-                    { "<leader>ee", "<cmd>IronRepl<cr>", desc = "open repl" },
-                    { "<leader>ef", "<cmd>IronFocus<cr>", desc = "focus repl" },
-                    { "<leader>eF", iron.send_file, desc = "send file" },
-                    { "<leader>eh", "<cmd>IronHide<cr>", desc = "hide repl" },
-                    { "<leader>el", iron.send_line, desc = "send line" },
-                    { "<leader>ep", iron.send_paragraph, desc = "send paragraph" },
-                    { "<leader>eq", iron.close_repl, desc = "close repl" },
-                    { "<leader>es", iron.visual_send, desc = "send selection", mode = "v" },
-                })
-            end,
-        })
-
+            -- Define the keymaps inside an autocommand to make them buffer-local.
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = { "python", "lua" },
+                desc = "Set up Iron REPL keybindings",
+                group = vim.api.nvim_create_augroup("iron-repl-bindings", { clear = true }),
+                callback = function(event)
+                    -- :h iron-commands
+                    -- :h iron-functions
+                    -- REPL is run in the TERMINAL mode. To exit to normal mode: <C-\><C-n>
+                    -- Any configured REPL can be created by :IronRepl ft or :IronReplHere ft
+                    -- and then forcefully attached to the current buffer by :IronAttach ft.
+                    require("which-key").add({
+                        buffer = event.buf,
+                        { "<leader>e", group = "repl" },
+                        { "<leader>ec", iron.send_until_cursor, desc = "send until cursor" },
+                        { "<leader>ee", "<cmd>IronRepl<cr>", desc = "open repl" },
+                        { "<leader>ef", "<cmd>IronFocus<cr>", desc = "focus repl" },
+                        { "<leader>eF", iron.send_file, desc = "send file" },
+                        { "<leader>eh", "<cmd>IronHide<cr>", desc = "hide repl" },
+                        { "<leader>el", iron.send_line, desc = "send line" },
+                        { "<leader>ep", iron.send_paragraph, desc = "send paragraph" },
+                        { "<leader>eq", iron.close_repl, desc = "close repl" },
+                        { "<leader>es", iron.visual_send, desc = "send selection", mode = "v" },
+                    })
+                end,
+            })
         end,
     },
 }
