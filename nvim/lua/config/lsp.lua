@@ -20,6 +20,9 @@ lspconfig.lua_ls.setup({
     },
 })
 
+-- Go language server
+lspconfig.gopls.setup({})
+
 lspconfig.ltex.setup({
     autostart = false,
     settings = {
