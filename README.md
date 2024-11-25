@@ -7,6 +7,7 @@
   - [Neovim](https://github.com/neovim/neovim)
   - [Alacritty](https://github.com/alacritty/alacritty)
   - [Amethyst](https://github.com/ianyh/Amethyst)
+  - [AeroSpace](https://github.com/nikitabobko/AeroSpace)
   - [tmux](https://github.com/tmux/tmux)
   - [uv](https://github.com/astral-sh/uv)
     - [Python LSP Server](https://github.com/python-lsp/python-lsp-server)

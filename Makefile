@@ -6,3 +6,4 @@ create-symlinks:
 	rm -rf ~/.config/conda && ln -sf $(CURDIR)/conda ~/.config/conda
 	rm -rf ~/.config/alacritty.toml && ln -sf $(CURDIR)/alacritty.toml ~/.config/alacritty.toml
 	rm -rf ~/.config/tridactyl && ln -sf $(CURDIR)/tridactyl ~/.config/tridactyl
+	rm -rf ~/.config/aerospace && ln -sf $(CURDIR)/aerospace ~/.config/aerospace
