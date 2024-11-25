@@ -6,6 +6,7 @@
 - [Homebrew](https://github.com/Homebrew/brew)
   - [Neovim](https://github.com/neovim/neovim)
   - [Alacritty](https://github.com/alacritty/alacritty)
+  - [Amethyst](https://github.com/ianyh/Amethyst)
   - [tmux](https://github.com/tmux/tmux)
   - [uv](https://github.com/astral-sh/uv)
     - [Python LSP Server](https://github.com/python-lsp/python-lsp-server)
