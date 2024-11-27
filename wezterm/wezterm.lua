@@ -36,6 +36,20 @@ config.keys = {
         mods = "LEADER",
         action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|DOMAINS" }),
     },
+    {
+        key = "O",
+        mods = "CTRL",
+        action = wezterm.action.QuickSelectArgs({
+            patterns = {
+                "https?://\\S+",
+            },
+            action = wezterm.action_callback(function(window, pane)
+                local url = window:get_selection_text_for_pane(pane)
+                wezterm.log_info('opening: ' .. url)
+                wezterm.open_with(url)
+            end)
+        }),
+    },
 }
 
 config.hyperlink_rules = wezterm.default_hyperlink_rules()
