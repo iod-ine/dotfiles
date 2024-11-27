@@ -1,12 +1,16 @@
 return {
     {
-        "rose-pine/neovim",
+        "catppuccin/nvim",
         lazy = false,    -- Load during startup, since this is the default colorscheme
         priority = 1000, -- Load before any other start plugins
-        name = "rose-pine",
+        name = "catppuccin",
         config = function()
-            vim.cmd.colorscheme("rose-pine")
+            vim.cmd.colorscheme("catppuccin-macchiato")
         end
+    },
+    {
+        "rose-pine/neovim",
+        lazy = true,
     },
     {
         "rebelot/kanagawa.nvim",
