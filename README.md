@@ -1,29 +1,32 @@
 # dotfiles
 
 <details>
-<summary>macOS</summary>
+<summary><h4>macOS</h4></summary>
 
+Tools:
 - [Homebrew](https://github.com/Homebrew/brew)
-  - [fish](https://github.com/fish-shell/fish-shell)
-  - [Neovim](https://github.com/neovim/neovim)
-  - [AeroSpace](https://github.com/nikitabobko/AeroSpace)
-  - [tmux](https://github.com/tmux/tmux)
-  - [uv](https://github.com/astral-sh/uv)
-    - [Python LSP Server](https://github.com/python-lsp/python-lsp-server)
-    - [Ruff](https://github.com/astral-sh/ruff)
-    - [JupyterLab](https://github.com/jupyterlab/jupyterlab)
-      - [jupyterlab-code-formatter](https://github.com/ryantam626/jupyterlab_code_formatter)
-      - [jupyterlab-git](https://github.com/jupyterlab/jupyterlab-git)
-      - [jupyterlab-vim](https://github.com/jupyterlab-contrib/jupyterlab-vim)
-      - [jupyterlab-lsp](https://github.com/jupyter-lsp/jupyterlab-lsp)
-  - [miniconda](https://docs.anaconda.com/free/miniconda/)
-  - [ltex-ls](https://github.com/valentjn/ltex-ls)
-  - [lua-language-server](https://github.com/LuaLS/lua-language-server)
-  - [ccls](https://github.com/MaskRay/ccls)
-  - [tldr](https://github.com/tldr-pages/tldr)
+- [fish](https://github.com/fish-shell/fish-shell)
+- [Neovim](https://github.com/neovim/neovim)
+- [AeroSpace](https://github.com/nikitabobko/AeroSpace)
+- [tmux](https://github.com/tmux/tmux)
+- [uv](https://github.com/astral-sh/uv)
+  - [Python LSP Server](https://github.com/python-lsp/python-lsp-server)
+  - [Ruff](https://github.com/astral-sh/ruff)
+  - [JupyterLab](https://github.com/jupyterlab/jupyterlab)
+    - [jupyterlab-code-formatter](https://github.com/ryantam626/jupyterlab_code_formatter)
+    - [jupyterlab-git](https://github.com/jupyterlab/jupyterlab-git)
+    - [jupyterlab-vim](https://github.com/jupyterlab-contrib/jupyterlab-vim)
+    - [jupyterlab-lsp](https://github.com/jupyter-lsp/jupyterlab-lsp)
+- [miniconda](https://docs.anaconda.com/free/miniconda/)
+- [tldr](https://github.com/tldr-pages/tldr)
+ 
+Language servers:
+- [ltex-ls](https://github.com/valentjn/ltex-ls)
+- [lua-language-server](https://github.com/LuaLS/lua-language-server)
+- [ccls](https://github.com/MaskRay/ccls)
 
 <details>
-<summary>Hall of Fame</summary>
+<summary><h5>Hall of Fame</h5></summary>
 
 Things I no longer use but that paved the way for the current setup.
 
