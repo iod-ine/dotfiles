@@ -38,4 +38,11 @@ config.keys = {
     },
 }
 
+config.hyperlink_rules = wezterm.default_hyperlink_rules()
+
+table.insert(config.hyperlink_rules, {
+    regex = [[REVIEW: (\d+)]],
+    format = "https://a.yandex-team.ru/review/$1",
+})
+
 return config
