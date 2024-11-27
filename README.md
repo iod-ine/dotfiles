@@ -5,6 +5,7 @@
 
 Tools:
 - [Homebrew](https://github.com/Homebrew/brew)
+- [WezTerm](https://github.com/wez/wezterm)
 - [fish](https://github.com/fish-shell/fish-shell)
 - [Neovim](https://github.com/neovim/neovim)
 - [AeroSpace](https://github.com/nikitabobko/AeroSpace)
