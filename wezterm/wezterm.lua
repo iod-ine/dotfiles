@@ -1,7 +1,7 @@
 local wezterm = require "wezterm"
 local config = {}
 
-config.color_scheme = "Afterglow"
+config.color_scheme = "Catppuccin Macchiato"
 
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
