@@ -5,7 +5,6 @@
 
 - [Homebrew](https://github.com/Homebrew/brew)
   - [Neovim](https://github.com/neovim/neovim)
-  - [Alacritty](https://github.com/alacritty/alacritty)
   - [AeroSpace](https://github.com/nikitabobko/AeroSpace)
   - [tmux](https://github.com/tmux/tmux)
   - [uv](https://github.com/astral-sh/uv)
@@ -28,6 +27,7 @@
 
 Things I no longer use but that paved the way for the current setup.
 
+- [Alacritty](https://github.com/alacritty/alacritty)
 - [Amethyst](https://github.com/ianyh/Amethyst)
 - [pdm](https://github.com/pdm-project/pdm)
 - [pipx](https://github.com/pypa/pipx)
