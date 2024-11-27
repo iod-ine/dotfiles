@@ -4,6 +4,7 @@
 <summary>macOS</summary>
 
 - [Homebrew](https://github.com/Homebrew/brew)
+  - [fish](https://github.com/fish-shell/fish-shell)
   - [Neovim](https://github.com/neovim/neovim)
   - [AeroSpace](https://github.com/nikitabobko/AeroSpace)
   - [tmux](https://github.com/tmux/tmux)
@@ -20,7 +21,6 @@
   - [lua-language-server](https://github.com/LuaLS/lua-language-server)
   - [ccls](https://github.com/MaskRay/ccls)
   - [tldr](https://github.com/tldr-pages/tldr)
-- [Oh My Bash](https://github.com/ohmybash/oh-my-bash)
 
 <details>
 <summary>Hall of Fame</summary>
@@ -29,6 +29,7 @@ Things I no longer use but that paved the way for the current setup.
 
 - [Alacritty](https://github.com/alacritty/alacritty)
 - [Amethyst](https://github.com/ianyh/Amethyst)
+- [Oh My Bash](https://github.com/ohmybash/oh-my-bash)
 - [pdm](https://github.com/pdm-project/pdm)
 - [pipx](https://github.com/pypa/pipx)
 - [Poetry](https://github.com/python-poetry/poetry)
