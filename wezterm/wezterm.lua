@@ -26,6 +26,16 @@ config.keys = {
         mods = "LEADER",
         action = wezterm.action.SplitVertical,
     },
+    {
+        key = "w",
+        mods = "LEADER",
+        action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
+    },
+    {
+        key = "d",
+        mods = "LEADER",
+        action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|DOMAINS" }),
+    },
 }
 
 return config
