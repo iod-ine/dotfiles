@@ -57,6 +57,13 @@ config.keys = {
     },
 }
 
+config.window_padding = {
+    left = 10,
+    right = 10,
+    top = 0,
+    bottom = 0,
+}
+
 config.hyperlink_rules = wezterm.default_hyperlink_rules()
 
 table.insert(config.hyperlink_rules, {
