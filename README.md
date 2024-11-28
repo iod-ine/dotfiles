@@ -20,6 +20,7 @@ Tools:
     - [jupyterlab-lsp](https://github.com/jupyter-lsp/jupyterlab-lsp)
 - [miniconda](https://docs.anaconda.com/free/miniconda/)
 - [tldr](https://github.com/tldr-pages/tldr)
+- [zoxide](https://github.com/ajeetdsouza/zoxide)
  
 Language servers:
 - [ltex-ls](https://github.com/valentjn/ltex-ls)
