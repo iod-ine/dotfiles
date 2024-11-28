@@ -100,3 +100,7 @@ run = "move-node-to-workspace Z"
 [[on-window-detected]]
 if.app-id = "io.zsa.keymapp"
 run = "layout floating"
+
+[[on-window-detected]]
+if.window-title-regex-substring = "Picture-in-Picture"
+run = "layout floating"
