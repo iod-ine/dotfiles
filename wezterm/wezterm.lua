@@ -4,7 +4,9 @@ local config = {}
 config.color_scheme = "Catppuccin Macchiato"
 
 config.enable_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = true
+config.use_fancy_tab_bar = false
+config.tab_bar_at_bottom = true
+config.show_new_tab_button_in_tab_bar = false
 config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.95
 config.macos_window_background_blur = 10
@@ -63,6 +65,28 @@ config.window_padding = {
     top = 0,
     bottom = 0,
 }
+
+wezterm.on("update-right-status", function(window, pane)
+    local date = wezterm.strftime("%A, %B %d, %H:%M")
+    local workspace = window:active_workspace()
+    local domain = pane:get_domain_name()
+
+    window:set_left_status(
+        wezterm.format({
+            { Text = string.format("[%s] ", workspace) },
+        })
+    )
+
+    window:set_right_status(
+        wezterm.format({
+            { Attribute = { Intensity = "Bold" } },
+            { Text = string.format("[%s] ", domain) },
+            "ResetAttributes",
+            { Attribute = { Italic = true } },
+            { Text = date },
+        })
+    )
+end)
 
 config.hyperlink_rules = wezterm.default_hyperlink_rules()
 
