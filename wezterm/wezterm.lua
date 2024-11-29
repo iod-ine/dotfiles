@@ -95,4 +95,13 @@ table.insert(config.hyperlink_rules, {
     format = "https://a.yandex-team.ru/review/$1",
 })
 
+config.ssh_domains = wezterm.default_ssh_domains()
+
+table.insert(config.ssh_domains, {
+    name = "geosuggest-dev-1",
+    remote_address = "geosuggest-dev-1.vla.yp-c.yandex.net",
+    username = "ivandubrovin",
+    remote_wezterm_path = "/home/ivandubrovin/.local/bin/wezterm"
+})
+
 return config
