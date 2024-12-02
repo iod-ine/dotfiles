@@ -1,4 +1,4 @@
-local wezterm = require "wezterm"
+local wezterm = require("wezterm")
 local config = {}
 
 config.color_scheme = "Catppuccin Macchiato"
@@ -52,7 +52,6 @@ config.keys = {
             },
             action = wezterm.action_callback(function(window, pane)
                 local url = window:get_selection_text_for_pane(pane)
-                wezterm.log_info('opening: ' .. url)
                 wezterm.open_with(url)
             end)
         }),
@@ -101,7 +100,7 @@ table.insert(config.ssh_domains, {
     name = "geosuggest-dev-1",
     remote_address = "geosuggest-dev-1.vla.yp-c.yandex.net",
     username = "ivandubrovin",
-    remote_wezterm_path = "/home/ivandubrovin/.local/bin/wezterm"
+    remote_wezterm_path = "/home/ivandubrovin/.local/bin/wezterm",
 })
 
 return config
