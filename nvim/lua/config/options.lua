@@ -20,7 +20,7 @@ vim.opt.foldenable = false   -- Disable folds by default, toggle with zi
 
 vim.opt.list = true
 
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.scrolloff = 8
 vim.opt.cursorline = true
 
