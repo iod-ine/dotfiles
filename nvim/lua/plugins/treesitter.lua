@@ -12,9 +12,10 @@ return {
                 "vim",
                 "vimdoc",
                 "query",
-                -- These five should always be installed
-                "python",
                 "markdown",
+                "markdown_inline",
+                -- The seven parsers above must always be installed
+                "python",
             },
             sync_install = false,
             auto_install = false,
