@@ -15,7 +15,7 @@ vim.opt.expandtab = true     -- Replace tabs with spaces (CTRL-V<tab> to insert 
 
 vim.opt.smartindent = true
 vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldenable = false   -- Disable folds by default, toggle with zi
 
 vim.opt.list = true
