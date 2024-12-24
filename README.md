@@ -34,6 +34,7 @@ Things I no longer use but that paved the way for the current setup.
 
 - [Alacritty](https://github.com/alacritty/alacritty)
 - [Amethyst](https://github.com/ianyh/Amethyst)
+- [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
 - [Oh My Bash](https://github.com/ohmybash/oh-my-bash)
 - [pdm](https://github.com/pdm-project/pdm)
 - [pipx](https://github.com/pypa/pipx)
