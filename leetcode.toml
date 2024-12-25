@@ -1,0 +1,27 @@
+[code]
+editor = "nvim"
+lang = "python3"
+
+edit_code_marker = true
+start_marker = "BEGIN SOLUTION"
+end_marker = "END SOLUTION"
+
+comment_problem_desc = true
+comment_leading = "# "
+
+inject_before = []
+inject_after = [
+    "if __name__ == \"__main__\":",
+    "    solution = Solution()"
+]
+
+[cookies]
+csrf = ""
+session = ""
+site = "leetcode.com"
+
+[storage]
+cache = "Problems"
+code = "code"
+root = "~/.leetcode"
+scripts = "scripts"
