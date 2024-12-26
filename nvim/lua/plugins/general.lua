@@ -52,4 +52,11 @@ return {
 
     -- Precise horizontal navigation
     "justinmk/vim-sneak",
+
+    -- File explorer
+    {
+        "stevearc/oil.nvim",
+        opts = {},
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    }
 }
