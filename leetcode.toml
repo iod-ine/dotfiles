@@ -1,5 +1,6 @@
 [code]
 editor = "nvim"
+editor_args = ["--cmd", "cd ~/.leetcode/code/"]
 lang = "python3"
 
 edit_code_marker = true
