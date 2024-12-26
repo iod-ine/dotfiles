@@ -10,10 +10,12 @@ end_marker = "END SOLUTION"
 comment_problem_desc = true
 comment_leading = "# "
 
-inject_before = []
+inject_before = [
+    "from collections import deque, Counter",
+]
 inject_after = [
     "if __name__ == \"__main__\":",
-    "    solution = Solution()"
+    "    solution = Solution()",
 ]
 
 [cookies]
