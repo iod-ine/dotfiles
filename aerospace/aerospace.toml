@@ -104,3 +104,7 @@ run = "layout floating"
 [[on-window-detected]]
 if.window-title-regex-substring = "Picture-in-Picture"
 run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = "com.macpaw.CleanMyMac4"
+run = "layout floating"
