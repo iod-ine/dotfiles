@@ -108,3 +108,8 @@ run = "layout floating"
 [[on-window-detected]]
 if.app-id = "com.macpaw.CleanMyMac4"
 run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = "com.apple.Music"
+if.window-title-regex-substring = "MiniPlayer"
+run = "layout floating"
