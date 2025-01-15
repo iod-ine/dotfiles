@@ -53,4 +53,9 @@ git config --global diff.tool nvimdiff
 git config --global merge.tool nvimdiff2
 git config --global alias.logg 'log --oneline --graph --all'
 git config --global rerere.enabled true
+
+ln -sf (fd --type dir diff-highlight /opt/homebrew/Cellar/git/)diff-highlight ~/.local/bin/diff-highlight
+git config --global pager.diff "diff-highlight | less"
+git config --global pager.log  "diff-highlight | less"
+git config --global pager.show "diff-highlight | less"
 ```
