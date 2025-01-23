@@ -1,0 +1,9 @@
+{
+  "ignoreKeyboardLayout": true,
+  "smoothScroll": false,
+  "grabBackFocus": true,
+  "searchEngines": "w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia\ng: https://www.google.com/search?q=%s Google\ny: https://www.youtube.com/results?search_query=%s Youtube\nd: https://duckduckgo.com/?q=%s DuckDuckGo\nqw: https://www.qwant.com/?q=%s Qwant\ngs: https://scholar.google.com/scholar?q= Google Scholar\ncc: https://www.dict.cc/?s= dict.cc dict.cc\nym: https://yandex.ru/maps/?text=%s Yandex Maps",
+  "searchUrl": "https://ya.ru/search/?text=",
+  "settingsVersion": "2.1.2",
+  "exclusionRules": []
+}
