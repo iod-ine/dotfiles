@@ -2,6 +2,7 @@ local wezterm = require("wezterm")
 local config = {}
 
 config.color_scheme = "Catppuccin Macchiato"
+config.font_size = 13
 
 config.enable_tab_bar = true
 config.use_fancy_tab_bar = false
