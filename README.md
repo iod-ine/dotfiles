@@ -18,6 +18,9 @@ Tools:
     - [jupyterlab-git](https://github.com/jupyterlab/jupyterlab-git)
     - [jupyterlab-vim](https://github.com/jupyterlab-contrib/jupyterlab-vim)
     - [jupyterlab-lsp](https://github.com/jupyter-lsp/jupyterlab-lsp)
+    - ```shell
+      uv tool install jupyterlab --with jupyterlab-code-formatter --with jupyterlab-git --with jupyterlab-vim --with jupyterlab-lsp
+      ```
 - [miniconda](https://docs.anaconda.com/free/miniconda/)
 - [tldr](https://github.com/tldr-pages/tldr)
 - [zoxide](https://github.com/ajeetdsouza/zoxide)
