@@ -14,7 +14,7 @@ which_key.add(
         { "<leader>bp", vim.cmd.bprevious, desc = "previous buffer" },
 
         { "<leader>f", group = "find/file" },
-        { "<leader>fe", vim.cmd.Ex, desc = "file explorer" },
+        { "-", "<cmd>Oil<cr>", desc = "file browser" },
         { "<leader>ff", telescope.find_files, desc = "file file" },
         { "<leader>fl", telescope.live_grep, desc = "live grep" },
         { "<leader>fr", telescope.oldfiles, desc = "recent files" },
