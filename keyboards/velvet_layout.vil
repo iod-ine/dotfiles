@@ -96,8 +96,8 @@
       [
         "KC_TRNS",
         "KC_TRNS",
-        "LGUI(KC_RIGHT)",
-        "LGUI(KC_LEFT)",
+        "SGUI(KC_RBRACKET)",
+        "SGUI(KC_LBRACKET)",
         "KC_TRNS",
         -1
       ],
@@ -154,21 +154,21 @@
       [
         "LSFT(KC_4)",
         "KC_SLASH",
-        "LSFT(KC_SCOLON)",
+        "LSFT(KC_3)",
         "LSFT(KC_8)",
-        "KC_TRNS",
+        "LSFT(KC_6)",
         "KC_TRNS"
       ],
       [
         "MO(3)",
         "KC_TRNS",
-        "KC_TRNS",
+        "KC_KP_DOT",
         "KC_TRNS",
         "LSFT(KC_3)",
         -1
       ],
       [
-        "LSFT(KC_6)",
+        "LSFT(KC_GRAVE)",
         "LSFT(KC_QUOTE)",
         "LSFT(KC_MINUS)",
         "KC_QUOTE",
@@ -186,7 +186,7 @@
       [
         "LSFT(KC_2)",
         "LSFT(KC_BSLASH)",
-        "LSFT(KC_GRAVE)",
+        "LSFT(KC_6)",
         "LSFT(KC_7)",
         "KC_TRNS",
         "KC_TRNS"
