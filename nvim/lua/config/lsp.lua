@@ -23,19 +23,4 @@ lspconfig.lua_ls.setup({
 -- Go language server
 lspconfig.gopls.setup({})
 
-lspconfig.ltex.setup({
-    autostart = false,
-    settings = {
-        ltex = {
-            enabled = true,
-            checkFrequency = "save",
-            languageToolHttpServerUri = "", -- "https://api.languagetoolplus.com/",
-            languageToolOrg = {
-                username = "",
-                apiKey = "",
-            },
-        },
-    },
-})
-
 lspconfig.ccls.setup({})
