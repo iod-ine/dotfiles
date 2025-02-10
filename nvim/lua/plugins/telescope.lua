@@ -37,6 +37,7 @@ return {
                             "rg", "--files", "--hidden",
                             "--glob", "!**/.git/*",
                             "--glob", "!**/.DS_Store",
+                            "--glob", "!**/venv",
                         },
                     },
                 },
