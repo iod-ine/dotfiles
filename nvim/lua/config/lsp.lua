@@ -3,7 +3,24 @@ local lspconfig = require("lspconfig")
 -- Python LSP Server
 -- https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
 -- https://docs.astral.sh/ruff/configuration/
-lspconfig.pylsp.setup({})
+if string.find(vim.fn.getcwd(), "arcadia") then
+    lspconfig.pylsp.setup({
+        settings = {
+            pylsp = {
+                plugins = {
+                    jedi = {
+                        extra_paths = {
+                            "/Users/ivandubrovin/arcadia/",
+                        },
+                    },
+                },
+            },
+        },
+    })
+else
+    lspconfig.pylsp.setup({})
+end
+
 lspconfig.ruff.setup({})
 
 
