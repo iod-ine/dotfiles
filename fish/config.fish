@@ -8,6 +8,7 @@ set EDITOR nvim
 
 alias ya ~/arcadia/ya
 
+abbr --add ads ait diff --staged
 abbr --add gds git diff --staged
 
 zoxide init fish | source
