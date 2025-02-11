@@ -38,6 +38,7 @@ return {
                             "--glob", "!**/.git/*",
                             "--glob", "!**/.DS_Store",
                             "--glob", "!**/venv",
+                            "--glob", "!**/__pycache__",
                         },
                     },
                 },
