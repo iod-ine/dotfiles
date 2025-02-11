@@ -135,7 +135,7 @@ return {
                     -- and then forcefully attached to the current buffer by :IronAttach ft.
                     require("which-key").add({
                         buffer = event.buf,
-                        { "<leader>e", group = "repl" },
+                        { "<leader>e", group = "repl", mode = { "n", "v" } },
                         { "<leader>ec", iron.send_until_cursor, desc = "send until cursor" },
                         { "<leader>ee", "<cmd>IronRepl<cr>", desc = "open repl" },
                         { "<leader>ef", "<cmd>IronFocus<cr>", desc = "focus repl" },
