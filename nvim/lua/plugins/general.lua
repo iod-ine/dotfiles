@@ -13,15 +13,6 @@ return {
         opts = {},
     },
 
-    -- Configuration for built-in LSP
-    "neovim/nvim-lspconfig",
-
-    -- LSP status updates
-    {
-        "j-hui/fidget.nvim",
-        opts = {},
-    },
-
     -- Undo tree: undo history visualization
     "mbbill/undotree",
 
