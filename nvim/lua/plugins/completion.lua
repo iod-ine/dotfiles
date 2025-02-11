@@ -1,10 +1,22 @@
 return {
-    "hrsh7th/nvim-cmp",
-    "hrsh7th/cmp-buffer",       -- Buffer words
-    "hrsh7th/cmp-path",         -- Filesystem paths
-    "hrsh7th/cmp-nvim-lsp",     -- Built-in LSP client
-    "saadparwaiz1/cmp_luasnip", -- Snippets
-    "onsails/lspkind.nvim",     -- Formatting for the completion window
+    {
+        "saghen/blink.cmp",
+        dependencies = "rafamadriz/friendly-snippets",
+        version = "*",
+        opts = {
+            keymap = { preset = "default" },
+            appearance = {
+                use_nvim_cmp_as_default = true,
+                nerd_font_variant = "mono"
+            },
+            sources = {
+                default = { "lsp", "path", "snippets", "buffer" },
+            },
+        },
+        opts_extend = { "sources.default" },
+        signature = { enabled = true },
+    },
+    "onsails/lspkind.nvim", -- Formatting for the completion window
     {
         "Exafunction/codeium.vim",
         init = function()

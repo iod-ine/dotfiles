@@ -25,13 +25,6 @@ return {
     -- Undo tree: undo history visualization
     "mbbill/undotree",
 
-    -- Snippet Engine
-    {
-        "L3MON4D3/LuaSnip",
-        version = "v2.*",
-        build = "make install_jsregexp"
-    },
-
     -- Status line
     {
         "nvim-lualine/lualine.nvim",
