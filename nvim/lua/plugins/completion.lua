@@ -12,9 +12,9 @@ return {
             sources = {
                 default = { "lsp", "path", "snippets", "buffer" },
             },
+            signature = { enabled = true },
         },
         opts_extend = { "sources.default" },
-        signature = { enabled = true },
     },
     "onsails/lspkind.nvim", -- Formatting for the completion window
     {
