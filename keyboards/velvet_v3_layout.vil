@@ -153,9 +153,9 @@
       ],
       [
         "LSFT(KC_4)",
-        "KC_SLASH",
-        "LSFT(KC_3)",
         "LSFT(KC_8)",
+        "LSFT(KC_3)",
+        "KC_TRNS",
         "LSFT(KC_6)",
         "KC_TRNS"
       ],
