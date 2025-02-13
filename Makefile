@@ -18,3 +18,8 @@ wezterm:: directory
 
 tridactyl:: directory
 	rm -rf ~/.config/tridactyl && ln -sf $(CURDIR)/tridactyl ~/.config/tridactyl
+
+leetcode::
+	mkdir -p ~/.leetcode
+	rm -f ~/.leetcode/leetcode.toml && ln -s $(CURDIR)/leetcode.toml ~/.leetcode/leetcode.toml
+	@echo "Don't forget to setup the cookie!"
