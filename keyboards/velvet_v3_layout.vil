@@ -358,7 +358,7 @@
         "KC_TRNS"
       ],
       [
-        "KC_TRNS",
+        "TD(5)",
         "KC_TRNS",
         "KC_TRNS",
         "KC_TRNS",
@@ -390,7 +390,7 @@
         "KC_TRNS"
       ],
       [
-        "KC_TRNS",
+        "TD(6)",
         "KC_TRNS",
         "KC_TRNS",
         "KC_TRNS",
@@ -1228,17 +1228,17 @@
       200
     ],
     [
+      "KC_ENTER",
+      "KC_LALT",
       "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      "KC_NO",
+      "MO(1)",
       200
     ],
     [
+      "KC_TAB",
+      "KC_RALT",
       "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      "KC_NO",
+      "MO(2)",
       200
     ],
     [
@@ -1419,11 +1419,11 @@
   ],
   "combo": [
     [
+      "KC_COMMA",
+      "KC_DOT",
       "KC_NO",
       "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      "KC_NO"
+      "TG(5)"
     ],
     [
       "KC_NO",
