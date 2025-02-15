@@ -1,4 +1,6 @@
 local wezterm = require("wezterm")
+local keymap = require("keymap")
+
 local config = {}
 
 config.color_scheme = "Catppuccin Macchiato"
@@ -12,59 +14,14 @@ config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.95
 config.macos_window_background_blur = 10
 
-config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
-config.keys = {
-    {
-        key = "a",
-        mods = "LEADER|CTRL",
-        action = wezterm.action.SendKey({ key = "a", mods = "CTRL" }),
-    },
-    {
-        key = "|",
-        mods = "LEADER",
-        action = wezterm.action.SplitHorizontal,
-    },
-    {
-        key = "-",
-        mods = "LEADER",
-        action = wezterm.action.SplitVertical,
-    },
-    {
-        key = "z",
-        mods = "LEADER",
-        action = wezterm.action.TogglePaneZoomState,
-    },
-    {
-        key = "w",
-        mods = "LEADER",
-        action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
-    },
-    {
-        key = "d",
-        mods = "LEADER",
-        action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|DOMAINS" }),
-    },
-    {
-        key = "O",
-        mods = "CTRL",
-        action = wezterm.action.QuickSelectArgs({
-            patterns = {
-                "https?://\\S+",
-            },
-            action = wezterm.action_callback(function(window, pane)
-                local url = window:get_selection_text_for_pane(pane)
-                wezterm.open_with(url)
-            end)
-        }),
-    },
-}
-
 config.window_padding = {
     left = 10,
     right = 10,
     top = 0,
     bottom = 0,
 }
+
+keymap.apply(config)
 
 wezterm.on("update-right-status", function(window, pane)
     local date = wezterm.strftime("%A, %B %d, %H:%M")
