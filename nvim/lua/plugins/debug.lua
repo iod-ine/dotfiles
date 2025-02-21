@@ -116,9 +116,24 @@ return {
                         lua = {
                             command = { "lua" },
                         },
+                        ros = {
+                            command = function(meta)
+                                return {
+                                    "docker",
+                                    "exec",
+                                    "--interactive",
+                                    "--tty",
+                                    "--workdir=" .. vim.fn.getcwd(),
+                                    "--env-file=/mnt/storage/home/ivandubrovin/internal_docker_env",
+                                    "ivandubrovin-image-239b9145",
+                                    "python3",
+                                }
+                            end,
+                            format = require("iron.fts.common").bracketed_paste_python,
+                    },
                     },
                     ignore_blank_lines = true,
-                    repl_open_cmd = require("iron.view").split.vertical.botright(80)
+                    repl_open_cmd = require("iron.view").split.vertical.botright(80),
                 },
             })
 
