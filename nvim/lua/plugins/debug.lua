@@ -84,18 +84,6 @@ return {
                 }
             )
 
-            dap.listeners.before.attach.dapui = function()
-                ui.open()
-            end
-            dap.listeners.before.launch.dapui = function()
-                ui.open()
-            end
-            dap.listeners.before.event_terminated.dapui = function()
-                ui.close()
-            end
-            dap.listeners.before.event_exited.dapui = function()
-                ui.close()
-            end
         end
     },
 }
