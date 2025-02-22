@@ -75,12 +75,45 @@ return {
                         desc = "toggle breakpoint",
                     },
 
-                    { "<leader>d", group = "debug" },
-                    { "<leader>dc", dap.repl.toggle, desc = "toggle console" },
-                    { "<leader>dd", dap.down, desc = "down stacktrace" },
+                    { "<leader>d", group = "debug", mode = { "n", "v" } },
+
                     { "<leader>dq", dap.terminate, desc = "terminate session" },
-                    { "<leader>dr", dap.restart, desc = "restart session" },
-                    { "<leader>du", dap.up, desc = "up stacktrace" },
+                    { "<leader>dR", dap.restart, desc = "restart session" },
+                    { "<M-d>", dap.down, desc = "down stacktrace" },
+                    { "<M-u>", dap.up, desc = "up stacktrace" },
+
+                    {
+                        "<leader>db",
+                        function() ui.float_element("breakpoints", { enter = true, title = "DAP Breakpoints" }) end,
+                        desc = "float breakpoints",
+                    },
+                    {
+                        "<leader>dc",
+                        function() ui.float_element("console", { enter = true, title = "DAP Console" }) end,
+                        desc = "float console",
+                    },
+                    {
+                        "<leader>dr",
+                        function() ui.float_element("repl", { enter = true, title = "DAP REPL" }) end,
+                        desc = "float REPL",
+                    },
+                    {
+                        "<leader>ds",
+                        function() ui.float_element("scopes", { enter = true, title = "DAP Scopes" }) end,
+                        desc = "float scopes",
+                    },
+                    {
+                        "<leader>dS",
+                        function() ui.float_element("stacks", { enter = true, title = "DAP Stacks" }) end,
+                        desc = "float stacks",
+                    },
+                    { "<leader>du", ui.toggle, desc = "toggle UI" },
+                    {
+                        "<leader>dw",
+                        function() ui.float_element("watches", { enter = true, title = "DAP Watches" }) end,
+                        desc = "float watches",
+                    },
+                    { "<M-e>", ui.eval, desc = "eval", mode = { "n", "v" } },
                 }
             )
 
