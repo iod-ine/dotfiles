@@ -5,33 +5,6 @@ return {
         ft = { "python" },
         dependencies = {
             {
-                "mfussenegger/nvim-dap-python",
-                config = function()
-                    local dap = require("dap")
-                    local dap_py = require("dap-python")
-                    local which_key = require("which-key")
-                    local debugger_opts = { config = { justMyCode = false } }
-
-                    dap_py.setup("uv")
-                    dap_py.test_runner = "pytest"
-
-                    local cwd = vim.fn.getcwd()
-
-                    for _, conf in ipairs(dap.configurations.python) do
-                        conf["justMyCode"] = false
-                        conf["cwd"] = cwd
-                        conf["env"] = { PYTHONPATH = cwd }
-                    end
-
-                    which_key.add(
-                        {
-                            { "<leader>dl", function() dap_py.class(debugger_opts) end, desc = "test class" },
-                            { "<leader>dm", function() dap_py.test_method(debugger_opts) end, desc = "test method" },
-                        }
-                    )
-                end,
-            },
-            {
                 "rcarriga/nvim-dap-ui",
                 dependencies = { "nvim-neotest/nvim-nio" },
                 opts = {},
@@ -118,5 +91,33 @@ return {
             )
 
         end
+    },
+    {
+        "mfussenegger/nvim-dap-python",
+        ft = { "python" },
+        config = function()
+            local dap = require("dap")
+            local dap_py = require("dap-python")
+            local which_key = require("which-key")
+            local debugger_opts = { config = { justMyCode = false } }
+
+            dap_py.setup("uv")
+            dap_py.test_runner = "pytest"
+
+            local cwd = vim.fn.getcwd()
+
+            for _, conf in ipairs(dap.configurations.python) do
+                conf["justMyCode"] = false
+                conf["cwd"] = cwd
+                conf["env"] = { PYTHONPATH = cwd }
+            end
+
+            which_key.add(
+                {
+                    { "<leader>dl", function() dap_py.class(debugger_opts) end, desc = "test class" },
+                    { "<leader>dm", function() dap_py.test_method(debugger_opts) end, desc = "test method" },
+                }
+            )
+        end,
     },
 }
