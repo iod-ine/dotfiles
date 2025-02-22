@@ -23,9 +23,6 @@ return {
         opts = {
             sections = {
                 lualine_x = {
-                    function()
-                        return "Codeium:" .. vim.api.nvim_call_function("codeium#GetStatusString", {})
-                    end,
                     "encoding",
                     "fileformat",
                     "filetype",
