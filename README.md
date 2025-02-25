@@ -9,6 +9,7 @@ Tools:
 - [fish](https://github.com/fish-shell/fish-shell)
 - [Neovim](https://github.com/neovim/neovim)
 - [AeroSpace](https://github.com/nikitabobko/AeroSpace)
+- [Raycast](https://www.raycast.com/)
 - [tmux](https://github.com/tmux/tmux)
 - [uv](https://github.com/astral-sh/uv)
   - [Python LSP Server](https://github.com/python-lsp/python-lsp-server)
@@ -24,7 +25,7 @@ Tools:
 - [miniconda](https://docs.anaconda.com/free/miniconda/)
 - [tldr](https://github.com/tldr-pages/tldr)
 - [zoxide](https://github.com/ajeetdsouza/zoxide)
- 
+
 Language servers:
 - [ltex-ls](https://github.com/valentjn/ltex-ls)
 - [lua-language-server](https://github.com/LuaLS/lua-language-server)
@@ -36,6 +37,7 @@ Language servers:
 Things I no longer use but that paved the way for the current setup.
 
 - [Alacritty](https://github.com/alacritty/alacritty)
+- [Alfred](https://www.alfredapp.com/)
 - [Amethyst](https://github.com/ianyh/Amethyst)
 - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
 - [Oh My Bash](https://github.com/ohmybash/oh-my-bash)
