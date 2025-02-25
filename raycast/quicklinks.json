@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Search Google",
+    "link": "https://google.com/search?q={argument}"
+  },
+  {
+    "link": "https://duckduckgo.com/?q={argument}",
+    "name": "Search DuckDuckGo"
+  },
+  {
+    "link": "https://yt.yandex-team.ru/kolmogorov/navigation?path={clipboard}",
+    "iconName": "folder-16",
+    "name": "YT path from clipboard"
+  }
+]
