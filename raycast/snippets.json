@@ -3,5 +3,10 @@
     "name": "YT Home",
     "keyword": "@yth",
     "text": "//home/selfdriving/robot_perception/ivandubrovin"
+  },
+  {
+    "keyword": "@yapip",
+    "name": "Yandex PyPI index",
+    "text": "https://pypi.yandex-team.ru/simple"
   }
 ]
