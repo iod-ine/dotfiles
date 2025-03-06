@@ -30,7 +30,7 @@ return {
                                 }
                             end,
                             format = require("iron.fts.common").bracketed_paste_python,
-                    },
+                        },
                     },
                     ignore_blank_lines = true,
                     repl_open_cmd = require("iron.view").split.vertical.botright(80),
