@@ -39,6 +39,7 @@ return {
                                 "--tty",
                                 "--network=host",
                                 "--gpus=all",
+                                "--env-file=.env",
                                 "registry.yandex.net/robot-anomaly-detector:0.4",
                                 "ipython",
                                 "--no-autoindent",
