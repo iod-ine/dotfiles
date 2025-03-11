@@ -36,6 +36,8 @@ return {
                         find_command = {
                             "rg", "--files", "--hidden",
                             "--glob", "!**/.git/*",
+                            "--glob", "!**/.venv/*",
+                            "--glob", "!**/.ipynb_checkpoints/*",
                             "--glob", "!**/.DS_Store",
                             "--glob", "!**/venv",
                             "--glob", "!**/__pycache__",
