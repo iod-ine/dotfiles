@@ -1,4 +1,5 @@
 {
+  "keyMappings": "map J nextTab\nmap K previousTab",
   "ignoreKeyboardLayout": true,
   "smoothScroll": false,
   "grabBackFocus": true,
