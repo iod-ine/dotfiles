@@ -34,3 +34,6 @@ fetch-nvim:: bin-directory
 
 fetch-uv::
 	curl -LsSf https://astral.sh/uv/install.sh | sh
+
+fetch-omb::
+	bash -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
