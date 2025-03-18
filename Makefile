@@ -23,3 +23,11 @@ leetcode::
 	mkdir -p ~/.leetcode
 	rm -f ~/.leetcode/leetcode.toml && ln -s $(CURDIR)/leetcode.toml ~/.leetcode/leetcode.toml
 	@echo "Don't forget to setup the cookie!"
+
+bin-directory::
+	mkdir -p ~/.local/bin
+
+fetch-nvim:: bin-directory
+	wget -O ~/.local/bin/nvim.tgz https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+	tar xf ~/.local/bin/nvim.tgz -C ~/.local/bin
+	ln -s ~/.local/bin/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
