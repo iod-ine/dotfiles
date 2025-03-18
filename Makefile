@@ -31,3 +31,6 @@ fetch-nvim:: bin-directory
 	wget -O ~/.local/bin/nvim.tgz https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 	tar xf ~/.local/bin/nvim.tgz -C ~/.local/bin
 	ln -s ~/.local/bin/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
+
+fetch-uv::
+	curl -LsSf https://astral.sh/uv/install.sh | sh
