@@ -22,6 +22,7 @@ Tools:
     - ```shell
       uv tool install jupyterlab --with jupyterlab-code-formatter --with jupyterlab-git --with jupyterlab-vim --with jupyterlab-lsp
       ```
+  - [nbdime](https://github.com/jupyter/nbdime)
 - [miniconda](https://docs.anaconda.com/free/miniconda/)
 - [tldr](https://github.com/tldr-pages/tldr)
 - [zoxide](https://github.com/ajeetdsouza/zoxide)
