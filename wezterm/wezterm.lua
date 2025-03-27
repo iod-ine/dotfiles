@@ -3,7 +3,14 @@ local keymap = require("keymap")
 
 local config = {}
 
-config.color_scheme = "Catppuccin Macchiato"
+local function get_system_appearance()
+    if wezterm.gui then
+        return wezterm.gui.get_appearance()
+    end
+    return "Dark"
+end
+
+config.color_scheme = get_system_appearance() == "Dark" and "Catppuccin Macchiato" or "Catppuccin Latte"
 config.font_size = 13
 
 config.enable_tab_bar = true
