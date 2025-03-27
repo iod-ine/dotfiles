@@ -40,9 +40,21 @@ which_key.add(
         -- :tabedit to open a new one, :tabclose to close the current,
         -- :tabonly to leave only the current, :tabfirst / :tablast
         -- {N}gt goes to next tab or tab number N, gT goes to previous
+
         { "<leader>t", group = "toggle" },
         { "<leader>tc", "<cmd>TSContextToggle<cr>", desc = "context" },
         { "<leader>tw", "<cmd>set wrap!<cr>", desc = "wrap" },
+        {
+            "<leader>tD",
+            function()
+                if vim.g.colors_name == "catppuccin-macchiato" then
+                    vim.cmd.colorscheme("catppuccin-latte")
+                else
+                    vim.cmd.colorscheme("catppuccin-macchiato")
+                end
+            end,
+            desc = "dark theme",
+        },
 
         { "<leader>q", telescope.diagnostics, desc = "diagnostics" },
         { "<leader>u", vim.cmd.UndotreeToggle, desc = "undo tree" },
