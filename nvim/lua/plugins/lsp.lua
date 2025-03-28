@@ -6,27 +6,6 @@ return {
             local lspconfig = require("lspconfig")
             local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-            if string.find(vim.fn.getcwd(), "arcadia") then
-                lspconfig.pylsp.setup({
-                    settings = {
-                        pylsp = {
-                            plugins = {
-                                jedi = {
-                                    extra_paths = {
-                                        "/Users/ivandubrovin/arcadia/",
-                                        "/Users/ivandubrovin/arcadia/nirvana/vh3/src/",
-                                    }
-                                },
-                            },
-                        },
-                    },
-                    capabilities = capabilities,
-                })
-            else
-                lspconfig.pylsp.setup({ capabilities = capabilities })
-            end
-
-            lspconfig.ruff.setup({ capabilities = capabilities })
             lspconfig.gopls.setup({ capabilities = capabilities })
             lspconfig.ccls.setup({ capabilities = capabilities })
         end
