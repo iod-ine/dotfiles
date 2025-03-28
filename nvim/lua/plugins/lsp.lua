@@ -6,26 +6,6 @@ return {
             local lspconfig = require("lspconfig")
             local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-            lspconfig.lua_ls.setup({
-                settings = {
-                    Lua = {
-                        diagnostics = {
-                            globals = { "vim" },
-                        },
-                        runtime = {
-                            version = "LuaJIT",
-                        },
-                        workspace = {
-                            checkThirdParty = false,
-                            library = {
-                                vim.env.VIMRUNTIME,
-                            },
-                        },
-                    }
-                },
-                capabilities = capabilities,
-            })
-
             if string.find(vim.fn.getcwd(), "arcadia") then
                 lspconfig.pylsp.setup({
                     settings = {
