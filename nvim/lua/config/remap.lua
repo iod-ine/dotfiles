@@ -25,9 +25,6 @@ which_key.add(
         { "<leader>gl", telescope.git_bcommits, desc = "buffer commits" },
         { "<leader>gL", telescope.git_commits, desc = "git log" },
 
-        { "<C-j>", vim.cmd.cnext },
-        { "<C-k>", vim.cmd.cprev },
-
         { "<leader>h", group = "help" },
         { "<leader>hc", telescope.commands, desc = "commands" },
         { "<leader>hh", telescope.help_tags, desc = "help tags" },
