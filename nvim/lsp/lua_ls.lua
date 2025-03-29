@@ -1,5 +1,3 @@
-local capabilities = require("blink.cmp").get_lsp_capabilities()
-
 return {
     cmd = { "lua-language-server" },
     filetypes = { "lua" },
@@ -24,5 +22,4 @@ return {
             },
         }
     },
-    capabilities = capabilities,
 }
