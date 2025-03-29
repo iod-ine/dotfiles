@@ -10,8 +10,6 @@ which_key.add(
         { "<leader>b", group = "buffer" },
         { "<leader>bb", telescope.buffers, desc = "find buffer" },
         { "<leader>bd", vim.cmd.bdelete, desc = "delete buffer" },
-        { "<leader>bn", vim.cmd.bnext, desc = "next buffer" },
-        { "<leader>bp", vim.cmd.bprevious, desc = "previous buffer" },
 
         { "<leader>f", group = "find/file" },
         { "-", "<cmd>Oil<cr>", desc = "file browser" },
@@ -66,9 +64,6 @@ which_key.add(
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("lsp-mappings", { clear = true }),
     callback = function(event)
-        -- Enable completion triggered by <c-x><c-o>
-        vim.bo[event.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-
         -- A helper wrapper for printing buffers in the workspace
         local list_workspace_folders = function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
@@ -82,23 +77,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
                     { "gd", vim.lsp.buf.definition, desc = "go to definition" },
                     { "gD", vim.lsp.buf.declaration, desc = "go to declaration" },
-                    { "gi", vim.lsp.buf.implementation, desc = "go to implementation" },
-                    { "gr", telescope.lsp_references, desc = "references" },
-                    { "K", vim.lsp.buf.hover, desc = "hover" },
-                    { "<M-k>", vim.lsp.buf.signature_help, desc = "signature help" },
+                    { "grR", telescope.lsp_references, desc = "LSP references" },
 
                     { "<leader>bf", vim.lsp.buf.format, desc = "format code" },
                     { "<leader>bs", telescope.lsp_document_symbols, desc = "buffer symbols" },
                     { "<leader>D", vim.lsp.buf.type_definition, desc = "type definition" },
-                    { "<leader>r", vim.lsp.buf.rename, desc = "rename symbol" },
 
                     { "<leader>w", group = "workspace" },
                     { "<leader>wa", vim.lsp.buf.add_workspace_folder, desc = "add workspace folder" },
                     { "<leader>wl", list_workspace_folders, desc = "list workspace folders" },
                     { "<leader>wr", vim.lsp.buf.remove_workspace_folder, desc = "remove workspace folder" },
                     { "<leader>ws", telescope.lsp_workspace_symbols, desc = "symbols" },
-
-                    { "<leader>a", vim.lsp.buf.code_action, desc = "code action", mode = { "n", "v" } }
                 }
             }
         )
