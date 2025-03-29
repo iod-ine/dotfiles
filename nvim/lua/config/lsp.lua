@@ -1,3 +1,10 @@
+vim.lsp.config(
+    "*",
+    {
+        root_markers = { ".git" },
+    }
+)
+
 vim.lsp.enable({ "lua_ls", "pylsp", "ruff" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
