@@ -7,6 +7,8 @@ vim.lsp.config(
 
 vim.lsp.enable({ "lua_ls", "pylsp", "ruff" })
 
+vim.diagnostic.config({ virtual_lines = true, virtual_text = false })
+
 vim.api.nvim_create_autocmd("LspAttach", {
     desc = "Highlight symbol under cursor",
     group = vim.api.nvim_create_augroup("lsp-highlight-symbol", { clear = true }),
@@ -25,7 +27,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
-vim.cmd("set completeopt+=noselect")
+vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
+vim.opt.pumheight = 10
 
 vim.api.nvim_create_autocmd("LspAttach", {
     desc = "LSP autocompletion",
