@@ -80,9 +80,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 {
                     buffer = event.buf,
 
-                    { "gd", vim.lsp.buf.definition, desc = "got to definition" },
-                    { "gD", vim.lsp.buf.declaration, desc = "got to declaration" },
-                    { "gi", vim.lsp.buf.implementation, desc = "got to implementation" },
+                    { "gd", vim.lsp.buf.definition, desc = "go to definition" },
+                    { "gD", vim.lsp.buf.declaration, desc = "go to declaration" },
+                    { "gi", vim.lsp.buf.implementation, desc = "go to implementation" },
                     { "gr", telescope.lsp_references, desc = "references" },
                     { "K", vim.lsp.buf.hover, desc = "hover" },
                     { "<M-k>", vim.lsp.buf.signature_help, desc = "signature help" },
