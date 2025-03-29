@@ -1,6 +1,7 @@
 local config = {
     cmd = { "pylsp" },
     filetypes = { "python" },
+    root_markers = { "pyproject.toml", ".git" },
 }
 
 if string.find(vim.fn.getcwd(), "arcadia") then
