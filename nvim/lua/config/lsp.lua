@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
-vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
+vim.opt.completeopt = { "menuone", "noinsert" }
 vim.opt.pumheight = 10
 
 vim.api.nvim_create_autocmd("LspAttach", {
