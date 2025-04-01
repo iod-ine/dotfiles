@@ -43,7 +43,14 @@ return {
 
                         { "<leader>d", group = "debug", mode = { "n", "v" } },
 
-                        { "<leader>dq", dap.terminate, desc = "terminate session" },
+                        {
+                            "<leader>dQ",
+                            function()
+                                dap.terminate()
+                                ui.close()
+                            end,
+                            desc = "terminate session",
+                        },
                         { "<leader>dR", dap.restart, desc = "restart session" },
                         { "<M-d>", dap.down, desc = "down stacktrace" },
                         { "<M-u>", dap.up, desc = "up stacktrace" },
