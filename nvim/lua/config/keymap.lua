@@ -83,6 +83,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
                     { "<leader>bs", telescope.lsp_document_symbols, desc = "buffer symbols" },
                     { "<leader>D", vim.lsp.buf.type_definition, desc = "type definition" },
 
+                    {
+                        "<leader>tq",
+                        function()
+                            vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+                        end,
+                        desc = "diagnostics",
+                    },
+
                     { "<leader>w", group = "workspace" },
                     { "<leader>wa", vim.lsp.buf.add_workspace_folder, desc = "add workspace folder" },
                     { "<leader>wl", list_workspace_folders, desc = "list workspace folders" },
