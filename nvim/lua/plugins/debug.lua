@@ -2,7 +2,7 @@ return {
     -- Debugger Adapter Protocol and its friends
     {
         "mfussenegger/nvim-dap",
-        ft = { "python" },
+        ft = { "cpp", "python" },
         dependencies = {
             {
                 "rcarriga/nvim-dap-ui",
@@ -19,9 +19,24 @@ return {
             local ui = require("dapui")
             local which_key = require("which-key")
 
+            dap.adapters.yagdb = {
+                type = "executable",
+                command = "/home/ivandubrovin/arcadia/ya",
+                args = { "tool", "gdb", "--quiet", "--interpreter=dap" },
+            }
+
+            dap.configurations.cpp = {
+                {
+                    type = "yagdb",
+                    request = "launch",
+                    program = "tests/tests",
+                    name = "ya gdb",
+                },
+            }
+
             -- Define the keymaps inside an autocommand to make them buffer-local.
             vim.api.nvim_create_autocmd("FileType", {
-                pattern = { "python" },
+                pattern = { "cpp", "python" },
                 desc = "Set up DAP keybindings",
                 group = vim.api.nvim_create_augroup("dap-bindings", { clear = true }),
                 callback = function(event)
