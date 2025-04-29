@@ -67,5 +67,11 @@ table.insert(config.ssh_domains, {
     username = "ivandubrovin",
     remote_wezterm_path = "/home/ivandubrovin/.local/bin/wezterm",
 })
+table.insert(config.ssh_domains, {
+    name = "sas-dev",
+    remote_address = "mg-sadr-perception-001.sas.yp-c.yandex.net",
+    username = "ivandubrovin",
+    remote_wezterm_path = "/home/ivandubrovin/.local/bin/wezterm",
+})
 
 return config
