@@ -63,9 +63,9 @@ config.ssh_domains = wezterm.default_ssh_domains()
 
 table.insert(config.ssh_domains, {
     name = "dev",
-    remote_address = "vla9-dev-004.sdc.yandex.net",
+    remote_address = "sg-sadr-perception-006.vla.yp-c.yandex.net",
     username = "ivandubrovin",
-    remote_wezterm_path = "/mnt/storage/home/ivandubrovin/.local/bin/wezterm",
+    remote_wezterm_path = "/home/ivandubrovin/.local/bin/wezterm",
 })
 
 return config
