@@ -16,6 +16,9 @@ return {
     -- Undo tree: undo history visualization
     "mbbill/undotree",
 
+    -- Surroundings (:h surround)
+    "tpope/vim-surround",
+
     -- Status line
     {
         "nvim-lualine/lualine.nvim",
@@ -39,5 +42,5 @@ return {
         "stevearc/oil.nvim",
         opts = {},
         dependencies = { "nvim-tree/nvim-web-devicons" },
-    }
+    },
 }
