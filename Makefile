@@ -32,6 +32,10 @@ fetch-nvim:: bin-directory
 	tar xf ~/.local/bin/nvim.tgz -C ~/.local/bin
 	ln -s ~/.local/bin/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
 
+fetch-wezterm:: bin-directory
+	wget -O ~/.local/bin/wezterm https://github.com/wezterm/wezterm/releases/download/nightly/WezTerm-nightly-Ubuntu20.04.AppImage
+	chmod +x ~/.local/bin/wezterm
+
 fetch-uv::
 	curl -LsSf https://astral.sh/uv/install.sh | sh
 
