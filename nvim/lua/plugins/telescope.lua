@@ -30,18 +30,20 @@ return {
             table.insert(vimgrep_arguments, "!**/.git/*")
 
             require("telescope").setup({
-                defaults = { vimgrep_arguments = vimgrep_arguments },
+                defaults = { 
+                    file_ignore_patterns = {
+                        ".git",
+                        ".ipynb_checkpoints",
+                        ".venv",
+                        "venv",
+                        "__pycache__",
+                        ".DS_Store",
+                    },
+                    vimgrep_arguments = vimgrep_arguments,
+                },
                 pickers = {
                     find_files = {
-                        find_command = {
-                            "rg", "--files", "--hidden",
-                            "--glob", "!**/.git/*",
-                            "--glob", "!**/.venv/*",
-                            "--glob", "!**/.ipynb_checkpoints/*",
-                            "--glob", "!**/.DS_Store",
-                            "--glob", "!**/venv",
-                            "--glob", "!**/__pycache__",
-                        },
+                        find_command = { "rg", "--files", "--hidden" },
                     },
                 },
                 extensions = {
