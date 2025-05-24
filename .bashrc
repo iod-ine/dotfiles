@@ -88,9 +88,11 @@ OMB_USE_SUDO=true
 # Example format: completions=(ssh git bundler gem pip pip3)
 # Add wisely, as too many completions slow down shell startup.
 completions=(
+  arc
   git
-  composer
   ssh
+  wezterm
+  ya
 )
 
 # Which aliases would you like to load? (aliases can be found in ~/.oh-my-bash/aliases/*)
@@ -121,6 +123,7 @@ source "$OSH"/oh-my-bash.sh
 
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
+export YT_PROXY=kolmogorov
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -146,3 +149,12 @@ source "$OSH"/oh-my-bash.sh
 # Example aliases
 # alias bashconfig="mate ~/.bashrc"
 # alias ohmybash="mate ~/.oh-my-bash"
+alias add="arc diff ."
+alias ads="arc diff --staged"
+alias adsd="arc diff --staged ."
+alias asd="arc status ."
+alias vh3="~/arcadia/ya tool vh3"
+alias ya="~/arcadia/ya"
+alias yt="~/arcadia/ya tool yt"
+
+. "$HOME/.local/bin/env"
