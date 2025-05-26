@@ -5,7 +5,7 @@ vim.lsp.config(
     }
 )
 
-vim.lsp.enable({ "lua_ls", "pylsp", "ruff" })
+vim.lsp.enable({ "lua_ls", "pylsp", "ruff", "clangd" })
 
 vim.diagnostic.config({ virtual_lines = true, virtual_text = false })
 
