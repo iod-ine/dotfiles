@@ -58,6 +58,10 @@ table.insert(config.hyperlink_rules, {
     regex = [[REVIEW: (\d+)]],
     format = "https://a.yandex-team.ru/review/$1",
 })
+table.insert(config.hyperlink_rules, {
+    regex = [[([A-Z]+-\d+)]],
+    format = "https://st.yandex-team.ru/$1",
+})
 
 config.ssh_domains = wezterm.default_ssh_domains()
 
