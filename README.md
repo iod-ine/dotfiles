@@ -23,7 +23,6 @@ Tools:
       uv tool install jupyterlab --with jupyterlab-code-formatter --with jupyterlab-git --with jupyterlab-vim --with jupyterlab-lsp
       ```
   - [nbdime](https://github.com/jupyter/nbdime)
-- [miniconda](https://docs.anaconda.com/free/miniconda/)
 - [tldr](https://github.com/tldr-pages/tldr)
 - [zoxide](https://github.com/ajeetdsouza/zoxide)
 
@@ -40,6 +39,7 @@ Things I no longer use but that paved the way for the current setup.
 - [Alacritty](https://github.com/alacritty/alacritty)
 - [Alfred](https://www.alfredapp.com/)
 - [Amethyst](https://github.com/ianyh/Amethyst)
+- [miniconda](https://docs.anaconda.com/free/miniconda/)
 - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
 - [Oh My Bash](https://github.com/ohmybash/oh-my-bash)
 - [pdm](https://github.com/pdm-project/pdm)
