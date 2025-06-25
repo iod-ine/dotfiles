@@ -34,6 +34,19 @@ return {
                 },
             }
 
+            dap.listeners.before.attach.dapui = function()
+                ui.open()
+            end
+            dap.listeners.before.launch.dapui = function()
+                ui.open()
+            end
+            dap.listeners.before.event_terminated.dapui = function()
+                ui.close()
+            end
+            dap.listeners.before.event_exited.dapui = function()
+                ui.close()
+            end
+
             -- Define the keymaps inside an autocommand to make them buffer-local.
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = { "cpp", "python" },
@@ -58,14 +71,7 @@ return {
 
                         { "<leader>d", group = "debug", mode = { "n", "v" } },
 
-                        {
-                            "<leader>dQ",
-                            function()
-                                dap.terminate()
-                                ui.close()
-                            end,
-                            desc = "terminate session",
-                        },
+                        { "<leader>dQ", dap.terminate, desc = "terminate session" },
                         { "<leader>dR", dap.restart, desc = "restart session" },
                         { "<M-d>", dap.down, desc = "down stacktrace" },
                         { "<M-u>", dap.up, desc = "up stacktrace" },
