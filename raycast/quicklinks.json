@@ -4,12 +4,17 @@
     "link": "https://google.com/search?q={argument}"
   },
   {
-    "link": "https://duckduckgo.com/?q={argument}",
-    "name": "Search DuckDuckGo"
+    "name": "Search DuckDuckGo",
+    "link": "https://duckduckgo.com/?q={argument}"
   },
   {
+    "name": "YT path from clipboard",
     "link": "https://yt.yandex-team.ru/kolmogorov/navigation?path={clipboard}",
-    "iconName": "folder-16",
-    "name": "YT path from clipboard"
+    "iconName": "folder-16"
+  },
+  {
+    "name": "Arcanum path from clipboard",
+    "link": "a.yandex-team.ru/arcadia/{clipboard}",
+    "iconName": "iconName":"code-16"
   }
 ]
