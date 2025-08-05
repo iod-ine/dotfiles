@@ -2,11 +2,11 @@
   {
     "name": "YT Home",
     "keyword": "@yth",
-    "text": "//home/selfdriving/robot_perception/ivandubrovin"
+    "text": "//home/selfdriving/robot_planning/ivandubrovin"
   },
   {
-    "keyword": "@yapip",
     "name": "Yandex PyPI index",
+    "keyword": "@yapip",
     "text": "https://pypi.yandex-team.ru/simple"
   }
 ]
