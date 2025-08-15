@@ -1,7 +1,8 @@
 # docker build --network=host . -f Dockerfile -t debug
 # docker run --network=host --gpus=all --rm -it debug
 
-FROM {an_appropriate_image_to_add_the_editor_to}
+# An already existing image to debug in:
+FROM nvcr.io/nvidia/pytorch:24.10-py3
 
 ENV PATH="/root/.local/bin:${PATH}"
 
