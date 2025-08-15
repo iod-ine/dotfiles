@@ -26,4 +26,5 @@ RUN \
     | xargs wget -O /tmp/ripgrep/rg.tgz && \
     tar --strip-components=1 -xf /tmp/ripgrep/rg.tgz -C /tmp/ripgrep && \
     mv /tmp/ripgrep/rg ~/.local/bin && \
-    nvim --headless '+Lazy! sync' +qa
+    nvim --headless '+Lazy! sync' +qa && \
+    curl -LsSf https://astral.sh/uv/install.sh | sh
