@@ -27,4 +27,6 @@ RUN \
     tar --strip-components=1 -xf /tmp/ripgrep/rg.tgz -C /tmp/ripgrep && \
     mv /tmp/ripgrep/rg ~/.local/bin && \
     nvim --headless '+Lazy! sync' +qa && \
-    curl -LsSf https://astral.sh/uv/install.sh | sh
+    curl -LsSf https://astral.sh/uv/install.sh | sh && \
+    uv tool install python-lsp-server && \
+    uv tool install ruff
