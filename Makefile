@@ -47,3 +47,11 @@ fetch-fzf:: bin-directory
 	 | jq '.assets[] | select(.name | test("linux_amd64.tar.gz$$")) | .browser_download_url' \
 	 | xargs wget -O ~/.local/bin/fzf.tgz
 	tar xf ~/.local/bin/fzf.tgz -C ~/.local/bin
+
+fetch-ripgrep:: bin-directory
+	mkdir -p /tmp/ripgrep
+	curl -s https://api.github.com/repos/BurntSushi/ripgrep/releases/latest \
+	 | jq '.assets[] | select(.name | test("x86_64.+linux.+tar.gz$$")) | .browser_download_url' \
+	 | xargs wget -O /tmp/ripgrep/rg.tgz
+	tar --strip-components=1 -xf /tmp/ripgrep/rg.tgz -C /tmp/ripgrep
+	mv /tmp/ripgrep/rg ~/.local/bin
