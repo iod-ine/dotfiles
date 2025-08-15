@@ -43,10 +43,11 @@ fetch-omb::
 	bash -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 fetch-fzf:: bin-directory
+	mkdir -p /tmp/fzf
 	curl -s https://api.github.com/repos/junegunn/fzf/releases/latest \
 	 | jq '.assets[] | select(.name | test("linux_amd64.tar.gz$$")) | .browser_download_url' \
-	 | xargs wget -O ~/.local/bin/fzf.tgz
-	tar xf ~/.local/bin/fzf.tgz -C ~/.local/bin
+	 | xargs wget -O /tmp/fzf.tgz
+	tar xf /tmp/fzf.tgz -C ~/.local/bin
 
 fetch-ripgrep:: bin-directory
 	mkdir -p /tmp/ripgrep
