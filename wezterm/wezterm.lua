@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local keymap = require("keymap")
+local ssh = require("ssh")
 
 local config = {}
 
@@ -29,6 +30,7 @@ config.window_padding = {
 }
 
 keymap.apply(config)
+ssh.apply(config)
 
 wezterm.on("update-right-status", function(window, pane)
     local date = wezterm.strftime("%A, %B %d, %H:%M")
@@ -61,27 +63,6 @@ table.insert(config.hyperlink_rules, {
 table.insert(config.hyperlink_rules, {
     regex = [[([A-Z]+-\d+)]],
     format = "https://st.yandex-team.ru/$1",
-})
-
-config.ssh_domains = wezterm.default_ssh_domains()
-
-table.insert(config.ssh_domains, {
-    name = "vla5",
-    remote_address = "sg-sadr-perception-005.sas.yp-c.yandex.net",
-    username = "ivandubrovin",
-    remote_wezterm_path = "/home/ivandubrovin/.local/bin/wezterm",
-})
-table.insert(config.ssh_domains, {
-    name = "dev",
-    remote_address = "sg-sadr-perception-006.vla.yp-c.yandex.net",
-    username = "ivandubrovin",
-    remote_wezterm_path = "/home/ivandubrovin/.local/bin/wezterm",
-})
-table.insert(config.ssh_domains, {
-    name = "sas-dev",
-    remote_address = "mg-sadr-perception-001.sas.yp-c.yandex.net",
-    username = "ivandubrovin",
-    remote_wezterm_path = "/home/ivandubrovin/.local/bin/wezterm",
 })
 
 return config
