@@ -32,11 +32,11 @@ return {
             require("telescope").setup({
                 defaults = { 
                     file_ignore_patterns = {
-                        ".git",
-                        ".ipynb_checkpoints",
-                        ".venv",
-                        "venv",
-                        "__pycache__",
+                        ".git/",
+                        ".ipynb_checkpoints/",
+                        ".venv/",
+                        "venv/",
+                        "__pycache__/",
                         ".DS_Store",
                     },
                     vimgrep_arguments = vimgrep_arguments,
