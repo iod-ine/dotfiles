@@ -9,10 +9,3 @@
 `require("something.utils")` means `lua/something/utils.lua`.
 
 `require()` treats each script as a function and caches whatever it returns: the same file won't be executed twice.
-
-Python LSP prerequisites:
-
-```shell
-pipx install ruff
-pipx install python-lsp-server
-```
