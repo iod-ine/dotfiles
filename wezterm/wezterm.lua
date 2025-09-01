@@ -65,7 +65,7 @@ table.insert(config.hyperlink_rules, {
     format = "https://st.yandex-team.ru/$1",
 })
 table.insert(config.hyperlink_rules, {
-    regex = [[(\/\/home\/[a-zA-Z/_-]+)]],
+    regex = [[(\/\/home\/[a-zA-Z0-9/_.:-]+)]],
     format = "https://yt.yandex-team.ru/kolmogorov/navigation?path=$1",
 })
 
