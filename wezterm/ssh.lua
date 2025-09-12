@@ -20,6 +20,11 @@ function module.apply(config)
         username = "ivandubrovin",
         remote_wezterm_path = "/home/ivandubrovin/.local/bin/wezterm",
     })
+    table.insert(config.ssh_domains, {
+        name = "yandex-cloud-vm",
+        remote_address = "yc",
+        remote_wezterm_path = "/home/ivan/.local/bin/wezterm",
+    })
 end
 
 return module
