@@ -56,6 +56,10 @@ end)
 
 config.hyperlink_rules = wezterm.default_hyperlink_rules()
 
+table.insert(config.hyperlink_rules, 1, {
+    regex = [[sbr:\/\/(\d+)]],
+    format = "https://sandbox.yandex-team.ru/resource/$1",
+})
 table.insert(config.hyperlink_rules, {
     regex = [[REVIEW: (\d+)]],
     format = "https://a.yandex-team.ru/review/$1",
