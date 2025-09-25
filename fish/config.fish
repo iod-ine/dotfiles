@@ -10,9 +10,6 @@ alias ya ~/arcadia/ya
 alias vh3 "~/arcadia/ya tool vh3"
 alias yt "~/arcadia/ya tool yt"
 
-abbr --add ads arc diff --staged
-abbr --add gds git diff --staged
-
 set -x YT_PROXY kolmogorov
 
 zoxide init fish | source
