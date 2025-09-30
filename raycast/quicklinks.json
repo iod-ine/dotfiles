@@ -16,5 +16,20 @@
     "name": "Arcanum path from clipboard",
     "link": "a.yandex-team.ru/arcadia/{clipboard}",
     "iconName": "iconName":"code-16"
+  },
+  {
+    "name": "Arcadia commit",
+    "link": "https://a.yandex-team.ru/arcadia/commit/{clipboard}",
+    "iconName": "brand-git-16"
+  },
+  {
+    "name": "Arcadia branch",
+    "link": "https://a.yandex-team.ru/arcadia/?rev={clipboard}",
+    "iconName": "brand-git-16"
+  },
+  {
+    "name": "Startrek ticket",
+    "link": "https://st.yandex-team.ru/{clipboard}",
+    "iconName": "ticket-16"
   }
 ]
