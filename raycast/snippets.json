@@ -8,5 +8,15 @@
     "name": "Yandex PyPI index",
     "keyword": "@yapip",
     "text": "https://pypi.yandex-team.ru/simple"
+  },
+  {
+    "text": "PRAGMA yt.StaticPool = 'selfdriving-robot-planning';",
+    "keyword": "@yqlpool",
+    "name": "YQL pool PRAGMA"
+  },
+  {
+    "text": "selfdriving-robot-planning",
+    "keyword": "@ytpool",
+    "name": "YT pool"
   }
 ]
