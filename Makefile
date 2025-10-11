@@ -1,5 +1,6 @@
 help::
 	@echo "Available commands:"
+	@echo "  nvim: fetch and configure Neovim"
 
 config-directory: $(HOME)/.config
 $(HOME)/.config:
@@ -9,8 +10,15 @@ bin-directory: $(HOME)/.local/bin
 $(HOME)/.local/bin:
 	mkdir -p ~/.local/bin
 
-nvim:: config-directory
+nvim:: fetch-nvim configure-nvim
+configure-nvim:: config-directory
 	rm -rf ~/.config/nvim && ln -sf $(CURDIR)/nvim ~/.config/nvim
+fetch-nvim:: bin-directory $(HOME)/.local/bin/nvim
+$(HOME)/.local/bin/nvim:
+	mkdir -p /tmp/nvim
+	wget -O /tmp/nvim/nvim.tgz https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+	tar xf /tmp/nvim/nvim.tgz -C ~/.local/bin
+	ln -s ~/.local/bin/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
 
 tmux:: config-directory
 	rm -rf ~/.config/tmux && ln -sf $(CURDIR)/tmux ~/.config/tmux
@@ -31,11 +39,6 @@ leetcode::
 	mkdir -p ~/.leetcode
 	rm -f ~/.leetcode/leetcode.toml && ln -s $(CURDIR)/leetcode.toml ~/.leetcode/leetcode.toml
 	@echo "Don't forget to setup the cookie!"
-
-fetch-nvim:: bin-directory
-	wget -O ~/.local/bin/nvim.tgz https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
-	tar xf ~/.local/bin/nvim.tgz -C ~/.local/bin
-	ln -s ~/.local/bin/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
 
 fetch-wezterm:: bin-directory
 	wget -O ~/.local/bin/wezterm https://github.com/wezterm/wezterm/releases/download/nightly/WezTerm-nightly-Ubuntu20.04.AppImage
