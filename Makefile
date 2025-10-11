@@ -1,31 +1,33 @@
-directory::
+config-directory: $(HOME)/.config
+$(HOME)/.config:
 	mkdir -p ~/.config
 
-nvim:: directory
+bin-directory: $(HOME)/.local/bin
+$(HOME)/.local/bin:
+	mkdir -p ~/.local/bin
+
+nvim:: config-directory
 	rm -rf ~/.config/nvim && ln -sf $(CURDIR)/nvim ~/.config/nvim
 
-tmux:: directory
+tmux:: config-directory
 	rm -rf ~/.config/tmux && ln -sf $(CURDIR)/tmux ~/.config/tmux
 
-aerospace:: directory
+aerospace:: config-directory
 	rm -rf ~/.config/aerospace && ln -sf $(CURDIR)/aerospace ~/.config/aerospace
 
-fish:: directory
+fish:: config-directory
 	rm -rf ~/.config/fish && ln -s $(CURDIR)/fish ~/.config/fish
 
-wezterm:: directory
+wezterm:: config-directory
 	rm -rf ~/.config/wezterm && ln -sf $(CURDIR)/wezterm ~/.config/wezterm
 
-tridactyl:: directory
+tridactyl:: config-directory
 	rm -rf ~/.config/tridactyl && ln -sf $(CURDIR)/tridactyl ~/.config/tridactyl
 
 leetcode::
 	mkdir -p ~/.leetcode
 	rm -f ~/.leetcode/leetcode.toml && ln -s $(CURDIR)/leetcode.toml ~/.leetcode/leetcode.toml
 	@echo "Don't forget to setup the cookie!"
-
-bin-directory::
-	mkdir -p ~/.local/bin
 
 fetch-nvim:: bin-directory
 	wget -O ~/.local/bin/nvim.tgz https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
