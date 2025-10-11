@@ -1,3 +1,6 @@
+help::
+	@echo "Available commands:"
+
 config-directory: $(HOME)/.config
 $(HOME)/.config:
 	mkdir -p ~/.config
