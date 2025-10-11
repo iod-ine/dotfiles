@@ -10,7 +10,7 @@ bin-directory: $(HOME)/.local/bin
 $(HOME)/.local/bin:
 	mkdir -p ~/.local/bin
 
-nvim:: fetch-nvim configure-nvim
+nvim:: fetch-nvim configure-nvim fetch-ripgrep fetch-fzf
 configure-nvim:: config-directory
 	rm -rf ~/.config/nvim && ln -sf $(CURDIR)/nvim ~/.config/nvim
 fetch-nvim:: bin-directory $(HOME)/.local/bin/nvim
@@ -50,14 +50,15 @@ fetch-uv::
 fetch-omb::
 	bash -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
-fetch-fzf:: bin-directory
-	mkdir -p /tmp/fzf
+fetch-fzf:: bin-directory $(HOME)/.local/bin/fzf
+$(HOME)/.local/bin/fzf:
 	curl -s https://api.github.com/repos/junegunn/fzf/releases/latest \
 	 | jq '.assets[] | select(.name | test("linux_amd64.tar.gz$$")) | .browser_download_url' \
 	 | xargs wget -O /tmp/fzf.tgz
 	tar xf /tmp/fzf.tgz -C ~/.local/bin
 
-fetch-ripgrep:: bin-directory
+fetch-ripgrep:: bin-directory $(HOME)/.local/bin/rg
+$(HOME)/.local/bin/rg:
 	mkdir -p /tmp/ripgrep
 	curl -s https://api.github.com/repos/BurntSushi/ripgrep/releases/latest \
 	 | jq '.assets[] | select(.name | test("x86_64.+linux.+tar.gz$$")) | .browser_download_url' \
