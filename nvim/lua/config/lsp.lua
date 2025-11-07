@@ -7,7 +7,7 @@ vim.lsp.config(
 
 vim.lsp.enable({ "lua_ls", "pylsp", "ruff", "clangd" })
 
-vim.diagnostic.config({ virtual_lines = true, virtual_text = false })
+vim.diagnostic.config({ virtual_lines = false, virtual_text = true })
 
 vim.api.nvim_create_autocmd("LspAttach", {
     desc = "Highlight symbol under cursor",
