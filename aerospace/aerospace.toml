@@ -117,3 +117,7 @@ run = "layout floating"
 [[on-window-detected]]
 if.app-id = "com.chabomakers.Antinote"
 run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = "net.ankiweb.dtop"
+run = "layout floating"
