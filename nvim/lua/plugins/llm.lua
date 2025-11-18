@@ -3,8 +3,7 @@ return {
     opts = {
         strategies = {
             chat = {
-                adapter = "ollama",
-                model = "qwen3:8b",
+                adapter = "eliza_deepseek_internal",
             },
         },
         adapters = {
