@@ -11,6 +11,10 @@ which_key.add(
         { "<leader>bb", telescope.buffers, desc = "find buffer" },
         { "<leader>bd", vim.cmd.bdelete, desc = "delete buffer" },
 
+        { "<leader>c", group = "companion" },
+        { "<leader>ca", "<cmd>CodeCompanionActions<cr>", desc = "actions" },
+        { "<leader>ct", "<cmd>CodeCompanionChat toggle<cr>", desc = "toggle chat" },
+
         { "<leader>f", group = "find/file" },
         { "-", "<cmd>Oil<cr>", desc = "file browser" },
         { "<leader>ff", telescope.find_files, desc = "file file" },
