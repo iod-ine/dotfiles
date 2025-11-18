@@ -25,9 +25,6 @@ return {
                         schema = {
                             model = {
                                 default = "deepseek-reasoner",
-                                choices = {
-                                    ["deepseek-reasoner"] = { opts = { can_use_tools = true } },
-                                },
                             },
                         },
                     })
@@ -41,9 +38,6 @@ return {
                         schema = {
                             model = {
                                 default = "deepseek-reasoner",
-                                choices = {
-                                    ["deepseek-reasoner"] = { opts = { can_use_tools = true } },
-                                },
                             },
                         },
                     })
