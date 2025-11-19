@@ -72,6 +72,15 @@ return {
                 end,
             },
         },
+        display = {
+            chat = {
+                window = {
+                    layout = "vertical",
+                    position = "right",
+                    width = 0.3,
+                },
+            },
+        },
     },
     dependencies = {
         "nvim-lua/plenary.nvim",
