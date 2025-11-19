@@ -79,6 +79,7 @@ return {
                     position = "right",
                     width = 0.3,
                 },
+                auto_scroll = false,
             },
         },
     },
