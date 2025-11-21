@@ -34,9 +34,6 @@ return {
         },
     },
 
-    -- Precise horizontal navigation
-    "justinmk/vim-sneak",
-
     -- Precise label-based navigation
     {
       "folke/flash.nvim",
