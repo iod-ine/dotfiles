@@ -72,16 +72,16 @@
       [
         "KC_TRNS",
         "KC_TRNS",
-        "KC_TRNS",
+        "KC_UP",
         "KC_TRNS",
         "KC_TRNS",
         "KC_TRNS"
       ],
       [
         "KC_ENTER",
-        "KC_TRNS",
-        "KC_TRNS",
-        "KC_TRNS",
+        "KC_RIGHT",
+        "KC_DOWN",
+        "KC_LEFT",
         "KC_TRNS",
         "KC_TRNS"
       ],
