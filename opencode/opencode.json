@@ -1,0 +1,24 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "anthropic": {
+      "name": "Eliza Anthropic",
+      "options": {
+        "baseURL": "https://api.eliza.yandex.net/raw/anthropic/v1",
+        "apiKey": "{file:~/.local/tokens/eliza}"
+      }
+    },
+    "qwen": {
+      "name": "Eliza Qwen (internal)",
+      "options": {
+        "baseURL": "https://api.eliza.yandex.net/internal/qwen3-coder-480b-a35b-runtime/v1",
+        "apiKey": "{file:~/.local/tokens/eliza}"
+      },
+      "models": {
+        "internal-qwen3-coder-480b-a35b-runtime": {
+          "name": "Qwen3 Coder 480B (internal)"
+        }
+      }
+    }
+  }
+}

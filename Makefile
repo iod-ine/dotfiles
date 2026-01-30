@@ -35,6 +35,9 @@ wezterm:: config-directory
 tridactyl:: config-directory
 	rm -rf ~/.config/tridactyl && ln -sf $(CURDIR)/tridactyl ~/.config/tridactyl
 
+opencode:: config-directory
+	rm -rf ~/.config/opencode && ln -sf $(CURDIR)/opencode ~/.config/opencode
+
 leetcode::
 	mkdir -p ~/.leetcode
 	rm -f ~/.leetcode/leetcode.toml && ln -s $(CURDIR)/leetcode.toml ~/.leetcode/leetcode.toml
