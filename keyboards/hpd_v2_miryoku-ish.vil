@@ -41,7 +41,7 @@
       ],
       [
         "TD(2)",
-        "TG(1)",
+        "KC_NO",
         "KC_NO",
         "KC_NO",
         "TD(0)",
@@ -95,7 +95,7 @@
       ],
       [
         "TD(5)",
-        "KC_CAPSLOCK",
+        "M0",
         "KC_NO",
         "KC_NO",
         "TD(3)",
@@ -1863,7 +1863,13 @@
   ],
   "layout_options": 861,
   "macro": [
-    [],
+    [
+      [
+        "tap",
+        "KC_CAPSLOCK",
+        "TG(1)"
+      ]
+    ],
     [],
     [],
     [],
