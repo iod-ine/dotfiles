@@ -10,7 +10,6 @@ Tools:
 - [Neovim](https://github.com/neovim/neovim)
 - [AeroSpace](https://github.com/nikitabobko/AeroSpace)
 - [Raycast](https://www.raycast.com/)
-- [tmux](https://github.com/tmux/tmux)
 - [uv](https://github.com/astral-sh/uv)
   - [Python LSP Server](https://github.com/python-lsp/python-lsp-server)
   - [Ruff](https://github.com/astral-sh/ruff)

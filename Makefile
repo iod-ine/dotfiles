@@ -20,9 +20,6 @@ $(HOME)/.local/bin/nvim:
 	tar xf /tmp/nvim/nvim.tgz -C ~/.local/bin
 	ln -s ~/.local/bin/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
 
-tmux:: config-directory
-	rm -rf ~/.config/tmux && ln -sf $(CURDIR)/tmux ~/.config/tmux
-
 aerospace:: config-directory
 	rm -rf ~/.config/aerospace && ln -sf $(CURDIR)/aerospace ~/.config/aerospace
 
