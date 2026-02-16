@@ -18,5 +18,33 @@
     "text": "selfdriving-robot-planning",
     "keyword": "@ytpool",
     "name": "YT pool"
+  },
+  {
+    "name": "YQL Pool Trees",
+    "keyword": "@yqlpt",
+    "text": "PRAGMA yt.PoolTrees = 'physical,cloud_default';"
+  },
+  {
+    "name": "YQL header",
+    "keyword": "@yqlh",
+    "text": "USE kolmogorov;\n\nPRAGMA yt.PoolTrees = 'physical,cloud_default';\nPRAGMA yt.StaticPool = 'selfdriving-robot-planning';"
+  },
+  {
+    "name": "Yandex email",
+    "keyword": "@atya",
+    "text": "books.booksovich@yandex.com"
+  },
+  {
+    "name": "YQL RoboScene::SceneYavizUrl call",
+    "keyword": "@yqlyaviz",
+    "text": "RoboScene::SceneYavizUrl(rover, ride_date, ride_time, log_time, scene) AS yaviz,"
+  },
+  {
+    "name": "row dict to YQL WHERE",
+    "text": "print(f\"\"\"\\\nWHERE\n    rover == '{row[\"rover\"]}'\n    AND ride_date == '{row[\"ride_date\"]}'\n    AND ride_time == '{row[\"ride_time\"]}'\n    AND log_time == '{row[\"log_time\"]}'\n    AND message_ts == {row[\"message_ts\"]}\n\"\"\")"
+  },
+  {
+    "name": "CSV from clipboard to Pandas",
+    "text": "import io\nimport pandas as pd\n\ndf = pd.read_csv(io.StringIO(\"\"\"\\\n{clipboard}\n\"\"\"))\n\ndf.head()"
   }
 ]
