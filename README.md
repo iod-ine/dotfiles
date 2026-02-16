@@ -26,11 +26,6 @@ Tools:
 - [tldr](https://github.com/tldr-pages/tldr)
 - [zoxide](https://github.com/ajeetdsouza/zoxide)
 
-Language servers:
-- [ltex-ls](https://github.com/valentjn/ltex-ls)
-- [lua-language-server](https://github.com/LuaLS/lua-language-server)
-- [ccls](https://github.com/MaskRay/ccls)
-
 <details>
 <summary><h5>Hall of Fame</h5></summary>
 
