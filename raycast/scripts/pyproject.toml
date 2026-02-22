@@ -4,4 +4,12 @@ version = "0.1.0"
 description = "A collection of Python scripts for Raycast script commands"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "python-dotenv>=1.2.1",
+    "requests>=2.32.5",
+]
+
+[dependency-groups]
+dev = [
+    "ipython>=9.10.0",
+]
