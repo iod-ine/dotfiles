@@ -28,8 +28,6 @@ response = requests.post(
     json={
         "filter": {
             "pendingReplyFrom": "me()",
-            "resolution": "unresolved()",
-            "status": ["new", "open", "inProgress"],
         },
     },
 )
