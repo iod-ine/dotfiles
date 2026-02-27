@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local keymap = require("keymap")
 local ssh = require("ssh")
 
-local config = {}
+local config = wezterm.config_builder()
 
 local function get_system_appearance()
     if wezterm.gui then
