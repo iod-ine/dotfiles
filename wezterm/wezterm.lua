@@ -1,58 +1,10 @@
 local wezterm = require("wezterm")
-local keymap = require("keymap")
-local ssh = require("ssh")
 
 local config = wezterm.config_builder()
 
-local function get_system_appearance()
-    if wezterm.gui then
-        return wezterm.gui.get_appearance()
-    end
-    return "Dark"
-end
-
-config.color_scheme = get_system_appearance() == "Dark" and "Catppuccin Macchiato" or "Catppuccin Latte"
-config.font_size = 13
-
-config.enable_tab_bar = true
-config.use_fancy_tab_bar = false
-config.tab_bar_at_bottom = true
-config.show_new_tab_button_in_tab_bar = false
-config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.95
-config.macos_window_background_blur = 10
-
-config.window_padding = {
-    left = 10,
-    right = 10,
-    top = 0,
-    bottom = 0,
-}
-
-keymap.apply(config)
-ssh.apply(config)
-
-wezterm.on("update-right-status", function(window, pane)
-    local date = wezterm.strftime("%A, %B %d, %H:%M")
-    local workspace = window:active_workspace()
-    local domain = pane:get_domain_name()
-
-    window:set_left_status(
-        wezterm.format({
-            { Text = string.format("[%s] ", workspace) },
-        })
-    )
-
-    window:set_right_status(
-        wezterm.format({
-            { Attribute = { Intensity = "Bold" } },
-            { Text = string.format("[%s] ", domain) },
-            "ResetAttributes",
-            { Attribute = { Italic = true } },
-            { Text = date },
-        })
-    )
-end)
+require("keymap").apply(config)
+require("ssh").apply(config)
+require("appearance").apply(config)
 
 config.hyperlink_rules = wezterm.default_hyperlink_rules()
 
