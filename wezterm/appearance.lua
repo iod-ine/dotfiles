@@ -26,7 +26,7 @@ function module.apply(config)
         bottom = 0,
     }
 
-    config.color_scheme = get_system_appearance() == "Dark" and "rose-pine" or "rose-pine-dawn"
+    config.color_scheme = get_system_appearance() == "Dark" and "tokyonight_moon" or "tokyonight_day"
 
     wezterm.on("update-right-status", function(window, pane)
         local date = wezterm.strftime("%A, %B %d, %H:%M")
