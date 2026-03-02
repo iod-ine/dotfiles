@@ -1,11 +1,10 @@
 return {
     {
-        "catppuccin/nvim",
+        "folke/tokyonight.nvim",
         lazy = false,    -- Load during startup, since this is the default colorscheme
         priority = 1000, -- Load before any other start plugins
-        name = "catppuccin",
         config = function()
-            vim.cmd.colorscheme("catppuccin-macchiato")
+            vim.cmd.colorscheme("tokyonight-moon")
         end
     },
     {
@@ -25,7 +24,7 @@ return {
         lazy = true,
     },
     {
-        "folke/tokyonight.nvim",
+        "catppuccin/nvim",
         lazy = true,
     },
 }

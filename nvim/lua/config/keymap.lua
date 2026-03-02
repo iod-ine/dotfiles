@@ -46,10 +46,10 @@ which_key.add(
         {
             "<leader>tD",
             function()
-                if vim.g.colors_name == "catppuccin-macchiato" then
-                    vim.cmd.colorscheme("catppuccin-latte")
+                if vim.g.colors_name == "tokyonight-moon" then
+                    vim.cmd.colorscheme("tokyonight-day")
                 else
-                    vim.cmd.colorscheme("catppuccin-macchiato")
+                    vim.cmd.colorscheme("tokyonight-moon")
                 end
             end,
             desc = "dark theme",
