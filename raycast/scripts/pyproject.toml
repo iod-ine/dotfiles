@@ -5,6 +5,7 @@ description = "A collection of Python scripts for Raycast script commands"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "pyperclip>=1.11.0",
     "python-dotenv>=1.2.1",
     "requests>=2.32.5",
 ]
