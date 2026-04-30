@@ -1,0 +1,15 @@
+- `after/` contains scripts that are loaded automatically but later than everything else.
+    - The structure inside `after/` mirrors this: i.e. `after/ftplugin/markdown.lua` can adjust Markdown-specific configuration after all plugins are already loaded.
+- `ftplugin/` contains scripts that are automatically executed on filetype changes.
+    - `ftplugin/ft.lua` is executed when `filetype` is switched to `ft`.
+    - `ftplugin/ft/plugin_name.lua` structure can be used to have multiple plugins for the same filetype.
+- `init.lua` is the entry point for Neovim.
+- `lsp/` contains LSP configurations.
+- `lua/` – Lua scripts that run only when `:lua require()`d.
+    - `require("something")` can mean one of two things:
+        - `lua/something.lua`
+        - `lua/something/init.lua`
+    - `require("something.utils")` means `lua/something/utils.lua`.
+    - `require()` treats each script as a function and caches whatever it returns: the same file won't be executed twice.
+- `plugin/` contains scripts that will be automatically executed during startup.
+- `syntax/` contains custom syntax highlighting definitions.
