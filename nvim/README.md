@@ -13,3 +13,6 @@
     - `require()` treats each script as a function and caches whatever it returns: the same file won't be executed twice.
 - `plugin/` contains scripts that will be automatically executed during startup.
 - `syntax/` contains custom syntax highlighting definitions.
+
+Notes:
+- Everything that is loaded automatically is loaded in fixed sorted order.
