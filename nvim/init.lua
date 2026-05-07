@@ -1,1 +1,2 @@
-vim.pack.add({ 'https://github.com/nvim-mini/mini.nvim' })
+vim.g.mapleader = ' '
+vim.g.maplocalleader = '\\'
