@@ -43,6 +43,6 @@ vim.opt.smartcase = true
 vim.opt.termguicolors = true
 
 vim.opt.signcolumn = "yes"
-vim.opt.colorcolumn = "88"
+vim.opt.colorcolumn = "120"
 
 vim.opt.updatetime = 100
