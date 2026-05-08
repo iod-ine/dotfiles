@@ -6,7 +6,10 @@ require('mini.basics').setup({
     autocommands = { basic = true },
 })
 require('mini.clue').setup({
-    triggers = { { mode = { 'n', 'x' }, keys = '<Leader>' } },
+    triggers = {
+        { mode = { 'n', 'x' }, keys = '<Leader>' },
+        { mode = { 'n', 'x' }, keys = '<LocalLeader>' },
+    },
     clues = {
         { mode = 'n', keys = '<Leader>b', desc = '+Buffers' },
         { mode = 'n', keys = '<Leader>e', desc = '+Explore' },
@@ -59,4 +62,4 @@ local toggle_local_cursorword = function()
     vim.b.minicursorword_disable = not vim.b.minicursorword_disable
 end
 
-vim.keymap.set('n', '<Leader>tc', toggle_local_cursorword, { desc = 'cursorword' })
+vim.keymap.set('n', '<LocalLeader>C', toggle_local_cursorword, { desc = 'Toggle cursorword' })
