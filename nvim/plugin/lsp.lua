@@ -1,4 +1,8 @@
-vim.lsp.enable({ 'lua_ls' })
+vim.lsp.enable({
+    'lua_ls',
+    'ruff',
+    'ty',
+})
 
 vim.diagnostic.config({ virtual_lines = false, virtual_text = true })
 
