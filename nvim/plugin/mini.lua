@@ -36,9 +36,10 @@ require('mini.move').setup({
         line_up = '<C-M-k>',
     }
 })
-require('mini.pick').setup()
-require('mini.statusline').setup()
 require('mini.pairs').setup()
+require('mini.pick').setup()
+require('mini.splitjoin').setup()
+require('mini.statusline').setup()
 require('mini.surround').setup()
 require('mini.tabline').setup()
 
