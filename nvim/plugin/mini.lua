@@ -53,9 +53,12 @@ vim.keymap.set('n', '<Leader>ed', '<Cmd>lua MiniFiles.open(vim.api.nvim_buf_get_
 
 -- Find:
 vim.keymap.set('n', '<Leader>fb', '<Cmd>Pick buffers<CR>', { desc = 'buffers' })
+vim.keymap.set('n', '<Leader>fD', '<Cmd>Pick diagnostic scope="all"<CR>', { desc = 'diagnostics (all)' })
+vim.keymap.set('n', '<Leader>fd', '<Cmd>Pick diagnostic scope="current"<CR>', { desc = 'diagnostics (buffer)' })
 vim.keymap.set('n', '<Leader>ff', '<Cmd>Pick files<CR>', { desc = 'files' })
 vim.keymap.set('n', '<Leader>fh', '<Cmd>Pick help<CR>', { desc = 'help' })
 vim.keymap.set('n', '<Leader>fr', '<Cmd>Pick oldfiles<CR>', { desc = 'recent files' })
+vim.keymap.set('n', '<Leader>fl', '<Cmd>Pick grep_live<CR>', { desc = 'grep live' })
 
 -- Toggle:
 local toggle_local_cursorword = function()
