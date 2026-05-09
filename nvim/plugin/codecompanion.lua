@@ -6,6 +6,16 @@ require('codecompanion').setup({
         chat = {
             adapter = 'eliza_deepseek_internal',
         },
+        cli = {
+            agent = 'opencode',
+            agents = {
+                opencode = {
+                    cmd = 'opencode',
+                    args = {},
+                    description = 'OpenCode CLI',
+                },
+            },
+        },
         inline = {
             adapter = {
                 name = 'eliza_anthropic',
