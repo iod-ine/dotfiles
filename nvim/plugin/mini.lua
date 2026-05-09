@@ -9,9 +9,11 @@ require('mini.clue').setup({
     triggers = {
         { mode = { 'n', 'x' }, keys = '<Leader>' },
         { mode = { 'n', 'x' }, keys = '<LocalLeader>' },
+        { mode = { 'n', 'x' }, keys = 'g' },
     },
     clues = {
         { mode = 'n', keys = '<Leader>b', desc = '+Buffers' },
+        { mode = 'n', keys = '<Leader>c', desc = '+CodeCompanion' },
         { mode = 'n', keys = '<Leader>e', desc = '+Explore' },
         { mode = 'n', keys = '<Leader>f', desc = '+Find' },
         { mode = 'n', keys = '<Leader>t', desc = '+Toggle' },
