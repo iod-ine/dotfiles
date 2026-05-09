@@ -6,6 +6,12 @@ require('codecompanion').setup({
         chat = {
             adapter = 'eliza_deepseek_internal',
         },
+        inline = {
+            adapter = {
+                name = 'eliza_anthropic',
+                model = 'claude-sonnet-4-6',
+            },
+        },
     },
     adapters = {
         http = {
