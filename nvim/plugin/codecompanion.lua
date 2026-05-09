@@ -44,6 +44,15 @@ require('codecompanion').setup({
                     },
                 })
             end,
+            eliza_mistral = function()
+                return require('codecompanion.adapters').extend('mistral', {
+                    url = 'https://api.eliza.yandex.net/mistral/v1/chat/completions',
+                    env = {
+                        api_key = 'cmd:cat ~/.local/tokens/eliza',
+                    },
+                    model = 'mistral-large-latest',
+                })
+            end
         },
     },
     display = {
