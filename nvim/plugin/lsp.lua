@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
             return
         end
         if client.name == 'ruff' then
-            -- Use hover from ty instead of riff
+            -- Both ruff and ty provide hover capability. Disable it in ruff to avoid race conditions
             client.server_capabilities.hoverProvider = false
         end
     end,
