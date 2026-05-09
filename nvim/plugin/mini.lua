@@ -16,6 +16,7 @@ require('mini.clue').setup({
         { mode = 'n', keys = '<Leader>c', desc = '+CodeCompanion' },
         { mode = 'n', keys = '<Leader>e', desc = '+Explore' },
         { mode = 'n', keys = '<Leader>f', desc = '+Find' },
+        { mode = 'n', keys = '<Leader>s', desc = '+Session' },
         { mode = 'n', keys = '<Leader>t', desc = '+Toggle' },
     },
 })
@@ -40,6 +41,7 @@ require('mini.move').setup({
 })
 require('mini.pairs').setup()
 require('mini.pick').setup()
+require('mini.sessions').setup()
 require('mini.splitjoin').setup()
 require('mini.statusline').setup()
 require('mini.surround').setup({
@@ -71,6 +73,10 @@ vim.keymap.set('n', '<Leader>ff', '<Cmd>Pick files<CR>', { desc = 'files' })
 vim.keymap.set('n', '<Leader>fh', '<Cmd>Pick help<CR>', { desc = 'help' })
 vim.keymap.set('n', '<Leader>fr', '<Cmd>Pick oldfiles<CR>', { desc = 'recent files' })
 vim.keymap.set('n', '<Leader>fl', '<Cmd>Pick grep_live<CR>', { desc = 'grep live' })
+
+-- Session
+vim.keymap.set('n', '<Leader>ss', '<Cmd>lua MiniSessions.select()<CR>', { desc = 'select' })
+vim.keymap.set('n', '<Leader>sw', '<Cmd>lua MiniSessions.write()<CR>', { desc = 'write' })
 
 -- Toggle:
 local toggle_local_cursorword = function()
