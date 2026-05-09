@@ -84,4 +84,6 @@ require('codecompanion').setup({
 })
 
 -- Toggle
-vim.keymap.set('n', '<Leader>tc', '<Cmd>CodeCompanionChat toggle<CR>', { desc = 'working directory' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>ca', '<Cmd>CodeCompanionActions<CR>', { desc = 'actions' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>cc', '<Cmd>CodeCompanionChat toggle<CR>', { desc = 'toggle chat' })
+vim.keymap.set('v', 'ga', '<Cmd>CodeCompanionChat toggle<CR>', { desc = 'toggle chat' })
