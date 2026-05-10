@@ -24,6 +24,15 @@ require('codecompanion').setup({
         },
     },
     adapters = {
+        acp = {
+            opencode = function()
+                return require('codecompanion.adapters').extend('opencode', {
+                    defaults = {
+                        model = 'Eliza Anthropic/Claude Sonnet 4.5',
+                    },
+                })
+            end
+        },
         http = {
             eliza_anthropic = function()
                 return require('codecompanion.adapters').extend('anthropic', {
@@ -84,6 +93,8 @@ require('codecompanion').setup({
 })
 
 -- Toggle
+vim.keymap.set({ 'n', 'v' }, '<Leader>cA', '<Cmd>CodeCompanionCLI Ask<CR>', { desc = 'start a new CLI agent' })
 vim.keymap.set({ 'n', 'v' }, '<Leader>ca', '<Cmd>CodeCompanionActions<CR>', { desc = 'actions' })
-vim.keymap.set({ 'n', 'v' }, '<Leader>cc', '<Cmd>CodeCompanionChat toggle<CR>', { desc = 'toggle chat' })
-vim.keymap.set('v', 'ga', '<Cmd>CodeCompanionChat toggle<CR>', { desc = 'toggle chat' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>cC', '<Cmd>CodeCompanionChat<CR>', { desc = 'start a new chat' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>cc', function() require('codecompanion').toggle() end, { desc = 'toggle chat' })
+vim.keymap.set('v', 'ga', '<Cmd>CodeCompanionChat Add<CR>', { desc = 'paste to chat' })
