@@ -40,7 +40,7 @@ require('mini.move').setup({
     }
 })
 require('mini.pairs').setup()
-require('mini.pick').setup()
+require('mini.pick').setup({ mappings = { choose_marked = '<C-CR>' } })
 require('mini.sessions').setup()
 require('mini.splitjoin').setup()
 require('mini.statusline').setup()
