@@ -1,5 +1,3 @@
-vim.pack.add({ 'https://github.com/nvim-mini/mini.nvim' })
-
 require('mini.basics').setup({
     options = { basic = false },
     mappings = { basic = false },

@@ -1,5 +1,3 @@
-vim.pack.add({ 'https://github.com/milanglacier/minuet-ai.nvim' })
-
 require('minuet').setup {
     virtualtext = {
         auto_trigger_ft = {},
