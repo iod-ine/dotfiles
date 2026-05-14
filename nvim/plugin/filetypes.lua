@@ -1,8 +1,8 @@
 vim.filetype.add({
     extension = {
-        yql = "yql",
+        yql = 'yql',
     },
     filename = {
-        ["ya.make"] = "yamake",
+        ['ya.make'] = 'yamake',
     },
 })
