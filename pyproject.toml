@@ -1,0 +1,5 @@
+[tool.ty.environment]
+extra-paths = [
+    "/home/ivandubrovin/arcadia/",
+    "/home/ivandubrovin/arcadia/nirvana/vh3/src/",
+]
