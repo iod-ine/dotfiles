@@ -1,4 +1,4 @@
-require('minuet').setup {
+require('minuet').setup({
     virtualtext = {
         auto_trigger_ft = {},
         keymap = {
@@ -23,4 +23,4 @@ require('minuet').setup {
             end_point = 'https://api.eliza.yandex.net/raw/anthropic/v1/messages',
         },
     },
-}
+})
