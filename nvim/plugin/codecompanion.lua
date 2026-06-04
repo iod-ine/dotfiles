@@ -25,7 +25,7 @@ require('codecompanion').setup({
             opencode = function()
                 return require('codecompanion.adapters').extend('opencode', {
                     defaults = {
-                        model = 'Eliza Anthropic/Claude Sonnet 4.5',
+                        model = 'Eliza Anthropic/Claude Sonnet 4.6',
                     },
                 })
             end
