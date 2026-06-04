@@ -1,7 +1,10 @@
 require('codecompanion').setup({
     interactions = {
         chat = {
-            adapter = 'eliza_deepseek_internal',
+            adapter = {
+                name = 'eliza_anthropic',
+                model = 'claude-sonnet-4-6',
+            },
         },
         cli = {
             agent = 'opencode',
