@@ -3,28 +3,13 @@ local module = {}
 function module.apply(config)
     config.ssh_domains = {}
     table.insert(config.ssh_domains, {
-        name = "sas1",
-        remote_address = "sas1",
+        name = "sas",
+        remote_address = "sas",
         remote_wezterm_path = "/home/ivandubrovin/.local/bin/wezterm",
     })
     table.insert(config.ssh_domains, {
-        name = "sas3",
-        remote_address = "sas3",
-        remote_wezterm_path = "/home/ivandubrovin/.local/bin/wezterm",
-    })
-    table.insert(config.ssh_domains, {
-        name = "sas4",
-        remote_address = "sas4",
-        remote_wezterm_path = "/home/ivandubrovin/.local/bin/wezterm",
-    })
-    table.insert(config.ssh_domains, {
-        name = "sas5",
-        remote_address = "sas5",
-        remote_wezterm_path = "/home/ivandubrovin/.local/bin/wezterm",
-    })
-    table.insert(config.ssh_domains, {
-        name = "vla6",
-        remote_address = "vla6",
+        name = "vla",
+        remote_address = "vla",
         remote_wezterm_path = "/home/ivandubrovin/.local/bin/wezterm",
     })
     table.insert(config.ssh_domains, {
