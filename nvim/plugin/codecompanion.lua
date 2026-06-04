@@ -77,6 +77,16 @@ require('codecompanion').setup({
             end
         },
     },
+    mcp = {
+        servers = {
+            ['arcanum-mcp'] = {
+                cmd = { 'arcanum-mcp', '--arcadia', '~/arcadia' },
+                env = {
+                    ARC_TOKEN_PATH = '/home/ivandubrovin/.arc/token',
+                },
+            },
+        },
+    },
     display = {
         chat = {
             window = {
