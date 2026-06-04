@@ -88,6 +88,9 @@ require('codecompanion').setup({
                     ARC_TOKEN_PATH = '/home/ivandubrovin/.arc/token',
                 },
             },
+            intrasearch = {
+                cmd = { 'ya', 'tool', 'mcp', 'connect', 'mcp.yandex.net/ws?servers=intrasearch' },
+            },
         },
     },
     display = {
