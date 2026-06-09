@@ -9,7 +9,7 @@
 # @raycast.icon 🤖
 # @raycast.argument1 { "type": "text", "placeholder": "log url" }
 
-import datetime
+import hashlib
 import pathlib
 import re
 import sys
@@ -19,12 +19,13 @@ import requests
 import seaborn as sns
 from termcolor import colored
 
+url = sys.argv[1]
 regex = re.compile(r"TimeLogger '/MlPlannerInference' .+ finished in (\d+) us")
 
-r = requests.get(sys.argv[1])
+r = requests.get(url)
 r.raise_for_status()
 
-print(f"Fetched logs from {sys.argv[1]}", end="\n\n")
+print(f"Fetched logs from {url}", end="\n\n")
 
 times = np.array([int(x) / 1000 for x in regex.findall(r.content.decode())])
 
@@ -34,14 +35,12 @@ print(f"   std: {times.std():>8.03f}")
 print(f"   q50: {np.quantile(times, 0.50):>8.03f}")
 print(f"   q95: {np.quantile(times, 0.95):>8.03f}")
 print(f"   q99: {np.quantile(times, 0.99):>8.03f}")
-print(f"   q99: {np.quantile(times, 0.99):>8.03f}")
 print(f"   max: {times.max():>8.03f}")
 
-image_dir = pathlib.Path("/tmp/inference_times")
-image_dir.mkdir(exist_ok=True)
-
-timestamp = round(datetime.datetime.now().timestamp())
-image_path = image_dir / f"{timestamp}.png"
+sha1 = hashlib.sha1(url.encode()).hexdigest()[:7]
+image_dir = pathlib.Path(f"/tmp/inference_times/{sha1}")
+image_dir.mkdir(parents=True, exist_ok=True)
+image_path = image_dir / "hist.png"
 
 ax = sns.histplot(times)
 ax.figure.savefig(str(image_path))
