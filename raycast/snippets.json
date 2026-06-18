@@ -46,5 +46,24 @@
   {
     "name": "CSV from clipboard to Pandas",
     "text": "import io\nimport pandas as pd\n\ndf = pd.read_csv(io.StringIO(\"\"\"\\\n{clipboard}\n\"\"\"))\n\ndf.head()"
+  },
+  {
+    "name": "row dict to flash RIDE_ID",
+    "text": "print(\n    \"RIDE_ID = '(\"\n    f'\"{row[\"ride_date\"]}\",'\n    f'\"{row[\"ride_time\"]}\",'\n    f'\"{row[\"log_time\"]}\",'\n    f'\"{row[\"rover\"]}\",'\n    f'{int(row[\"message_ts\"] - 6e9)},'\n    f'{int(row[\"message_ts\"] + 9e9)}'\n    \")'\",\n)"
+  },
+  {
+    "name": "Scenes YT path",
+    "keyword": "@ytscenes",
+    "text": "//home/selfdriving/robodelivery/scenes/"
+  },
+  {
+    "name": "CL run command",
+    "keyword": "@clcmd",
+    "text": "make -f sdg/robodelivery/simulator/pipelines/Makefile RIDE_ID='{clipboard}' SCENE_FILENAME="
+  },
+  {
+    "name": "ya download",
+    "keyword": "@yad",
+    "text": "ya download --original-name sbr://{clipboard}"
   }
 ]
