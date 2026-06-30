@@ -70,10 +70,12 @@ vim.keymap.set('n', '<Leader>fD', '<Cmd>Pick diagnostic scope="all"<CR>', { desc
 vim.keymap.set('n', '<Leader>fd', '<Cmd>Pick diagnostic scope="current"<CR>', { desc = 'diagnostics (buffer)' })
 vim.keymap.set('n', '<Leader>ff', '<Cmd>Pick files<CR>', { desc = 'files' })
 vim.keymap.set('n', '<Leader>fh', '<Cmd>Pick help<CR>', { desc = 'help' })
+vim.keymap.set('n', '<Leader>fk', '<Cmd>Pick keymaps<CR>', { desc = 'keymaps' })
 vim.keymap.set('n', '<Leader>fr', '<Cmd>Pick oldfiles<CR>', { desc = 'recent files' })
 vim.keymap.set('n', '<Leader>fl', '<Cmd>Pick grep_live<CR>', { desc = 'grep live' })
 
 -- Session
+vim.keymap.set('n', '<Leader>sr', '<Cmd>lua MiniSessions.restart()<CR>', { desc = 'restart' })
 vim.keymap.set('n', '<Leader>ss', '<Cmd>lua MiniSessions.select()<CR>', { desc = 'select' })
 vim.keymap.set('n', '<Leader>sw', '<Cmd>lua MiniSessions.write()<CR>', { desc = 'write' })
 

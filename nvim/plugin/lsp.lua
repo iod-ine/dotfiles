@@ -13,6 +13,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Keymaps
         -- Keymaps: Buffers
         vim.keymap.set('n', '<Leader>bf', vim.lsp.buf.format, { buf = args.buf, desc = 'format' })
+        --
+        -- Keymaps: Explore
+        vim.keymap.set('n', '<Leader>eS', '<Cmd>Pick lsp scope="worspace_symbol"<CR>', { desc = 'workspace symbols' })
+        vim.keymap.set('n', '<Leader>es', '<Cmd>Pick lsp scope="document_symbol"<CR>', { desc = 'document symbols' })
 
         -- Keymaps: Toggle
         local toggle_lsp_diagnostics = function()
