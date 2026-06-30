@@ -5,6 +5,7 @@ description = "A collection of Python scripts for Raycast script commands"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "loguru>=0.7.3",
     "matplotlib>=3.10.9",
     "numpy>=2.4.6",
     "pyperclip>=1.11.0",
