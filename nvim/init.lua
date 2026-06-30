@@ -10,5 +10,6 @@ vim.pack.add({
     'https://github.com/nvim-treesitter/nvim-treesitter-context',
     'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
     'https://github.com/rose-pine/neovim',
+    'https://github.com/Vigemus/iron.nvim',
     { src = 'https://www.github.com/olimorris/codecompanion.nvim', version = vim.version.range('^19.0.0') },
 })
