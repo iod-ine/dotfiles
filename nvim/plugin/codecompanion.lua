@@ -100,13 +100,13 @@ require('codecompanion').setup({
                 position = 'right',
                 width = 0.4,
             },
-            auto_scroll = false,
+            auto_scroll = true,
         },
     },
 })
 
 -- Toggle
-vim.keymap.set({ 'n', 'v' }, '<Leader>cA', '<Cmd>CodeCompanionCLI Ask<CR>', { desc = 'start a new CLI agent' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>cA', '<Cmd>CodeCompanionCLI<CR>', { desc = 'start a new CLI agent' })
 vim.keymap.set({ 'n', 'v' }, '<Leader>ca', '<Cmd>CodeCompanionActions<CR>', { desc = 'actions' })
 vim.keymap.set({ 'n', 'v' }, '<Leader>cC', '<Cmd>CodeCompanionChat<CR>', { desc = 'start a new chat' })
 vim.keymap.set({ 'n', 'v' }, '<Leader>cc', function() require('codecompanion').toggle() end, { desc = 'toggle chat' })
