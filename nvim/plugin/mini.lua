@@ -14,6 +14,7 @@ require('mini.clue').setup({
         { mode = 'n', keys = '<Leader>c', desc = '+CodeCompanion' },
         { mode = 'n', keys = '<Leader>e', desc = '+Explore' },
         { mode = 'n', keys = '<Leader>f', desc = '+Find' },
+        { mode = 'n', keys = '<Leader>r', desc = '+REPL' },
         { mode = 'n', keys = '<Leader>s', desc = '+Session' },
         { mode = 'n', keys = '<Leader>t', desc = '+Toggle' },
     },
