@@ -17,7 +17,7 @@ from loguru import logger
 
 from api.nirvana import get_execution_state
 from common import notify
-from urls.nirvana import parse_nirvana_url_from_clipboard
+from urls.nirvana import make_nirvana_graph_url, parse_nirvana_url_from_clipboard
 
 
 def watch_instance(
@@ -51,9 +51,15 @@ if __name__ == "__main__":
         try:
             workflow_id, instance_id = sys.argv[2], sys.argv[3]
             status = watch_instance(workflow_id, instance_id)
-            notify(f"Graph finished with status '{status}'")
+            notify(
+                f"Graph finished with status '{status}'",
+                url=make_nirvana_graph_url(workflow_id, instance_id),
+            )
         except TimeoutError:
-            notify("Timeout exceeded. No longer watching the instance.")
+            notify(
+                "Timeout exceeded. No longer watching the instance.",
+                url=make_nirvana_graph_url(workflow_id, instance_id),
+            )
     else:
         try:
             workflow_id, instance_id = parse_nirvana_url_from_clipboard()
