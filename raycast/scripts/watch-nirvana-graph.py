@@ -8,25 +8,16 @@
 # Optional parameters:
 # @raycast.icon 🤖
 
-import time
-import re
-import sys
 import subprocess
+import sys
+import time
 
 import dotenv
-import pyperclip
-
 from loguru import logger
 
 from api.nirvana import get_execution_state
 from common import notify
-
-
-def parse_nirvana_url_from_clipboard() -> tuple[str, str]:
-    """Parse a Nirvana graph URL from clipboards into workflow and instance IDs."""
-    url = pyperclip.paste()
-    regex = re.compile(r"nirvana.yandex-team.ru/flow/([^/]+)/([^/]+)/graph")
-    return regex.findall(url)[0]
+from urls.nirvana import parse_nirvana_url_from_clipboard
 
 
 def watch_instance(
