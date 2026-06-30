@@ -65,3 +65,12 @@ $(HOME)/.local/bin/rg:
 	 | xargs wget -O /tmp/ripgrep/rg.tgz
 	tar --strip-components=1 -xf /tmp/ripgrep/rg.tgz -C /tmp/ripgrep
 	mv /tmp/ripgrep/rg ~/.local/bin
+
+fetch-tree-sitter:: bin-directory $(HOME)/.local/bin/tree-sitter
+$(HOME)/.local/bin/tree-sitter:
+	mkdir -p /tmp/tree-sitter
+	curl -s https://api.github.com/repos/tree-sitter/tree-sitter/releases/latest \
+	 | jq '.assets[] | select(.name | test("linux-x64.zip$$")) | .browser_download_url' \
+	 | xargs wget -O /tmp/tree-sitter/tree-sitter.zip
+	unzip -d ~/.local/bin /tmp/tree-sitter/tree-sitter.zip
+	chmod +x ~/.local/bin/tree-sitter
