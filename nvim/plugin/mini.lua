@@ -23,7 +23,14 @@ require('mini.completion').setup()
 require('mini.cursorword').setup()
 require('mini.diff').setup({ view = { style = 'number' } })
 require('mini.extra').setup()
-require('mini.files').setup({ windows = { preview = true, width_preview = 50 } })
+require('mini.files').setup({
+    content = {
+        filter = function(entry)
+            return not vim.tbl_contains({ "__pycache__" }, entry.name)
+        end
+    },
+    windows = { preview = true, width_preview = 50 },
+})
 require('mini.icons').setup()
 require('mini.indentscope').setup({ draw = { animation = require('mini.indentscope').gen_animation.none() } })
 require('mini.move').setup({
