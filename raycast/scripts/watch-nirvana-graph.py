@@ -19,6 +19,7 @@ import pyperclip
 from loguru import logger
 
 from api.nirvana import get_execution_state
+from common import notify
 
 
 def parse_nirvana_url_from_clipboard() -> tuple[str, str]:
@@ -49,17 +50,6 @@ def watch_instance(
         time.sleep(delay)
     logger.warning(f"Timeout exceeded for graph with {instance_id=}")
     raise TimeoutError
-
-
-def notify(message: str):
-    """Send a system notification using osascript."""
-    subprocess.run(
-        [
-            "osascript",
-            "-e",
-            f'display notification "{message}" with title "Graph watchdog" sound name "Glass"',
-        ]
-    )
 
 
 if __name__ == "__main__":
