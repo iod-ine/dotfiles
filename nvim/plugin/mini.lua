@@ -38,7 +38,6 @@ require('mini.move').setup({
         line_up = '<C-M-k>',
     }
 })
-require('mini.pairs').setup()
 require('mini.pick').setup({ mappings = { choose_marked = '<C-CR>' } })
 require('mini.sessions').setup()
 require('mini.splitjoin').setup()
