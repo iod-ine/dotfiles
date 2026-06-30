@@ -9,16 +9,16 @@
 # @raycast.icon 🤖
 
 import time
-import os
 import re
 import sys
 import subprocess
 
 import dotenv
 import pyperclip
-import requests
 
 from loguru import logger
+
+from api.nirvana import get_execution_state
 
 
 def parse_nirvana_url_from_clipboard() -> tuple[str, str]:
@@ -26,27 +26,6 @@ def parse_nirvana_url_from_clipboard() -> tuple[str, str]:
     url = pyperclip.paste()
     regex = re.compile(r"nirvana.yandex-team.ru/flow/([^/]+)/([^/]+)/graph")
     return regex.findall(url)[0]
-
-
-def get_execution_state(workflow_id: str, instance_id: str) -> dict:
-    """Call Nirvana API to check the execution state of a workflow."""
-    response = requests.post(
-        url="https://nirvana.yandex-team.ru/api/public/v1/getExecutionState",
-        headers={
-            "Authorization": f"OAuth {os.environ.get('NIRVANA_TOKEN')}",
-            "Content-Type": "application/json; charset=utf-8",
-        },
-        json={
-            "jsonrpc": "2.0",
-            "method": "getExecutionState",
-            "id": 1,
-            "params": {
-                "workflowId": workflow_id,
-                "workflowInstanceId": instance_id,
-            },
-        },
-    )
-    return response.json()
 
 
 def watch_instance(
