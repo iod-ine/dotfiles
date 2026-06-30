@@ -13,6 +13,11 @@ function module.apply(config)
             remote_wezterm_path = "/home/ivandubrovin/.local/bin/wezterm",
         },
         {
+            name = "pvm",
+            remote_address = "pvm",
+            remote_wezterm_path = "/home/ivandubrovin/.local/bin/wezterm",
+        },
+        {
             name = "yandex-cloud-vm",
             remote_address = "yc",
             remote_wezterm_path = "/home/ivan/.local/bin/wezterm",
