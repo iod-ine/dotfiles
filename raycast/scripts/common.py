@@ -8,7 +8,7 @@ def notify(
     sound: str = "Glass",
     url: str | None = None,
 ):
-    """Send a system notification using osascript."""
+    """Send a system notification using terminal-notifier."""
     cmd = [
         "terminal-notifier",
         "-message",
