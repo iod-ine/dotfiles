@@ -1,3 +1,4 @@
+import os
 import subprocess
 import plistlib
 from pathlib import Path
@@ -16,6 +17,7 @@ def create_launchd_job(label: str, cmd: list[str], interval: int = 120) -> None:
         "ProgramArguments": cmd,
         "RunAtLoad": True,
         "StartInterval": interval,
+        "EnvironmentVariables": {"PATH": os.environ.get("PATH", "")},
     }
     job_file = AGENTS_DIR / f"{label}.plist"
     with open(job_file, "wb") as f:
