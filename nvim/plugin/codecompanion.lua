@@ -31,7 +31,12 @@ require('codecompanion').setup({
                         model = 'Eliza Anthropic/Claude Sonnet 4.6',
                     },
                 })
-            end
+            end,
+            codex = function()
+                return require("codecompanion.adapters").extend("codex", {
+                    defaults = { auth_method = "chat-gpt" },
+                })
+            end,
         },
         http = {
             eliza_anthropic = function()
