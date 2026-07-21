@@ -1,3 +1,5 @@
+"""Code for handling launchd jobs."""
+
 import os
 import subprocess
 import plistlib
@@ -18,6 +20,8 @@ def create_launchd_job(label: str, cmd: list[str], interval: int = 120) -> None:
         "RunAtLoad": True,
         "StartInterval": interval,
         "EnvironmentVariables": {"PATH": os.environ.get("PATH", "")},
+        "StandardOutPath": "/tmp/watch-nirvana-stdout.txt",
+        "StandardErrorPath": "/tmp/watch-nirvana-stderr.txt",
     }
     job_file = AGENTS_DIR / f"{label}.plist"
     with open(job_file, "wb") as f:
@@ -26,11 +30,10 @@ def create_launchd_job(label: str, cmd: list[str], interval: int = 120) -> None:
 
 
 def remove_launchd_job(label: str) -> None:
-    """Remove a launchd job."""
-    job_file = AGENTS_DIR / f"{label}.plist"
-    if job_file.exists():
-        _unload_job(job_file)
-    job_file.unlink(missing_ok=True)
+    """Remove a launchd job and its .plist file."""
+    (AGENTS_DIR / f"{label}.plist").unlink(missing_ok=True)
+    if _job_exists(label):
+        _remove_job(label)
 
 
 def _job_exists(label: str) -> bool:
@@ -39,10 +42,20 @@ def _job_exists(label: str) -> bool:
 
 
 def _load_job(job_file: Path) -> None:
-    """Load a job."""
+    """Load a job from a file."""
     subprocess.run(["launchctl", "load", job_file], check=True)
 
 
 def _unload_job(job_file: Path) -> None:
-    """Unload a job."""
+    """Unload a job from a file.
+
+    Notes:
+        `launchctl unload <job.plist>` also sends a SIGTEM to the running process, so if a script tries to clean itself
+        up, it will exit the moment it calls this.
+    """
     subprocess.run(["launchctl", "unload", job_file], check=True)
+
+
+def _remove_job(label: str) -> None:
+    """Remove a loaded job."""
+    subprocess.run(["launchctl", "remove", label], check=True)

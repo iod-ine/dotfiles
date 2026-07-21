@@ -30,22 +30,22 @@ if __name__ == "__main__":
         workflow_id, instance_id, graph_label = sys.argv[2], sys.argv[3], sys.argv[4]
         response: dict = get_execution_state(workflow_id, instance_id)
         if (error := response.get("error")) is not None:
-            remove_launchd_job(label=f"local.watch-nirvana-graph.{instance_id}")
             message = error.get("message") or "no message provided"
             notify(
                 f"API error when polling graph[{graph_label}]: '{message}'",
                 url=make_nirvana_graph_url(workflow_id, instance_id),
             )
             logger.error(f"API error when polling graph[{graph_label}] with {instance_id=}: '{message}'")
-            sys.exit(1)
-        status = response["result"]["status"]
-        logger.info(f"Poll result: {status=} for graph with {instance_id=}")
-        if status != "running":
             remove_launchd_job(label=f"local.watch-nirvana-graph.{instance_id}")
+        status = response["result"]["status"]
+        result = response["result"]["result"]
+        logger.info(f"Poll result: {instance_id=} {status=} {result=}")
+        if status != "running":
             notify(
                 f"Graph[{graph_label}] finished with status '{status}'",
                 url=make_nirvana_graph_url(workflow_id, instance_id),
             )
+            remove_launchd_job(label=f"local.watch-nirvana-graph.{instance_id}")
     else:
         try:
             workflow_id, instance_id = parse_nirvana_url_from_clipboard()
