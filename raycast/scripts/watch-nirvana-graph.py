@@ -4,13 +4,13 @@
 # @raycast.schemaVersion 1
 # @raycast.title watch-nirvana-graph
 # @raycast.mode compact
+# @raycast.argument1 { "type": "text", "placeholder": "Label [optional]", "optional": true }
 
 # Optional parameters:
-# @raycast.icon 🤖
+# @raycast.icon 👀
 
-import subprocess
 import sys
-import time
+from pathlib import Path
 
 import dotenv
 from loguru import logger
@@ -18,46 +18,32 @@ from loguru import logger
 from api.nirvana import get_execution_state
 from common import notify
 from urls.nirvana import make_nirvana_graph_url, parse_nirvana_url_from_clipboard
-
-
-def watch_instance(
-    workflow_id: str,
-    instance_id: str,
-    *,
-    delay: int = 60,
-    timeout: int = 21600,
-) -> str:
-    """Watch a running Nirvana graph instance and get its status when it finishes."""
-    logger.add("/tmp/watch-nirvana-graph.log", level="INFO", rotation="10 MB")
-    logger.info(f"Started watching graph with {instance_id=}")
-    start_time = time.time()
-    while time.time() - start_time < timeout:
-        execution_state = get_execution_state(workflow_id, instance_id)
-        status = execution_state["result"]["status"]
-        logger.info(f"Poll result: {status=} for graph with {instance_id=}")
-        if status != "running":
-            logger.info(f"Instance {instance_id} finished with {status=}")
-            return status
-        time.sleep(delay)
-    logger.warning(f"Timeout exceeded for graph with {instance_id=}")
-    raise TimeoutError
+from schedule.launchd import create_launchd_job, remove_launchd_job
 
 
 if __name__ == "__main__":
-    if not dotenv.load_dotenv():
+    if not dotenv.load_dotenv(dotenv_path=Path(__file__).parent / ".env"):
         print("Could not load the .env file.")
         sys.exit(1)
-    if len(sys.argv) > 1 and sys.argv[1] == "--run-background":
-        try:
-            workflow_id, instance_id = sys.argv[2], sys.argv[3]
-            status = watch_instance(workflow_id, instance_id)
+    if len(sys.argv) > 1 and sys.argv[1] == "--background":
+        logger.add("/tmp/watch-nirvana-graph.log", level="INFO", rotation="10 MB")
+        workflow_id, instance_id, graph_label = sys.argv[2], sys.argv[3], sys.argv[4]
+        response: dict = get_execution_state(workflow_id, instance_id)
+        if (error := response.get("error")) is not None:
+            remove_launchd_job(label=f"local.watch-nirvana-graph.{instance_id}")
+            message = error.get("message") or "no message provided"
             notify(
-                f"Graph finished with status '{status}'",
+                f"API error when polling graph[{graph_label}]: '{message}'",
                 url=make_nirvana_graph_url(workflow_id, instance_id),
             )
-        except TimeoutError:
+            logger.error(f"API error when polling graph[{graph_label}] with {instance_id=}: '{message}'")
+            sys.exit(1)
+        status = response["result"]["status"]
+        logger.info(f"Poll result: {status=} for graph with {instance_id=}")
+        if status != "running":
+            remove_launchd_job(label=f"local.watch-nirvana-graph.{instance_id}")
             notify(
-                "Timeout exceeded. No longer watching the instance.",
+                f"Graph[{graph_label}] finished with status '{status}'",
                 url=make_nirvana_graph_url(workflow_id, instance_id),
             )
     else:
@@ -66,11 +52,10 @@ if __name__ == "__main__":
         except IndexError:
             print("Could not parse the Nirvana URL.")
             sys.exit(1)
-        subprocess.Popen(
-            [sys.executable, __file__, "--run-background", workflow_id, instance_id],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-            stdin=subprocess.DEVNULL,
-            start_new_session=True,
+        graph_label = sys.argv[1] if len(sys.argv) > 1 else "unlabeled"
+        create_launchd_job(
+            label=f"local.watch-nirvana-graph.{instance_id}",
+            cmd=[sys.executable, __file__, "--background", workflow_id, instance_id, graph_label],
+            interval=120,
         )
-        print("Started the watch process.")
+        print("Created a watch job.")
