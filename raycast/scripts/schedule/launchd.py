@@ -9,7 +9,15 @@ from pathlib import Path
 AGENTS_DIR = Path("~/Library/LaunchAgents").expanduser()
 
 
-def create_launchd_job(label: str, cmd: list[str], interval: int = 120) -> None:
+def create_launchd_job(
+    label: str,
+    cmd: list[str],
+    *,
+    interval: int = 120,
+    run_at_load: bool = True,
+    stdout_path: str = "",
+    stderr_path: str = "",
+) -> None:
     """Create and load a launchd job."""
     if _job_exists(label):
         remove_launchd_job(label)
@@ -17,12 +25,14 @@ def create_launchd_job(label: str, cmd: list[str], interval: int = 120) -> None:
     job_dict = {
         "Label": label,
         "ProgramArguments": cmd,
-        "RunAtLoad": True,
+        "RunAtLoad": run_at_load,
         "StartInterval": interval,
         "EnvironmentVariables": {"PATH": os.environ.get("PATH", "")},
-        "StandardOutPath": "/tmp/watch-nirvana-stdout.txt",
-        "StandardErrorPath": "/tmp/watch-nirvana-stderr.txt",
     }
+    if stdout_path:
+        job_dict["StandardOutPath"] = stdout_path
+    if stderr_path:
+        job_dict["StandardErrorPath"] = stderr_path
     job_file = AGENTS_DIR / f"{label}.plist"
     with open(job_file, "wb") as f:
         plistlib.dump(job_dict, f, fmt=plistlib.FMT_XML)
@@ -57,5 +67,10 @@ def _unload_job(job_file: Path) -> None:
 
 
 def _remove_job(label: str) -> None:
-    """Remove a loaded job."""
+    """Remove a loaded job.
+
+    Notes:
+        `launchctl remove <job>` also sends a SIGTEM to the running process, so if a script tries to clean itself up,
+        it wull exit the moment it calls this. This is wht
+    """
     subprocess.run(["launchctl", "remove", label], check=True)

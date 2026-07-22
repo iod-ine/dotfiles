@@ -19,5 +19,6 @@ def get_execution_state(workflow_id: str, instance_id: str) -> dict:
                 "workflowInstanceId": instance_id,
             },
         },
+        timeout=(30, 30),
     )
     return response.json()
