@@ -24,6 +24,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
         vim.keymap.set('n', '<Leader>tq', toggle_lsp_diagnostics, { buf = args.buf, desc = 'diagnostics' })
 
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buf = args.buf, desc = 'go to declaration' })
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buf = args.buf, desc = 'go to definition' })
+
         -- Client-specific configuration
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client == nil then
