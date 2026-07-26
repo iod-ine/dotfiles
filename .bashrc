@@ -9,10 +9,12 @@ export OSH='/home/ivandubrovin/.oh-my-bash'
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
-OSH_THEME="font"
+OSH_THEME="random"
 
 # If you set OSH_THEME to "random", you can ignore themes you don't like.
 # OMB_THEME_RANDOM_IGNORED=("powerbash10k" "wanelo")
+# You can also specify the list from which a theme is randomly selected:
+OMB_THEME_RANDOM_CANDIDATES=("bakke" "cooperkid" "envy" "mbriggs" "tylenol")
 
 # Uncomment the following line to use case-sensitive completion.
 # OMB_CASE_SENSITIVE="true"
@@ -123,7 +125,9 @@ source "$OSH"/oh-my-bash.sh
 
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/home/ivandubrovin/.local/bin:$PATH"
 export YT_PROXY=kolmogorov
+export ELIZA_API_KEY=$(cat ~/.local/tokens/eliza)
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -156,5 +160,9 @@ alias asd="arc status ."
 alias vh3="~/arcadia/ya tool vh3"
 alias ya="~/arcadia/ya"
 alias yt="~/arcadia/ya tool yt"
+alias vh3="~/arcadia/ya tool vh3"
+
+# opencode
+export PATH=/home/ivandubrovin/.opencode/bin:$PATH
 
 . "$HOME/.local/bin/env"
