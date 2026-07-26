@@ -54,6 +54,33 @@ codex-configure:
 	mkdir -p $(HOME)/.codex
 	ln -sf $(CURDIR)/AGENTS.md $(HOME)/.codex/AGENTS.md
 
+.PHONY: oh-my-bash oh-my-bash-fetch oh-my-bash-configure oh-my-bash-completions
+oh-my-bash: oh-my-bash-fetch oh-my-bash-configure
+oh-my-bash-fetch: $(HOME)/.oh-my-bash
+$(HOME)/.oh-my-bash:
+	bash -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+oh-my-bash-configure:
+	ln -sf $(CURDIR)/.bashrc $(HOME)/.bashrc
+oh-my-bash-completions: $(HOME)/.oh-my-bash/custom/completions/arc.completion.sh
+oh-my-bash-completions: $(HOME)/.oh-my-bash/custom/completions/wezterm.completion.sh
+oh-my-bash-completions: $(HOME)/.oh-my-bash/custom/completions/ya.completion.sh
+$(HOME)/.oh-my-bash/custom/completions/arc.completion.sh:
+	arc completion bash >| $(HOME)/.oh-my-bash/custom/completions/arc.completion.sh
+$(HOME)/.oh-my-bash/custom/completions/wezterm.completion.sh:
+	@if command -v wezterm > /dev/null 2>&1; then \
+		wezterm shell-completion --shell bash >| ~/.oh-my-bash/custom/completions/wezterm.completion.sh; \
+	else \
+		echo "Wezterm not installed, skipping completions."; \
+	fi
+$(HOME)/.oh-my-bash/custom/completions/ya.completion.sh:
+	@if command -v ya > /dev/null 2>&1; then \
+		ya completion --bash; \
+		mv $(HOME)/.ya.completion/bash/ya $(HOME)/.oh-my-bash/custom/completions/ya.completion.sh; \
+		rm -rf $(HOME)/.ya.completion; \
+	else \
+		echo "Could not find the ya executable, skipping completions."; \
+	fi
+
 # WezTerm also has both the fetch and configure, but fetch is only needed for Linux virtual machines
 # while configure is only needed for the macOS host. No reason to combine them into a single target.
 
@@ -94,11 +121,6 @@ $(HOME)/.local/bin/fzf:
 	 | jq '.assets[] | select(.name | test("linux_amd64.tar.gz$$")) | .browser_download_url' \
 	 | xargs wget -O /tmp/fzf.tgz
 	tar xf /tmp/fzf.tgz -C $(HOME)/.local/bin
-
-.PHONY: oh-my-bash-fetch
-oh-my-bash-fetch: $(HOME)/.oh-my-bash
-$(HOME)/.oh-my-bash:
-	bash -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 .PHONY: ripgrep-fetch
 ripgrep-fetch: bin-directory $(HOME)/.local/bin/rg
