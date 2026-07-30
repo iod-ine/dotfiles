@@ -110,6 +110,20 @@ tridactyl-configure: config-directory
 wezterm-configure: config-directory
 	rm -rf $(HOME)/.config/wezterm && ln -sf $(CURDIR)/wezterm $(HOME)/.config/wezterm
 
+.PHONY: skills
+skills:
+	mkdir -p $(HOME)/.agents/skills
+	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/arcanum $(HOME)/.agents/skills/
+	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/ast-index $(HOME)/.agents/skills/
+	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/codesearch $(HOME)/.agents/skills/
+	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/datalens $(HOME)/.agents/skills/
+	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/nirvana $(HOME)/.agents/skills/
+	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/yql $(HOME)/.agents/skills/
+	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/yt $(HOME)/.agents/skills/
+	ln -sf $(HOME)/arcadia/ai/artifacts/skills/infra/arc $(HOME)/.agents/skills/
+	ln -sf $(HOME)/arcadia/ai/artifacts/skills/infra/tracker-mcp $(HOME)/.agents/skills/
+
+
 # -----------------------------------
 # Targets for fetching tool binaries
 # -----------------------------------
