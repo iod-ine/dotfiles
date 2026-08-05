@@ -17,6 +17,7 @@ require('mini.clue').setup({
         { mode = 'n', keys = '<Leader>r', desc = '+REPL' },
         { mode = 'n', keys = '<Leader>s', desc = '+Session' },
         { mode = 'n', keys = '<Leader>t', desc = '+Toggle' },
+        { mode = 'n', keys = 'gs', desc = '+Surroundings' },
     },
 })
 require('mini.completion').setup()
@@ -67,13 +68,12 @@ require('mini.tabline').setup()
 
 -- Explore:
 vim.keymap.set('n', '<Leader>eD', '<Cmd>lua MiniFiles.open()<CR>', { desc = 'working directory' })
-vim.keymap.set('n', '<Leader>ed', '<Cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>',
-    { desc = 'current file directory' })
+vim.keymap.set('n', '<Leader>ed', '<Cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>', { desc = 'current file directory' })
+vim.keymap.set('n', '<Leader>eQ', '<Cmd>Pick diagnostic scope="all"<CR>', { desc = 'diagnostics (all)' })
+vim.keymap.set('n', '<Leader>eq', '<Cmd>Pick diagnostic scope="current"<CR>', { desc = 'diagnostics (buffer)' })
 
 -- Find:
 vim.keymap.set('n', '<Leader>fb', '<Cmd>Pick buffers<CR>', { desc = 'buffers' })
-vim.keymap.set('n', '<Leader>fD', '<Cmd>Pick diagnostic scope="all"<CR>', { desc = 'diagnostics (all)' })
-vim.keymap.set('n', '<Leader>fd', '<Cmd>Pick diagnostic scope="current"<CR>', { desc = 'diagnostics (buffer)' })
 vim.keymap.set('n', '<Leader>ff', '<Cmd>Pick files<CR>', { desc = 'files' })
 vim.keymap.set('n', '<Leader>fh', '<Cmd>Pick help<CR>', { desc = 'help' })
 vim.keymap.set('n', '<Leader>fk', '<Cmd>Pick keymaps<CR>', { desc = 'keymaps' })

@@ -11,11 +11,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'Create buffer-local LSP keymaps',
     callback = function(args)
         -- Keymaps
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buf = args.buf, desc = 'go to declaration' })
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buf = args.buf, desc = 'go to definition' })
+        vim.keymap.set('n', 'gR', '<Cmd>Pick lsp scope="references"<CR>', { buf = args.buf, desc = 'expore references' })
+
         -- Keymaps: Buffers
         vim.keymap.set('n', '<Leader>bf', vim.lsp.buf.format, { buf = args.buf, desc = 'format' })
         --
         -- Keymaps: Explore
-        vim.keymap.set('n', '<Leader>eS', '<Cmd>Pick lsp scope="worspace_symbol"<CR>', { desc = 'workspace symbols' })
+        vim.keymap.set('n', '<Leader>eS', '<Cmd>Pick lsp scope="workspace_symbol"<CR>', { desc = 'workspace symbols' })
         vim.keymap.set('n', '<Leader>es', '<Cmd>Pick lsp scope="document_symbol"<CR>', { desc = 'document symbols' })
 
         -- Keymaps: Toggle
