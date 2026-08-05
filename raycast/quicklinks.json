@@ -1,35 +1,35 @@
 [
   {
-    "name": "Search Google",
-    "link": "https://google.com/search?q={argument}"
+    "link": "https://google.com/search?q={argument}",
+    "name": "Search Google"
   },
   {
-    "name": "Search DuckDuckGo",
-    "link": "https://duckduckgo.com/?q={argument}"
+    "link": "https://duckduckgo.com/?q={argument}",
+    "name": "Search DuckDuckGo"
   },
   {
-    "name": "YT path from clipboard",
+    "iconName": "folder-16",
     "link": "https://yt.yandex-team.ru/kolmogorov/navigation?path={clipboard}",
-    "iconName": "folder-16"
+    "name": "YT path from clipboard"
   },
   {
-    "name": "Arcanum path from clipboard",
+    "iconName": "code-16",
     "link": "a.yandex-team.ru/arcadia/{clipboard}",
-    "iconName": "code-16"
+    "name": "Arcanum path from clipboard"
   },
   {
-    "name": "Arcadia commit",
+    "iconName": "brand-git-16",
     "link": "https://a.yandex-team.ru/arcadia/commit/{clipboard}",
-    "iconName": "brand-git-16"
+    "name": "Arcadia commit"
   },
   {
-    "name": "Arcadia branch",
+    "iconName": "brand-git-16",
     "link": "https://a.yandex-team.ru/arcadia/?rev={clipboard}",
-    "iconName": "brand-git-16"
+    "name": "Arcadia branch"
   },
   {
-    "name": "Startrek ticket",
+    "iconName": "ticket-16",
     "link": "https://st.yandex-team.ru/{clipboard}",
-    "iconName": "ticket-16"
+    "name": "Startrek ticket"
   }
 ]
