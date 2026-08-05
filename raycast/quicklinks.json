@@ -23,13 +23,23 @@
     "name": "Arcadia commit"
   },
   {
+    "iconName": "ticket-16",
+    "link": "https://st.yandex-team.ru/{clipboard}",
+    "name": "Startrek ticket"
+  },
+  {
     "iconName": "brand-git-16",
     "link": "https://a.yandex-team.ru/arcadia/?rev={clipboard}",
     "name": "Arcadia branch"
   },
   {
-    "iconName": "ticket-16",
-    "link": "https://st.yandex-team.ru/{clipboard}",
-    "name": "Startrek ticket"
+    "iconName": "magnifying-glass-16",
+    "link": "https://thin-yaviz.sdc.yandex-team.ru/?ytTable={clipboard}&ytProxy=kolmogorov.yt.yandex.net&source=yt",
+    "name": "Yaviz from YT table"
+  },
+  {
+    "iconName": "cloud-16",
+    "link": "https://remote.sdc.yandex-team.ru/rovers/{argument name=\"Rover\"}",
+    "name": "Robot RC"
   }
 ]

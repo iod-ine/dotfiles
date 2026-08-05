@@ -64,5 +64,25 @@
     "keyword": "@yad",
     "name": "ya download",
     "text": "ya download --original-name sbr://{clipboard}"
+  },
+  {
+    "name": "Parse SceneGT proto",
+    "text": "import gzip\n\nfrom scene_gt_pb2 import Scene\n\nscene = Scene()\nscene.ParseFromString(gzip.decompress({cursor}))"
+  },
+  {
+    "name": "Read YT table",
+    "text": "import yt.wrapper as yt\n\nclient = yt.YtClient(proxy=\"kolmogorov\")\n\nfor row in client.read_table(\"{cursor}\"):\n    break"
+  },
+  {
+    "name": "pyproject.toml for arcadia",
+    "text": "sed \"s#ARC_ROOT#$(arc root)#g\" > pyproject.toml <<'END'\n[tool.ty.environment]\nextra-paths = [\n    \"ARC_ROOT\",\n    \"ARC_ROOT/contrib/python\",\n    \"ARC_ROOT/nirvana/vh3/src\",\n    \"ARC_ROOT/yt/python\",\n]\nEND"
+  },
+  {
+    "name": "CL pools",
+    "text": "249282 – common scenario and speed pool kpi [17k+]\n240119 – random cases with different speed [1k]"
+  },
+  {
+    "name": "Parse scene tensors",
+    "text": "import onnx\n\n\ndef parse_tensors(scene_tensors: list[dict]) -> dict:\n    out = {}\n    for x in scene_tensors:\n        tensor = onnx.helper.TensorProto()\n        tensor.ParseFromString(yt.yson.get_bytes(x[\"value\"]))\n        out[x[\"key\"]] = onnx.numpy_helper.to_array(tensor)\n    return out"
   }
 ]
