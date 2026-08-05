@@ -61,6 +61,7 @@ $(HOME)/.oh-my-bash:
 	bash -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 oh-my-bash-configure:
 	ln -sf $(CURDIR)/.bashrc $(HOME)/.bashrc
+	ln -sf $(CURDIR)/oh-my-bash/functions/*.sh $(HOME)/.oh-my-bash/custom/
 oh-my-bash-completions: $(HOME)/.oh-my-bash/custom/completions/arc.completion.sh
 oh-my-bash-completions: $(HOME)/.oh-my-bash/custom/completions/wezterm.completion.sh
 oh-my-bash-completions: $(HOME)/.oh-my-bash/custom/completions/ya.completion.sh
