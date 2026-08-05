@@ -1,42 +1,41 @@
 [
   {
-    "name": "YT Home",
     "keyword": "@yth",
+    "name": "YT Home",
     "text": "//home/selfdriving/robot_planning/ivandubrovin"
   },
   {
-    "name": "Yandex PyPI index",
     "keyword": "@yapip",
+    "name": "Yandex PyPI index",
     "text": "https://pypi.yandex-team.ru/simple"
   },
   {
+    "keyword": "@yqlpool",
     "name": "YQL pool PRAGMA",
-    "text": "PRAGMA yt.StaticPool = 'selfdriving-robot-planning';",
-    "keyword": "@yqlpool"
+    "text": "PRAGMA yt.StaticPool = 'selfdriving-robot-planning';"
   },
   {
+    "keyword": "@ytpool",
     "name": "YT pool",
-    "text": "selfdriving-robot-planning",
-    "keyword": "@ytpool"
+    "text": "selfdriving-robot-planning"
   },
   {
-    "name": "YQL Pool Trees",
     "keyword": "@yqlpt",
+    "name": "YQL Pool Trees",
     "text": "PRAGMA yt.PoolTrees = 'physical,cloud_default';"
   },
   {
-    "name": "YQL header",
     "keyword": "@yqlh",
+    "name": "YQL header",
     "text": "USE kolmogorov;\n\nPRAGMA yt.PoolTrees = 'physical,cloud_default';\nPRAGMA yt.StaticPool = 'selfdriving-robot-planning';"
   },
   {
     "name": "Yandex email",
-    "keyword": "@atya",
     "text": "books.booksovich@yandex.com"
   },
   {
-    "name": "YQL RoboScene::SceneYavizUrl call",
     "keyword": "@yqlyaviz",
+    "name": "YQL RoboScene::SceneYavizUrl call",
     "text": "RoboScene::SceneYavizUrl(rover, ride_date, ride_time, log_time, scene) AS yaviz,"
   },
   {
@@ -52,18 +51,18 @@
     "text": "print(\n    \"RIDE_ID = '(\"\n    f'\"{row[\"ride_date\"]}\",'\n    f'\"{row[\"ride_time\"]}\",'\n    f'\"{row[\"log_time\"]}\",'\n    f'\"{row[\"rover\"]}\",'\n    f'{int(row[\"message_ts\"] - 6e9)},'\n    f'{int(row[\"message_ts\"] + 9e9)}'\n    \")'\",\n)"
   },
   {
-    "name": "Scenes YT path",
     "keyword": "@ytscenes",
+    "name": "Scenes YT path",
     "text": "//home/selfdriving/robodelivery/scenes/"
   },
   {
-    "name": "CL run command",
     "keyword": "@clcmd",
+    "name": "CL run command",
     "text": "make -f sdg/robodelivery/simulator/pipelines/Makefile RIDE_ID='{clipboard}' SCENE_FILENAME="
   },
   {
-    "name": "ya download",
     "keyword": "@yad",
+    "name": "ya download",
     "text": "ya download --original-name sbr://{clipboard}"
   }
 ]
