@@ -5,4 +5,5 @@ line-length = 120
 extra-paths = [
     "/home/ivandubrovin/arcadia/",
     "/home/ivandubrovin/arcadia/nirvana/vh3/src/",
+    "/home/ivandubrovin/arcadia/yt/python",
 ]
