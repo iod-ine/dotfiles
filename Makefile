@@ -43,6 +43,7 @@ opencode-configure:
 	ln -sf $(CURDIR)/AGENTS.md $(HOME)/.config/opencode/
 	ln -sf $(CURDIR)/opencode/opencode.json $(HOME)/.config/opencode/
 	ln -sf $(CURDIR)/opencode/tui.json $(HOME)/.config/opencode/
+	ln -sf $(CURDIR)/opencode/opencode-notifier.json $(HOME)/.config/opencode/
 
 .PHONY: codex codex-fetch codex-configure
 codex: codex-fetch codex-configure

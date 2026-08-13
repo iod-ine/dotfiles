@@ -29,5 +29,6 @@
               "ARC_TOKEN_PATH": "/home/ivandubrovin/.arc/token"
           }
       }
-  }
+  },
+  "plugin": ["@mohak34/opencode-notifier@latest"]
 }
