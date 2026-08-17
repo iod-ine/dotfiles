@@ -119,6 +119,7 @@ skills:
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/ast-index $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/codesearch $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/datalens $(HOME)/.agents/skills/
+	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/intrasearch-client $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/nirvana $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/underdeep $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/ya-make $(HOME)/.agents/skills/
