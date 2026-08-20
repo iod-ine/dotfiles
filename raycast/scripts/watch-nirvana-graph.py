@@ -17,9 +17,8 @@ from loguru import logger
 
 from api.nirvana import get_execution_state
 from common import notify
-from urls.nirvana import make_nirvana_graph_url, parse_nirvana_url_from_clipboard
 from schedule.launchd import create_launchd_job, remove_launchd_job
-
+from urls.nirvana import make_nirvana_graph_url, parse_nirvana_url_from_clipboard
 
 if __name__ == "__main__":
     if not dotenv.load_dotenv(dotenv_path=Path(__file__).parent / ".env"):
