@@ -19,3 +19,6 @@ dependencies = [
 dev = [
     "ipython>=9.10.0",
 ]
+
+[tool.ruff]
+line-length = 120
