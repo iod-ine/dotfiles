@@ -15,6 +15,13 @@ bin-directory: $(HOME)/.local/bin
 $(HOME)/.local/bin:
 	mkdir -p $(HOME)/.local/bin
 
+.PHONY: _arcadia_is_mounted
+_arcadia_is_mounted:
+	@if [ ! -f $(HOME)/arcadia/ya ]; then \
+		printf "\a\e[1;31mArcadia seems to be unmounted.\n\e[0m"; \
+		exit 1; \
+	fi
+
 # ---------------------------------------------------------------------------------------
 # Targets for fetching and configuring tools
 # The fetching part is only for Linux machines. Homebrew handles the fetching for macOS.
@@ -133,6 +140,14 @@ skills:
 	@if [ ! -d $(HOME)/arcadia/ai/artifacts ]; then \
 		printf "\a\n\e[1;31mCreated the symlinks, but arcadia seems to be unmounted.\n\e[0m"; \
 	fi
+
+.PHONY: mcps mcp-nirvana
+mcps: mcp-nirvana
+mcp-nirvana: $(HOME)/.local/bin/nirvana_mcp
+$(HOME)/.local/bin/nirvana_mcp: _arcadia_is_mounted
+	cd $(HOME)/arcadia/nirvana/mcp/nirvana && \
+	 $(HOME)/arcadia/ya make -r && \
+	 cp -L $(HOME)/arcadia/nirvana/mcp/nirvana/bin/nirvana_mcp $(HOME)/.local/bin/
 
 # -----------------------------------
 # Targets for fetching tool binaries
