@@ -130,6 +130,9 @@ skills:
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/infra/vh3 $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/infra/wiki $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/infra/ya-make $(HOME)/.agents/skills/
+	@if [ ! -d $(HOME)/arcadia/ai/artifacts ]; then \
+		printf "\a\n\e[1;31mCreated the symlinks, but arcadia seems to be unmounted.\n\e[0m"; \
+	fi
 
 # -----------------------------------
 # Targets for fetching tool binaries
