@@ -116,7 +116,7 @@ wezterm-configure: config-directory
 .PHONY: skills
 skills:
 	mkdir -p $(HOME)/.agents/skills
-	rm $(HOME)/.agents/skills/*
+	rm -f $(HOME)/.agents/skills/*
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/arcanum-client $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/ast-index $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/codesearch $(HOME)/.agents/skills/
