@@ -3,4 +3,14 @@ bind J tabnext
 bind K tabprev
 
 " Disable Tridactyl on some URLs
+blacklistadd http://localhost:8881
+blacklistadd http://localhost:8882
 blacklistadd http://localhost:8888
+
+" Set custom search engines
+set searchurls.d duckduckgo
+set searchurls.gs scholar
+set searchurls.perplexity https://www.perplexity.ai/search/new?q=%s
+set searchurls.p perplexit
+set searchurls.yandex https://ya.ru/search/?text=%s
+set searchurls.ya yandex
