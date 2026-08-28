@@ -105,12 +105,6 @@ aerospace-configure: config-directory
 fish-configure: config-directory
 	rm -rf $(HOME)/.config/fish && ln -sf $(CURDIR)/fish $(HOME)/.config/fish
 
-.PHONY: leetcode-configure
-leetcode-configure:
-	mkdir -p $(HOME)/.leetcode
-	rm -f $(HOME)/.leetcode/leetcode.toml && ln -s $(CURDIR)/leetcode.toml $(HOME)/.leetcode/leetcode.toml
-	@echo "Don't forget to set up the cookie!"
-
 .PHONY: tridactyl-configure
 tridactyl-configure: config-directory
 	rm -rf $(HOME)/.config/tridactyl && ln -sf $(CURDIR)/tridactyl $(HOME)/.config/tridactyl
