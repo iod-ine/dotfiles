@@ -143,6 +143,22 @@ $(HOME)/.local/bin/nirvana_mcp: _arcadia_is_mounted
 	 $(HOME)/arcadia/ya make -r && \
 	 cp -L $(HOME)/arcadia/nirvana/mcp/nirvana/bin/nirvana_mcp $(HOME)/.local/bin/
 
+.PHONY: tokens tokens-directory tokens-eliza tokens-nirvana
+tokens: tokens-directory tokens-eliza tokens-nirvana
+tokens-directory: $(HOME)/.local/tokens
+$(HOME)/.local/tokens:
+	mkdir -p $(HOME)/.local/tokens
+	chmod 700 $(HOME)/.local/tokens
+tokens-eliza: tokens-directory $(HOME)/.local/tokens/eliza
+$(HOME)/.local/tokens/eliza:
+	read -p 'Eliza token: ' TOKEN && echo $$TOKEN > $(HOME)/.local/tokens/eliza
+	chmod 600 $(HOME)/.local/tokens/eliza
+tokens-nirvana: $(HOME)/.nirvana/token
+$(HOME)/.nirvana/token:
+	mkdir -p $(HOME)/.nirvana
+	read -p 'Nirvana token: ' TOKEN && echo $$TOKEN > $(HOME)/.nirvana/token
+	chmod 600 $(HOME)/.nirvana/token
+
 # -----------------------------------
 # Targets for fetching tool binaries
 # -----------------------------------
