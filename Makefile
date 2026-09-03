@@ -82,12 +82,12 @@ $(HOME)/.oh-my-bash/custom/completions/wezterm.completion.sh:
 		echo "Wezterm not installed, skipping completions."; \
 	fi
 $(HOME)/.oh-my-bash/custom/completions/ya.completion.sh:
-	@if command -v ya > /dev/null 2>&1; then \
-		ya completion --bash; \
+	@if [ -f $(HOME)/arcadia/ya ]; then \
+		$(HOME)/arcadia/ya completion --bash; \
 		mv $(HOME)/.ya.completion/bash/ya $(HOME)/.oh-my-bash/custom/completions/ya.completion.sh; \
 		rm -rf $(HOME)/.ya.completion; \
 	else \
-		echo "Could not find the ya executable, skipping completions."; \
+		echo "Arcadia seems to be unmounted, skipping completions."; \
 	fi
 
 # WezTerm also has both the fetch and configure, but fetch is only needed for Linux virtual machines
