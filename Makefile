@@ -183,5 +183,5 @@ $(HOME)/.local/bin/uv:
 .PHONY: wezterm-fetch
 wezterm-fetch: bin-directory $(HOME)/.local/bin/wezterm
 $(HOME)/.local/bin/wezterm:
-	wget -O $(HOME)/.local/bin/wezterm https://github.com/wezterm/wezterm/releases/download/nightly/WezTerm-nightly-Ubuntu20.04.AppImage
+	wget -O $(HOME)/.local/bin/wezterm https://github.com/wezterm/wezterm/releases/download/nightly/WezTerm-nightly-Ubuntu24.04.AppImage
 	chmod +x $(HOME)/.local/bin/wezterm
