@@ -45,6 +45,22 @@ require('codecompanion').setup({
                     env = {
                         api_key = 'cmd:cat ~/.local/tokens/eliza',
                     },
+                    schema = {
+                        model = {
+                            default = 'claude-sonnet-4-6',
+                            choices = {
+                                'claude-opus-5',
+                                'claude-opus-4-8',
+                                'claude-opus-4-7',
+                                'claude-opus-4-6',
+                                'claude-opus-4-5',
+                                'claude-sonnet-5',
+                                'claude-sonnet-4-6',
+                                'claude-sonnet-4-5',
+                                'claude-haiku-4-5',
+                            },
+                        },
+                    },
                 })
             end,
             eliza_deepseek = function()
