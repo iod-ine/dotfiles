@@ -5,7 +5,7 @@ import requests
 
 def start_process(schema_id: int, name: str, **kwargs) -> dict:
     response = requests.post(
-        url="https://nirvana.yandex-team.ru/api/dc/public/v1/startProcess",
+        url="https://domains-int.yandex-team.ru/api/public/v1/startProcess",
         headers={
             "Authorization": f"OAuth {os.environ.get('NIRVANA_TOKEN')}",
             "Content-Type": "application/json; charset=utf-8",
