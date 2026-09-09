@@ -1,10 +1,9 @@
 """Code for handling launchd jobs."""
 
 import os
-import subprocess
 import plistlib
+import subprocess
 from pathlib import Path
-
 
 AGENTS_DIR = Path("~/Library/LaunchAgents").expanduser()
 
