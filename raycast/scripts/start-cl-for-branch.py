@@ -6,8 +6,8 @@
 # @raycast.mode compact
 
 # Optional parameters:
-# @raycast.icon 🤖
-# @raycast.argument1 { "type": "text", "placeholder": "name" }
+# @raycast.icon 🧪
+# @raycast.argument1 { "type": "text", "placeholder": "Name [optional]", "optional": true }
 
 import re
 import sys
