@@ -26,14 +26,14 @@ if __name__ == "__main__":
         print("Could not load the .env file.")
         sys.exit(1)
 
-    branch = pyperclip.paste()
+    branch: str = pyperclip.paste()
 
-    branch_name_regex = re.compile(r"^(?:users|tags/releases/.*)/[a-zA-Z0-9\-_]*/[a-zA-Z0-9\-_]*")
+    branch_name_regex = re.compile(r"(^(users|tags/releases/.*)/[a-zA-Z0-9\-_]*/[a-zA-Z0-9\-_]*|^r\d+)")
     if branch_name_regex.match(branch) is None:
         print(f"Branch name format is incorrect: {branch}")
         sys.exit(1)
 
-    process_name = sys.argv[1] or branch
+    process_name = sys.argv[1] or (branch_name := branch.rsplit("/", 1)[-1])
 
     for safety_mode, selection_policy in (("profile", "profile"), ("disabled", "ml")):
         response: dict = start_process(
@@ -48,4 +48,4 @@ if __name__ == "__main__":
             print(error)
             sys.exit(1)
 
-    print(f"Started two CL runs for {branch}.")
+    print(f"Started two CL runs for {branch_name}.")
