@@ -1,5 +1,6 @@
-import pyperclip
 import re
+
+import pyperclip
 
 _nirvana_url_regex = re.compile(r"nirvana.yandex-team.ru/flow/([^/]+)/([^/]+)/graph")
 
