@@ -29,12 +29,12 @@
   },
   {
     "iconName": "brand-git-16",
-    "link": "https://a.yandex-team.ru/arcadia/?rev={clipboard}",
+    "link": "https://a.yandex-team.ru/arcadia/history/?rev={clipboard}",
     "name": "Arcadia branch"
   },
   {
     "iconName": "magnifying-glass-16",
-    "link": "https://thin-yaviz.sdc.yandex-team.ru/?ytTable={clipboard}&ytProxy=kolmogorov.yt.yandex.net&source=yt",
+    "link": "https://thin-yaviz.sdc.yandex-team.ru/?ytTable={clipboard}&source=yt&ytProxy=kolmogorov.yt.yandex.net&roverModel=robot3&tsSrc=1&configId=Delivery+Robot+MLP",
     "name": "Yaviz from YT table"
   },
   {
