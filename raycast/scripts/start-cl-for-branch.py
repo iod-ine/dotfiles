@@ -33,7 +33,7 @@ if __name__ == "__main__":
         print(f"Branch name format is incorrect: {branch}")
         sys.exit(1)
 
-    process_name = sys.argv[1] or (branch_name := branch.rsplit("/", 1)[-1])
+    process_name = sys.argv[1] or branch.rsplit("/", 1)[-1]
 
     for safety_mode, selection_policy in (("profile", "profile"), ("disabled", "ml")):
         response: dict = start_process(
@@ -48,4 +48,4 @@ if __name__ == "__main__":
             print(error)
             sys.exit(1)
 
-    print(f"Started two CL runs for {branch_name}.")
+    print(f"Started two CL runs for {process_name}.")
