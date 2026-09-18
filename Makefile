@@ -62,6 +62,11 @@ codex-configure:
 	mkdir -p $(HOME)/.codex
 	ln -sf $(CURDIR)/AGENTS.md $(HOME)/.codex/AGENTS.md
 
+.PHONY: pi pi-fetch
+pi: pi-fetch
+pi-fetch:
+	curl -fsSL https://pi.dev/install.sh | sh
+
 .PHONY: oh-my-bash oh-my-bash-fetch oh-my-bash-configure oh-my-bash-completions
 oh-my-bash: oh-my-bash-fetch oh-my-bash-configure
 oh-my-bash-fetch: $(HOME)/.oh-my-bash
