@@ -62,10 +62,14 @@ codex-configure:
 	mkdir -p $(HOME)/.codex
 	ln -sf $(CURDIR)/AGENTS.md $(HOME)/.codex/AGENTS.md
 
-.PHONY: pi pi-fetch
+.PHONY: pi pi-fetch pi-fix-node-ca-certs
 pi: pi-fetch
 pi-fetch:
 	curl -fsSL https://pi.dev/install.sh | sh
+pi-fix-node-ca-certs:
+	if ! grep -qxF 'export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/YandexInternalRootCA.pem' ~/.bashrc; then \
+		sed -i '1iexport NODE_EXTRA_CA_CERTS=/etc/ssl/certs/YandexInternalRootCA.pem' ~/.bashrc; \
+	fi
 
 .PHONY: oh-my-bash oh-my-bash-fetch oh-my-bash-configure oh-my-bash-completions
 oh-my-bash: oh-my-bash-fetch oh-my-bash-configure
