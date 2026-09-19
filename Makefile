@@ -200,7 +200,8 @@ $(HOME)/.local/bin/tree-sitter:
 	unzip -d $(HOME)/.local/bin /tmp/tree-sitter/tree-sitter.zip
 	chmod +x $(HOME)/.local/bin/tree-sitter
 
-.PHONY: uv-fetch
+.PHONY: uv uv-fetch
+uv: uv-fetch
 uv-fetch: $(HOME)/.local/bin/uv
 $(HOME)/.local/bin/uv:
 	curl -LsSf https://astral.sh/uv/install.sh | sh
