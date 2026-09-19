@@ -180,6 +180,14 @@ $(HOME)/.local/bin/fzf:
 	 | xargs wget -O /tmp/fzf.tgz
 	tar xf /tmp/fzf.tgz -C $(HOME)/.local/bin
 
+.PHONY: jupyterlab
+jupyterlab: uv
+	uv tool install jupyterlab \
+	 --with jupyterlab-git \
+	 --with jupyterlab-lsp \
+	 --with jupyterlab-vim \
+	 --with jupyterlab-code-formatter
+
 .PHONY: ripgrep-fetch
 ripgrep-fetch: bin-directory $(HOME)/.local/bin/rg
 $(HOME)/.local/bin/rg:
