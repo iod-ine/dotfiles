@@ -12,6 +12,7 @@ require('mini.clue').setup({
     clues = {
         { mode = 'n', keys = '<Leader>b', desc = '+Buffers' },
         { mode = 'n', keys = '<Leader>c', desc = '+CodeCompanion' },
+        { mode = 'n', keys = '<Leader>d', desc = '+Debug' },
         { mode = 'n', keys = '<Leader>e', desc = '+Explore' },
         { mode = 'n', keys = '<Leader>f', desc = '+Find' },
         { mode = 'n', keys = '<Leader>r', desc = '+REPL' },
