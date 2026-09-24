@@ -129,13 +129,13 @@ skills:
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/ast-index $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/codesearch $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/datalens $(HOME)/.agents/skills/
-	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/nirvana $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/underdeep $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/yql $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/community/yt $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/infra/agentic-search $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/infra/arc $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/infra/arcanum-go $(HOME)/.agents/skills/
+	ln -sf $(HOME)/arcadia/ai/artifacts/skills/infra/nirvana $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/infra/tracker-mcp $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/infra/vh3 $(HOME)/.agents/skills/
 	ln -sf $(HOME)/arcadia/ai/artifacts/skills/infra/wiki $(HOME)/.agents/skills/
