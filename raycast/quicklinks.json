@@ -14,7 +14,7 @@
   },
   {
     "iconName": "code-16",
-    "link": "a.yandex-team.ru/arcadia/{clipboard}",
+    "link": "a.yandex-team.ru/arcadia/{clipboard | raw}",
     "name": "Arcanum path from clipboard"
   },
   {

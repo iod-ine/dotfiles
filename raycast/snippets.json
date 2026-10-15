@@ -2,7 +2,7 @@
   {
     "keyword": "@yth",
     "name": "YT Home",
-    "text": "//home/selfdriving/robot_planning/ivandubrovin"
+    "text": "//home/selfdriving/robot_planning/users/ivandubrovin"
   },
   {
     "keyword": "@yapip",
@@ -66,10 +66,6 @@
     "text": "ya download --original-name sbr://{clipboard}"
   },
   {
-    "name": "Parse SceneGT proto",
-    "text": "import gzip\n\nfrom scene_gt_pb2 import Scene\n\nscene = Scene()\nscene.ParseFromString(gzip.decompress({cursor}))"
-  },
-  {
     "name": "Read YT table",
     "text": "import yt.wrapper as yt\n\nclient = yt.YtClient(proxy=\"kolmogorov\")\n\nfor row in client.read_table(\"{cursor}\"):\n    break"
   },
@@ -79,10 +75,31 @@
   },
   {
     "name": "CL pools",
-    "text": "249282 – common scenario and speed pool kpi [17k+]\n240119 – random cases with different speed [1k]"
+    "text": "282051 – new KPI pool [20k]\n\n249282 – old KPI pool [17k+]\n240119 – random cases with different speed [1k]"
   },
   {
     "name": "Parse scene tensors",
-    "text": "import onnx\n\n\ndef parse_tensors(scene_tensors: list[dict]) -> dict:\n    out = {}\n    for x in scene_tensors:\n        tensor = onnx.helper.TensorProto()\n        tensor.ParseFromString(yt.yson.get_bytes(x[\"value\"]))\n        out[x[\"key\"]] = onnx.numpy_helper.to_array(tensor)\n    return out"
+    "text": "import onnx\nimport yt.wrapper as yt\n\n\ndef parse_tensors(scene_tensors: list[dict]) -> dict:\n    out = {}\n    for x in scene_tensors:\n        tensor = onnx.helper.TensorProto()\n        tensor.ParseFromString(yt.yson.get_bytes(x[\"value\"]))\n        out[x[\"key\"]] = onnx.numpy_helper.to_array(tensor)\n    return out\n\n\nclient = yt.YtClient(proxy=\"kolmogorov\")\n\ntable = yt.TablePath(\n    name=\"{cursor}\",\n    start_index=0,\n)\n\nfor row in client.read_table(table):\n    break\n\ntensors = parse_tensors(row[\"scene_tensors\"])"
+  },
+  {
+    "name": "Parse scene proto",
+    "text": "import gzip\n\nimport yt.wrapper as yt\nfrom scene_gt_pb2 import Scene\n\nclient = yt.YtClient(proxy=\"kolmogorov\")\ntable = yt.TablePath(\n    name=\"{cursor}\",\n    start_index=0,\n)\n\nfor row in client.read_table(table):\n    break\n\nbytes_ = yt.yson.get_bytes(row[\"scene\"])\nscene = Scene()\nscene.ParseFromString(gzip.decompress(bytes_))"
+  },
+  {
+    "name": "Parse scene msg",
+    "text": "import gzip\n\nimport numpy as np\nimport yt.wrapper as yt\nfrom scene_gt_pb2 import Scene\nfrom sdg.sdc.library.python.yt_processing.yt_msgs import deserialization\n\nclient = yt.YtClient(proxy=\"kolmogorov\")\n\ntable = yt.TablePath(\n    name=\"{cursor}\",\n    start_index=0,\n)\nfor row in client.read_table(table):\n    break\n    \nmsg = deserialization.deserialize(row)\nbytes_ = np.array(msg.features).tobytes()\nscene = Scene()\nscene.ParseFromString(gzip.decompress(bytes_))"
+  },
+  {
+    "name": "Umbrellas",
+    "text": "SDCTECH-45682"
+  },
+  {
+    "name": "Set up Dev Cluster",
+    "text": "git clone https://github.com/iod-ine/dotfiles .dotfiles && cd .dotfiles && make nvim opencode codex skills mcps oh-my-bash && cd && rm -r cursor.* workspace*"
+  },
+  {
+    "keyword": "@mdl",
+    "name": "Markdown link",
+    "text": "[link]({clipboard})"
   }
 ]
