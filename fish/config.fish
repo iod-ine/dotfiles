@@ -11,6 +11,8 @@ alias vh3 "~/arcadia/ya tool vh3"
 alias yt "~/arcadia/ya tool yt"
 
 set -x YT_PROXY kolmogorov
-set -x ELIZA_API_KEY (cat ~/.local/tokens/eliza)
+if [ -f ~/.local/tokens/eliza ]
+    set -x ELIZA_API_KEY (cat ~/.local/tokens/eliza)
+end
 
 zoxide init fish | source
