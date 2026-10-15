@@ -219,3 +219,18 @@ wezterm-fetch: bin-directory $(HOME)/.local/bin/wezterm
 $(HOME)/.local/bin/wezterm:
 	wget -O $(HOME)/.local/bin/wezterm https://github.com/wezterm/wezterm/releases/download/nightly/WezTerm-nightly-Ubuntu24.04.AppImage
 	chmod +x $(HOME)/.local/bin/wezterm
+
+# ---------------------------------------------------------------------------------------
+# Targets for other things
+# ---------------------------------------------------------------------------------------
+
+.PHONY: raycast-backups snippets-backup quicklinks-backup
+raycast-backups: snippets-backup quicklinks-backup
+snippets-backup:
+	ls -1 $(HOME)/Downloads \
+		| grep -oE '^Snippets.+\.json$$' \
+		| xargs -I {} jq --sort-keys '.' '$(HOME)/Downloads/{}' > $(CURDIR)/raycast/snippets.json
+quicklinks-backup:
+	ls -1 $(HOME)/Downloads \
+		| grep -oE '^Quicklinks.+\.json$$' \
+		| xargs -I {} jq --sort-keys '.' '$(HOME)/Downloads/{}' > $(CURDIR)/raycast/quicklinks.json
