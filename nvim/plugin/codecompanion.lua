@@ -1,9 +1,16 @@
 require('codecompanion').setup({
     interactions = {
         chat = {
-            adapter = {
-                name = 'eliza_anthropic',
-                model = 'claude-sonnet-4-6',
+            adapter = { name = 'eliza', model = 'moonshotai/kimi-k3' },
+            roles = {
+                llm = function(adapter)
+                    return string.format(
+                        "CodeCompanion (%s — %s)",
+                        adapter.formatted_name,
+                        adapter.model.formatted_name or "default"
+                    )
+                end,
+                user = "Me",
             },
         },
         cli = {
@@ -16,15 +23,11 @@ require('codecompanion').setup({
                 },
             },
         },
-        inline = {
-            adapter = {
-                name = 'eliza_anthropic',
-                model = 'claude-sonnet-4-6',
-            },
-        },
+        inline = { adapter = { name = 'eliza' } },
     },
     adapters = {
         acp = {
+            opts = { show_presets = false },
             opencode = function()
                 return require('codecompanion.adapters').extend('opencode', {
                     defaults = {
@@ -39,31 +42,40 @@ require('codecompanion').setup({
             end,
         },
         http = {
-            eliza_deepseek = function()
-                return require('codecompanion.adapters').extend('deepseek', {
-                    url = 'https://api.eliza.yandex.net/openrouter/v1/chat/completions',
-                    env = {
-                        api_key = 'cmd:cat ~/.local/tokens/eliza',
-                    },
+            opts = { show_presets = false },
+            eliza = function()
+                return require('codecompanion.adapters').extend('openrouter', {
+                    url = 'https://api.eliza.yandex.net/raw/openrouter/v1/chat/completions',
+                    env = { api_key = 'cmd:cat ~/.local/tokens/eliza' },
                     schema = {
                         model = {
-                            default = 'deepseek-reasoner',
+                            default = 'moonshotai/kimi-k3',
+                            choices = {
+                                ['deepseek/deepseek-v4-flash'] = { formatted_name = 'DeepSeek V4 Flash' },
+                                ['deepseek/deepseek-v4-pro'] = { formatted_name = 'DeepSeek V4 Pro' },
+                                ['moonshotai/kimi-k3'] = { formatted_name = 'Kimi K3' },
+                                ['qwen/qwen3.5-397b-a17b'] = { formatted_name = 'Qwen3.5 397B' },
+                                ['z-ai/glm-5.2'] = { formatted_name = 'GLM 5.2' },
+                            },
                         },
                     },
+                    formatted_name = 'Eliza',
                 })
             end,
-            eliza_deepseek_internal = function()
-                return require('codecompanion.adapters').extend('deepseek', {
-                    url = 'https://api.eliza.yandex.net/internal/deepseek-v3-1-terminus/v1/chat/completions',
-                    env = {
-                        api_key = 'cmd:cat ~/.local/tokens/eliza',
-                    },
-                    schema = {
-                        model = {
-                            default = 'deepseek-reasoner',
-                        },
-                        reasoning_effort = 'medium',
-                    },
+            eliza_internal_fast = function()
+                return require('codecompanion.adapters').extend('openrouter', {
+                    url = 'https://api.eliza.yandex.net/internal/fast/v1/chat/completions',
+                    env = { api_key = 'cmd:cat ~/.local/tokens/eliza' },
+                    schema = { model = { default = '', choices = {} } },
+                    formatted_name = 'Eliza Internal Fast',
+                })
+            end,
+            eliza_internal_smart = function()
+                return require('codecompanion.adapters').extend('openrouter', {
+                    url = 'https://api.eliza.yandex.net/internal/smart/v1/chat/completions',
+                    env = { api_key = 'cmd:cat ~/.local/tokens/eliza' },
+                    schema = { model = { default = '', choices = {} } },
+                    formatted_name = 'Eliza Internal Smart',
                 })
             end,
         },
