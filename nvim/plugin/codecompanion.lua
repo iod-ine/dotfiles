@@ -39,30 +39,6 @@ require('codecompanion').setup({
             end,
         },
         http = {
-            eliza_anthropic = function()
-                return require('codecompanion.adapters').extend('anthropic', {
-                    url = 'https://api.eliza.yandex.net/raw/anthropic/v1/messages',
-                    env = {
-                        api_key = 'cmd:cat ~/.local/tokens/eliza',
-                    },
-                    schema = {
-                        model = {
-                            default = 'claude-sonnet-4-6',
-                            choices = {
-                                'claude-opus-5',
-                                'claude-opus-4-8',
-                                'claude-opus-4-7',
-                                'claude-opus-4-6',
-                                'claude-opus-4-5',
-                                'claude-sonnet-5',
-                                'claude-sonnet-4-6',
-                                'claude-sonnet-4-5',
-                                'claude-haiku-4-5',
-                            },
-                        },
-                    },
-                })
-            end,
             eliza_deepseek = function()
                 return require('codecompanion.adapters').extend('deepseek', {
                     url = 'https://api.eliza.yandex.net/openrouter/v1/chat/completions',
