@@ -14,5 +14,3 @@ set -x YT_PROXY kolmogorov
 if [ -f ~/.local/tokens/eliza ]
     set -x ELIZA_API_KEY (cat ~/.local/tokens/eliza)
 end
-
-zoxide init fish | source
