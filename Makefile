@@ -229,8 +229,10 @@ raycast-backups: snippets-backup quicklinks-backup
 snippets-backup:
 	ls -1 $(HOME)/Downloads \
 		| grep -oE '^Snippets.+\.json$$' \
-		| xargs -I {} jq --sort-keys '.' '$(HOME)/Downloads/{}' > $(CURDIR)/raycast/snippets.json
+		| xargs -I {} jq --sort-keys '.' '$(HOME)/Downloads/{}' \
+		| jq 'sort' > $(CURDIR)/raycast/snippets.json
 quicklinks-backup:
 	ls -1 $(HOME)/Downloads \
 		| grep -oE '^Quicklinks.+\.json$$' \
-		| xargs -I {} jq --sort-keys '.' '$(HOME)/Downloads/{}' > $(CURDIR)/raycast/quicklinks.json
+		| xargs -I {} jq --sort-keys '.' '$(HOME)/Downloads/{}' \
+		| jq 'sort' > $(CURDIR)/raycast/quicklinks.json
