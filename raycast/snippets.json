@@ -1,64 +1,13 @@
 [
   {
-    "keyword": "@yth",
-    "name": "YT Home",
-    "text": "//home/selfdriving/robot_planning/users/ivandubrovin"
-  },
-  {
-    "keyword": "@yapip",
-    "name": "Yandex PyPI index",
-    "text": "https://pypi.yandex-team.ru/simple"
-  },
-  {
-    "keyword": "@yqlpool",
-    "name": "YQL pool PRAGMA",
-    "text": "PRAGMA yt.StaticPool = 'selfdriving-robot-planning';"
-  },
-  {
-    "keyword": "@ytpool",
-    "name": "YT pool",
-    "text": "selfdriving-robot-planning"
-  },
-  {
-    "keyword": "@yqlpt",
-    "name": "YQL Pool Trees",
-    "text": "PRAGMA yt.PoolTrees = 'physical,cloud_default';"
-  },
-  {
-    "keyword": "@yqlh",
-    "name": "YQL header",
-    "text": "USE kolmogorov;\n\nPRAGMA yt.PoolTrees = 'physical,cloud_default';\nPRAGMA yt.StaticPool = 'selfdriving-robot-planning';"
-  },
-  {
-    "name": "Yandex email",
-    "text": "books.booksovich@yandex.com"
-  },
-  {
-    "keyword": "@yqlyaviz",
-    "name": "YQL RoboScene::SceneYavizUrl call",
-    "text": "RoboScene::SceneYavizUrl(rover, ride_date, ride_time, log_time, scene) AS yaviz,"
-  },
-  {
-    "name": "row dict to YQL WHERE",
-    "text": "print(f\"\"\"\\\nWHERE\n    rover == '{row[\"rover\"]}'\n    AND ride_date == '{row[\"ride_date\"]}'\n    AND ride_time == '{row[\"ride_time\"]}'\n    AND log_time == '{row[\"log_time\"]}'\n    AND message_ts == {row[\"message_ts\"]}\n\"\"\")"
-  },
-  {
-    "name": "CSV from clipboard to Pandas",
-    "text": "import io\nimport pandas as pd\n\ndf = pd.read_csv(io.StringIO(\"\"\"\\\n{clipboard}\n\"\"\"))\n\ndf.head()"
-  },
-  {
-    "name": "row dict to flash RIDE_ID",
-    "text": "print(\n    \"RIDE_ID = '(\"\n    f'\"{row[\"ride_date\"]}\",'\n    f'\"{row[\"ride_time\"]}\",'\n    f'\"{row[\"log_time\"]}\",'\n    f'\"{row[\"rover\"]}\",'\n    f'{int(row[\"message_ts\"] - 6e9)},'\n    f'{int(row[\"message_ts\"] + 9e9)}'\n    \")'\",\n)"
-  },
-  {
-    "keyword": "@ytscenes",
-    "name": "Scenes YT path",
-    "text": "//home/selfdriving/robodelivery/scenes/"
-  },
-  {
     "keyword": "@clcmd",
     "name": "CL run command",
     "text": "make -f sdg/robodelivery/simulator/pipelines/Makefile RIDE_ID='{clipboard}' SCENE_FILENAME="
+  },
+  {
+    "keyword": "@mdl",
+    "name": "Markdown link",
+    "text": "[link]({clipboard})"
   },
   {
     "keyword": "@yad",
@@ -66,40 +15,91 @@
     "text": "ya download --original-name sbr://{clipboard}"
   },
   {
-    "name": "Read YT table",
-    "text": "import yt.wrapper as yt\n\nclient = yt.YtClient(proxy=\"kolmogorov\")\n\nfor row in client.read_table(\"{cursor}\"):\n    break"
+    "keyword": "@yapip",
+    "name": "Yandex PyPI index",
+    "text": "https://pypi.yandex-team.ru/simple"
   },
   {
-    "name": "pyproject.toml for arcadia",
-    "text": "sed \"s#ARC_ROOT#$(arc root)#g\" > pyproject.toml <<'END'\n[tool.ty.environment]\nextra-paths = [\n    \"ARC_ROOT\",\n    \"ARC_ROOT/contrib/python\",\n    \"ARC_ROOT/nirvana/vh3/src\",\n    \"ARC_ROOT/yt/python\",\n]\nEND"
+    "keyword": "@yqlh",
+    "name": "YQL header",
+    "text": "USE kolmogorov;\n\nPRAGMA yt.PoolTrees = 'physical,cloud_default';\nPRAGMA yt.StaticPool = 'selfdriving-robot-planning';"
+  },
+  {
+    "keyword": "@yqlpool",
+    "name": "YQL pool PRAGMA",
+    "text": "PRAGMA yt.StaticPool = 'selfdriving-robot-planning';"
+  },
+  {
+    "keyword": "@yqlpt",
+    "name": "YQL Pool Trees",
+    "text": "PRAGMA yt.PoolTrees = 'physical,cloud_default';"
+  },
+  {
+    "keyword": "@yqlyaviz",
+    "name": "YQL RoboScene::SceneYavizUrl call",
+    "text": "RoboScene::SceneYavizUrl(rover, ride_date, ride_time, log_time, scene) AS yaviz,"
+  },
+  {
+    "keyword": "@yth",
+    "name": "YT Home",
+    "text": "//home/selfdriving/robot_planning/users/ivandubrovin"
+  },
+  {
+    "keyword": "@ytpool",
+    "name": "YT pool",
+    "text": "selfdriving-robot-planning"
+  },
+  {
+    "keyword": "@ytscenes",
+    "name": "Scenes YT path",
+    "text": "//home/selfdriving/robodelivery/scenes/"
   },
   {
     "name": "CL pools",
     "text": "282051 – new KPI pool [20k]\n\n249282 – old KPI pool [17k+]\n240119 – random cases with different speed [1k]"
   },
   {
-    "name": "Parse scene tensors",
-    "text": "import onnx\nimport yt.wrapper as yt\n\n\ndef parse_tensors(scene_tensors: list[dict]) -> dict:\n    out = {}\n    for x in scene_tensors:\n        tensor = onnx.helper.TensorProto()\n        tensor.ParseFromString(yt.yson.get_bytes(x[\"value\"]))\n        out[x[\"key\"]] = onnx.numpy_helper.to_array(tensor)\n    return out\n\n\nclient = yt.YtClient(proxy=\"kolmogorov\")\n\ntable = yt.TablePath(\n    name=\"{cursor}\",\n    start_index=0,\n)\n\nfor row in client.read_table(table):\n    break\n\ntensors = parse_tensors(row[\"scene_tensors\"])"
-  },
-  {
-    "name": "Parse scene proto",
-    "text": "import gzip\n\nimport yt.wrapper as yt\nfrom scene_gt_pb2 import Scene\n\nclient = yt.YtClient(proxy=\"kolmogorov\")\ntable = yt.TablePath(\n    name=\"{cursor}\",\n    start_index=0,\n)\n\nfor row in client.read_table(table):\n    break\n\nbytes_ = yt.yson.get_bytes(row[\"scene\"])\nscene = Scene()\nscene.ParseFromString(gzip.decompress(bytes_))"
+    "name": "CSV from clipboard to Pandas",
+    "text": "import io\nimport pandas as pd\n\ndf = pd.read_csv(io.StringIO(\"\"\"\\\n{clipboard}\n\"\"\"))\n\ndf.head()"
   },
   {
     "name": "Parse scene msg",
     "text": "import gzip\n\nimport numpy as np\nimport yt.wrapper as yt\nfrom scene_gt_pb2 import Scene\nfrom sdg.sdc.library.python.yt_processing.yt_msgs import deserialization\n\nclient = yt.YtClient(proxy=\"kolmogorov\")\n\ntable = yt.TablePath(\n    name=\"{cursor}\",\n    start_index=0,\n)\nfor row in client.read_table(table):\n    break\n    \nmsg = deserialization.deserialize(row)\nbytes_ = np.array(msg.features).tobytes()\nscene = Scene()\nscene.ParseFromString(gzip.decompress(bytes_))"
   },
   {
-    "name": "Umbrellas",
-    "text": "SDCTECH-45682"
+    "name": "Parse scene proto",
+    "text": "import gzip\n\nimport yt.wrapper as yt\nfrom scene_gt_pb2 import Scene\n\nclient = yt.YtClient(proxy=\"kolmogorov\")\ntable = yt.TablePath(\n    name=\"{cursor}\",\n    start_index=0,\n)\n\nfor row in client.read_table(table):\n    break\n\nbytes_ = yt.yson.get_bytes(row[\"scene\"])\nscene = Scene()\nscene.ParseFromString(gzip.decompress(bytes_))"
+  },
+  {
+    "name": "Parse scene tensors",
+    "text": "import onnx\nimport yt.wrapper as yt\n\n\ndef parse_tensors(scene_tensors: list[dict]) -> dict:\n    out = {}\n    for x in scene_tensors:\n        tensor = onnx.helper.TensorProto()\n        tensor.ParseFromString(yt.yson.get_bytes(x[\"value\"]))\n        out[x[\"key\"]] = onnx.numpy_helper.to_array(tensor)\n    return out\n\n\nclient = yt.YtClient(proxy=\"kolmogorov\")\n\ntable = yt.TablePath(\n    name=\"{cursor}\",\n    start_index=0,\n)\n\nfor row in client.read_table(table):\n    break\n\ntensors = parse_tensors(row[\"scene_tensors\"])"
+  },
+  {
+    "name": "Read YT table",
+    "text": "import yt.wrapper as yt\n\nclient = yt.YtClient(proxy=\"kolmogorov\")\n\nfor row in client.read_table(\"{cursor}\"):\n    break"
   },
   {
     "name": "Set up Dev Cluster",
     "text": "git clone https://github.com/iod-ine/dotfiles .dotfiles && cd .dotfiles && make nvim opencode codex skills mcps oh-my-bash && cd && rm -r cursor.* workspace*"
   },
   {
-    "keyword": "@mdl",
-    "name": "Markdown link",
-    "text": "[link]({clipboard})"
+    "name": "Umbrellas",
+    "text": "SDCTECH-45682"
+  },
+  {
+    "name": "Yandex email",
+    "text": "books.booksovich@yandex.com"
+  },
+  {
+    "name": "pyproject.toml for arcadia",
+    "text": "sed \"s#ARC_ROOT#$(arc root)#g\" > pyproject.toml <<'END'\n[tool.ty.environment]\nextra-paths = [\n    \"ARC_ROOT\",\n    \"ARC_ROOT/contrib/python\",\n    \"ARC_ROOT/nirvana/vh3/src\",\n    \"ARC_ROOT/yt/python\",\n]\nEND"
+  },
+  {
+    "name": "row dict to YQL WHERE",
+    "text": "print(f\"\"\"\\\nWHERE\n    rover == '{row[\"rover\"]}'\n    AND ride_date == '{row[\"ride_date\"]}'\n    AND ride_time == '{row[\"ride_time\"]}'\n    AND log_time == '{row[\"log_time\"]}'\n    AND message_ts == {row[\"message_ts\"]}\n\"\"\")"
+  },
+  {
+    "name": "row dict to flash RIDE_ID",
+    "text": "print(\n    \"RIDE_ID = '(\"\n    f'\"{row[\"ride_date\"]}\",'\n    f'\"{row[\"ride_time\"]}\",'\n    f'\"{row[\"log_time\"]}\",'\n    f'\"{row[\"rover\"]}\",'\n    f'{int(row[\"message_ts\"] - 6e9)},'\n    f'{int(row[\"message_ts\"] + 9e9)}'\n    \")'\",\n)"
   }
 ]
