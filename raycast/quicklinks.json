@@ -1,31 +1,8 @@
 [
   {
-    "link": "https://google.com/search?q={argument}",
-    "name": "Search Google"
-  },
-  {
-    "link": "https://duckduckgo.com/?q={argument}",
-    "name": "Search DuckDuckGo"
-  },
-  {
-    "iconName": "folder-16",
-    "link": "https://yt.yandex-team.ru/kolmogorov/navigation?path={clipboard}",
-    "name": "YT path from clipboard"
-  },
-  {
-    "iconName": "code-16",
-    "link": "a.yandex-team.ru/arcadia/{clipboard | raw}",
-    "name": "Arcanum path from clipboard"
-  },
-  {
     "iconName": "brand-git-16",
     "link": "https://a.yandex-team.ru/arcadia/commit/{clipboard}",
     "name": "Arcadia commit"
-  },
-  {
-    "iconName": "ticket-16",
-    "link": "https://st.yandex-team.ru/{clipboard}",
-    "name": "Startrek ticket"
   },
   {
     "iconName": "brand-git-16",
@@ -33,13 +10,36 @@
     "name": "Arcadia branch"
   },
   {
+    "iconName": "cloud-16",
+    "link": "https://remote.sdc.yandex-team.ru/rovers/{argument name=\"Rover\"}",
+    "name": "Robot RC"
+  },
+  {
+    "iconName": "code-16",
+    "link": "a.yandex-team.ru/arcadia/{clipboard | raw}",
+    "name": "Arcanum path from clipboard"
+  },
+  {
+    "iconName": "folder-16",
+    "link": "https://yt.yandex-team.ru/kolmogorov/navigation?path={clipboard}",
+    "name": "YT path from clipboard"
+  },
+  {
     "iconName": "magnifying-glass-16",
     "link": "https://thin-yaviz.sdc.yandex-team.ru/?ytTable={clipboard}&source=yt&ytProxy=kolmogorov.yt.yandex.net&roverModel=robot3&tsSrc=1&configId=Delivery+Robot+MLP",
     "name": "Yaviz from YT table"
   },
   {
-    "iconName": "cloud-16",
-    "link": "https://remote.sdc.yandex-team.ru/rovers/{argument name=\"Rover\"}",
-    "name": "Robot RC"
+    "iconName": "ticket-16",
+    "link": "https://st.yandex-team.ru/{clipboard}",
+    "name": "Startrek ticket"
+  },
+  {
+    "link": "https://duckduckgo.com/?q={argument}",
+    "name": "Search DuckDuckGo"
+  },
+  {
+    "link": "https://google.com/search?q={argument}",
+    "name": "Search Google"
   }
 ]
