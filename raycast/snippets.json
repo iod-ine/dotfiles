@@ -10,6 +10,11 @@
     "text": "[link]({clipboard})"
   },
   {
+    "keyword": "@notify",
+    "name": "OSC 9 notification",
+    "text": "&& echo -e '\\e]9;{cursor}\\e\\\\'"
+  },
+  {
     "keyword": "@yad",
     "name": "ya download",
     "text": "ya download --original-name sbr://{clipboard}"
