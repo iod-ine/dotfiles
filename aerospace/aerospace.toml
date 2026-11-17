@@ -17,10 +17,12 @@ gaps.outer.right = 5
 
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
+# Order matters here because the first matching callback stops further processing.
 on-window-detected = [
     { if = 'test %{app-bundle-id} = com.apple.MobileSMS', run = 'layout floating' },
     { if = 'test %{app-bundle-id} = com.github.wez.wezterm', run = 'move-node-to-workspace T' },
     { if = 'test %{app-bundle-id} = ru.yandex.desktop.yandex-browser', run = 'move-node-to-workspace W' },
+    { if = 'test %{app-bundle-id} = ru.yandex.desktop.yandex-browser && test %{window-title} = Bitwarden', run = 'layout floating' },
 ]
 
 [mode.main.binding]
